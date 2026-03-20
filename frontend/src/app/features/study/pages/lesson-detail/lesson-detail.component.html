@@ -1,0 +1,490 @@
+<div
+    class="hero"
+    [ngStyle]="{
+   'background': 'linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url(' + lesson?.backgroundImage + ')'
+   }"
+>
+    <div class="container">
+        <span class="hero-badge">{{lesson?.sectionCode}}</span>
+        <h1>{{lesson?.title}}</h1>
+        <p>{{lesson?.subTitle}}</p>
+    </div>
+</div>
+<section class="container">
+    <div class="block">
+        <h2>🌟 Mục tiêu bài học</h2>
+        <ul style="padding-left: 20px" *ngIf="lesson?.lessonObject">
+            <li *ngFor="let item of lesson.lessonObject.split('|')">{{ item.trim() }}</li>
+        </ul>
+    </div>
+    <div class="block">
+        <h2>1️⃣ Vocabulary & Grammar</h2>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 20%">Từ vựng / Cấu trúc</th>
+                        <th style="width: 20%">Phiên âm IPA</th>
+                        <th style="width: 10%">Loại</th>
+                        <th style="width: 20%">Nghĩa</th>
+                        <th style="width: 30%">Ví dụ ứng dụng</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of lesson?.content?.vocabularyList">
+                        <td><b>{{ item.term }}</b></td>
+                        <td>
+                            <div class="ipa-wrapper">
+                                <button class="speaker-btn" (click)="speakText(item.audioPath)">🔊</button>
+                                <span class="ipa">{{ item.ipa }}</span>
+                            </div>
+                        </td>
+                        <td>
+                            <span [class]="'badge-' + item.type">{{ item.type }}</span>
+                        </td>
+                        <td>{{ item.meaning }}</td>
+                        <td>
+                            <div class="example-wrapper">
+                                <button class="speaker-btn small" (click)="speakText(item.exampleAudioPath)">🔊</button>
+                                <i>"{{ item.example }}"</i>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="block listening-optimization" *ngIf="lesson?.content?.listening?.length > 0">
+        <div class="section-header">
+            <h2>2️⃣ Listening Practice</h2>
+            <div class="listen-nav" *ngIf="lesson.content.listening.length > 1">
+                <button (click)="prevListen()" [disabled]="currentListenIdx === 0" class="nav-arrow">❮</button>
+                <span class="nav-text">Bài {{ currentListenIdx + 1 }} / {{ lesson.content.listening.length }}</span>
+                <button
+                    (click)="nextListen()"
+                    [disabled]="currentListenIdx === lesson.content.listening.length - 1"
+                    class="nav-arrow"
+                >
+                    ❯
+                </button>
+            </div>
+        </div>
+        <ng-container *ngIf="lesson.content.listening[currentListenIdx] as current">
+            <p class="instruction">
+                Nghe đoạn hội thoại và hoàn thành bài tập bên dưới. <br />
+                <strong>Lưu ý:</strong> Đừng mở Script cho đến khi bạn đã nghe hiểu trên 70%!
+            </p>
+            <div class="main-audio-player">
+                <div class="audio-card">
+                    <div class="audio-header">
+                        <div class="audio-info">
+                            <div class="audio-icon">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
+                                    <path d="M9 18V5l12-2v13"></path>
+                                    <circle cx="6" cy="18" r="3"></circle>
+                                    <circle cx="18" cy="16" r="3"></circle>
+                                </svg>
+                            </div>
+                            <div class="audio-text">
+                                <h4 class="audio-title">{{ current.title }}</h4>
+                                <span class="audio-subtitle">Level: {{ current.level }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="audio-console">
+                        <div class="speed-control">
+                            <select (change)="changeSpeed(mainAudio, $event)">
+                                <option value="0.5">0.5x</option>
+                                <option value="0.75">0.75x</option>
+                                <option value="1" selected>1.0x</option>
+                                <option value="1.25">1.25x</option>
+                                <option value="1.5">1.5x</option>
+                            </select>
+                        </div>
+                        <audio #mainAudio controls [src]="S3_BASE_URL + current.audioPath"></audio>
+                    </div>
+                </div>
+            </div>
+            <div class="quiz-container">
+                <div class="quiz-item" *ngFor="let quiz of current.quizzes; let qIdx = index">
+                    <p class="question">{{ quiz.question }}</p>
+                    <div class="options">
+                        <div
+                            class="option"
+                            *ngFor="let opt of quiz.options; let oIdx = index"
+                            (click)="handleAnswer(qIdx, oIdx)"
+                            [ngClass]="{
+                  'is-correct': optionStates['listen_' + currentListenIdx + '_' + qIdx] === oIdx && opt.isCorrect,
+                  'is-incorrect': optionStates['listen_' + currentListenIdx + '_' + qIdx] === oIdx && !opt.isCorrect
+                  }"
+                        >
+                            <div class="option-content">
+                                <span class="option-label">{{ opt.label }}.</span>
+                                <span class="option-text">{{ opt.text }}</span>
+                            </div>
+                            <div
+                                class="status-icon"
+                                *ngIf="optionStates['listen_' + currentListenIdx + '_' + qIdx] === oIdx"
+                            >
+                                <span *ngIf="opt.isCorrect" class="icon-success">✔</span>
+                                <span *ngIf="!opt.isCorrect" class="icon-error">✖</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="script-wrapper" *ngIf="current.transcript">
+                <button class="btn-script-toggle" (click)="toggleScript()">
+                    {{ isScriptVisible ? 'Ẩn Script' : '📄 Hiện Script & Dịch thuật' }}
+                </button>
+                <div class="script-content" *ngIf="isScriptVisible">
+                    <div class="script-tabs">
+                        <button [class.active]="currentTab === 'en'" (click)="currentTab = 'en'">English</button>
+                        <button [class.active]="currentTab === 'vi'" (click)="currentTab = 'vi'">Tiếng Việt</button>
+                    </div>
+                    <div class="text-area">
+                        {{ currentTab === 'en' ? current.transcript.en : current.transcript.vi }}
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+    <div class="block shadowing-long-form" *ngIf="lesson?.content?.shadowing?.length > 0">
+        <div class="section-header">
+            <h2>3️⃣ Shadowing: Practice Speaking</h2>
+            <div class="shadow-nav" *ngIf="lesson.content.shadowing.length > 1">
+                <button (click)="prevShadowPage()" [disabled]="currentPageShadow === 0" class="nav-arrow">❮</button>
+                <span class="nav-text">Bài {{ currentPageShadow + 1 }} / {{ lesson.content.shadowing.length }}</span>
+                <button
+                    (click)="nextShadowPage()"
+                    [disabled]="currentPageShadow === lesson.content.shadowing.length - 1"
+                    class="nav-arrow"
+                >
+                    ❯
+                </button>
+            </div>
+            <p class="instruction">
+                Nghe câu gốc, sau đó nhấn <strong>Ghi âm</strong> và lặp lại thật nhanh theo ngữ điệu của tác giả.
+                <br />
+                <strong>Mẹo:</strong> Hãy cố gắng "bắt chước" cả những chỗ nhấn nhá để đạt hiệu quả cao nhất! 🚀
+            </p>
+        </div>
+        <ng-container *ngIf="lesson.content.shadowing[currentPageShadow] as currentGroup">
+            <div class="shadow-topic-badge">
+                <span class="label">CHỦ ĐỀ:</span>
+                <span class="value">{{ currentGroup.pageTitle }}</span>
+            </div>
+            <div class="shadow-list">
+                <div class="shadow-row animated fadeIn" *ngFor="let item of currentGroup.items; let i = index">
+                    <div class="row-number">{{ item.id | number:'2.0' }}</div>
+                    <div class="row-content">
+                        <div class="text-header-wrapper">
+                            <p
+                                class="en-text"
+                                [innerHTML]="item.text"
+                                [class.is-hidden]="hiddenTextStates[item.id]"
+                            ></p>
+                            <button class="btn-eye-toggle" (click)="toggleTextVisibility(item.id)">
+                                <svg
+                                    *ngIf="!hiddenTextStates[item.id]"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="18"
+                                    height="18"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                                <svg
+                                    *ngIf="hiddenTextStates[item.id]"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="18"
+                                    height="18"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
+                                    <path
+                                        d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"
+                                    ></path>
+                                    <line x1="1" y1="1" x2="23" y2="23"></line>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="row-controls">
+                            <button class="mini-btn original" (click)="speakTextShadowing(item.audioPath, item.id)">
+                                {{ playingId === item.id ? '🛑 Dừng' : '🔈 Gốc' }}
+                            </button>
+                            <button class="mini-btn record" (click)="handleShadow(item.id)">
+                                {{ isRecording && currentRecordingId === item.id ? '🛑 Dừng ghi' : '🎤 Ghi âm' }}
+                            </button>
+                        </div>
+                        <div class="user-playback" *ngIf="userAudioUrls[item.id] && currentRecordingId !== item.id">
+                            <div class="playback-label">Giọng của bạn:</div>
+                            <audio [src]="userAudioUrls[item.id] | safeUrl" controls></audio>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+
+     <div class="block grammar-challenge" *ngIf="lesson?.content?.grammarChallenges?.length > 0">
+        <div class="section-header">
+            <h2>4️⃣ Grammar Challenge</h2>
+            <div class="listen-nav">
+                <button (click)="prevGrammarPage()" [disabled]="currentGrammarPageIdx === 0" class="nav-arrow">
+                    ❮
+                </button>
+                <span class="nav-text"
+                    >Page {{ currentGrammarPageIdx + 1 }} / {{ lesson.content.grammarChallenges.length }}</span
+                >
+                <button
+                    (click)="nextGrammarPage()"
+                    [disabled]="currentGrammarPageIdx === lesson.content.grammarChallenges.length - 1"
+                    class="nav-arrow"
+                >
+                    ❯
+                </button>
+            </div>
+        </div>
+
+        <div
+            class="grammar-page animated fadeIn"
+            *ngIf="lesson.content.grammarChallenges[currentGrammarPageIdx] as currentPage"
+        >
+            <div class="shadow-topic-badge" style="margin-bottom: 20px">
+                <span class="label">CHỦ ĐỀ:</span>
+                <span class="value">{{ currentPage.pageTitle }}</span>
+            </div>
+
+            <div class="grammar-list">
+                <div
+                    class="grammar-item"
+                    *ngFor="let item of currentPage.items"
+                    style="margin-bottom: 40px; padding-bottom: 20px; border-bottom: 1px dashed #eee"
+                >
+                    <p class="vi-meaning"><i>"{{ item.viText }}"</i></p>
+
+                    <div
+                        class="word-drop-zone"
+                        style="
+                            min-height: 50px;
+                            border: 2px dashed #cbd5e1;
+                            border-radius: 8px;
+                            padding: 10px;
+                            display: flex;
+                            flex-wrap: wrap;
+                            gap: 8px;
+                            background: #f8fafc;
+                        "
+                    >
+                        <div
+                            class="word-chip selected"
+                            *ngFor="let word of userSelectedWords[item.id]; let i = index"
+                            (click)="removeWord(i, item.id)"
+                            style="
+                                background: #3b82f6;
+                                color: white;
+                                padding: 5px 12px;
+                                border-radius: 20px;
+                                cursor: pointer;
+                            "
+                        >
+                            {{ word }}
+                        </div>
+                        <span
+                            *ngIf="!userSelectedWords[item.id] || userSelectedWords[item.id].length === 0"
+                            style="color: #94a3b8; font-size: 0.9rem"
+                            >Chạm để xếp câu...</span
+                        >
+                    </div>
+
+                    <p style="font-size: 11px; color: #94a3b8; margin: 15px 0 10px">CÁC TỪ GỢI Ý:</p>
+
+                    <div class="word-pool" style="display: flex; flex-wrap: wrap; gap: 8px">
+                        <div
+                            class="word-chip"
+                            *ngFor="let word of item.words"
+                            (click)="pickWord(word, item.id)"
+                            style="
+                                background: white;
+                                border: 1px solid #e2e8f0;
+                                padding: 5px 12px;
+                                border-radius: 20px;
+                                cursor: pointer;
+                                transition: 0.2s;
+                            "
+                        >
+                            {{ word }}
+                        </div>
+                    </div>
+
+                    <div class="action-row" style="margin-top: 20px">
+                        <button class="btn-check" (click)="showGrammarKey[item.id] = !showGrammarKey[item.id]">
+                            {{ showGrammarKey[item.id] ? '🙈 Ẩn đáp án' : '👁️ Kiểm tra' }}
+                        </button>
+                        <button class="btn-check" (click)="clearGrammar(item.id)" style="margin-left: 10px">
+                            🔄 Làm lại
+                        </button>
+                        <div
+                            class="grammar-feedback"
+                            *ngIf="showGrammarKey[item.id]"
+                            style="
+                                margin-top: 10px;
+                                padding: 10px;
+                                background: #f0fdf4;
+                                border-left: 4px solid #22c55e;
+                                color: #166534;
+                            "
+                        >
+                            <strong>Đáp án đúng:</strong> {{ item.enKey }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="block writing-hub" *ngIf="lesson?.content?.writingChallenges?.length > 0">
+        <div class="section-header">
+            <h2>5️⃣ Writing Mastery</h2>
+            <div class="listen-nav">
+                <button (click)="prevWritingPage()" [disabled]="currentWritingPageIdx === 0" class="nav-arrow">
+                    ❮
+                </button>
+                <span class="nav-text"
+                    >Page {{ currentWritingPageIdx + 1 }} / {{ lesson.content.writingChallenges.length }}</span
+                >
+                <button
+                    (click)="nextWritingPage()"
+                    [disabled]="currentWritingPageIdx === lesson.content.writingChallenges.length - 1"
+                    class="nav-arrow"
+                >
+                    ❯
+                </button>
+            </div>
+        </div>
+
+        <div
+            class="writing-page-container animated fadeIn"
+            *ngIf="lesson.content.writingChallenges[currentWritingPageIdx] as currentPage"
+        >
+            <div class="shadow-topic-badge" style="margin-bottom: 20px">
+                <span class="label">CHỦ ĐỀ:</span>
+                <span class="value">{{ currentPage.pageTitle }}</span>
+            </div>
+
+            <div class="writing-list">
+                <div
+                    class="writing-item"
+                    *ngFor="let item of currentPage.items"
+                    style="margin-bottom: 30px; border-bottom: 1px dashed #ddd; padding-bottom: 20px"
+                >
+                    <div class="task-info">
+                        <span class="q-num">Q.{{ item.id | number:'2.0' }}</span>
+                        <p class="vi-text">{{ item.viText }}</p>
+
+                        <div class="hint-tags">
+                            <span class="tag" *ngFor="let hint of item.hints" (click)="addWordToWriting(hint, item.id)">
+                                + {{ hint }}
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="input-group" style="margin-top: 15px">
+                        <textarea [(ngModel)]="userAnswers[item.id]" placeholder="Dịch câu trên..."></textarea>
+                        <div class="action-row" style="margin-top: 10px">
+                            <button class="btn-check" (click)="toggleKey(item.id)">
+                                {{ showWritingKey[item.id] ? '🙈 Ẩn' : '👁️ Kiểm tra' }}
+                            </button>
+
+                            <div class="ans-feedback" *ngIf="showWritingKey[item.id]">
+                                <strong strong>Key:</strong> {{ item.enKey }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="block speaking-studio" *ngIf="lesson?.content?.speakingStudio as studio">
+  <div class="studio-grid">
+   <div class="planning-area">
+  <div class="area-header"><span>📝 Brainstorming Notes</span></div>
+  
+  <textarea [(ngModel)]="speakingNotes" 
+            [placeholder]="studio.placeholderNote"
+            style="min-height: 280px;"></textarea> 
+  
+  <div class="vocab-suggestion">
+    <span class="tiny-label">Recommended Phrases:</span>
+    <div class="suggestion-tags">
+      <span *ngFor="let phrase of studio.recommendedPhrases" 
+            class="phrase-tag">
+        {{ phrase }}
+      </span>
+    </div>
+  </div>
+</div>
+     
+    <div class="recording-area">
+      <div class="recorder-box" [class.recording]="studioRecorder.isRecording">
+        <div class="timer">{{ studioTimeDisplay }}</div>
+        
+        <div class="visualizer-container">
+          <div class="wave-bar" *ngFor="let i of [1,2,3,4,5]"></div>
+        </div>
+
+        <button class="main-record-btn" (click)="toggleStudioRecord()">
+          <div class="btn-inner" [style.border-radius]="studioRecorder.isRecording ? '4px' : '50%'"></div>
+        </button>
+        <p>{{ studioRecorder.isRecording ? 'Tap to stop' : 'Tap to start recording' }}</p>
+      </div>
+
+      <div class="playback-area animated fadeIn" *ngIf="studioRecorder.url && !studioRecorder.isRecording" 
+           style="margin-top: 15px; padding: 12px; background: #f1f5f9; border-radius: 10px;">
+        <span style="font-size: 11px; font-weight: bold; color: #475569; display: block; margin-bottom: 5px;">🎧 REPLAY YOUR VOICE:</span>
+        <audio [src]="studioRecorder.url" controls style="width: 100%; height: 35px;"></audio>
+      </div>
+
+      <div class="ai-feedback-box animated fadeInUp" *ngIf="showAnalysis">
+        <div class="ai-header">✨ AI Analysis</div>
+        <div class="stats-row">
+          <div class="stat-item">
+            <span class="stat-val">{{ aiResult.score }}</span>
+            <span class="stat-lab">Score</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-val">{{ aiResult.fluency }}</span>
+            <span class="stat-lab">Fluency</span>
+          </div>
+        </div>
+        <div class="ai-comment">{{ aiResult.comment }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+   
+
+    
+</section>

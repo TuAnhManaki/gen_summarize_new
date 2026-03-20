@@ -1,0 +1,974 @@
+* { box-sizing: border-box; transition: all 0.2s ease; }
+body { margin: 0; background: var(--bg); color: var(--text); line-height: 1.7; font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+.container { max-width: 850px; margin: 0 auto; padding: 0 20px; }
+
+/* HEADER & HERO */
+header { background: #fff; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+.menu { height: 64px; display: flex; align-items: center; justify-content: space-between; }
+.logo { font-weight: 800; color: var(--green-strong); font-size: 20px; text-decoration: none; }
+nav a { font-size: 14px; color: var(--muted); text-decoration: none; margin-left: 20px; font-weight: 600; }
+
+.hero {
+  
+  color: white; padding: 60px 0; text-align: center;
+}
+.hero-badge { background: var(--green-strong); padding: 5px 12px; border-radius: 6px; font-size: 12px; font-weight: 700; display: inline-block; margin-bottom: 10px; }
+
+/* BLOCKS */
+section { padding: 40px 0; }
+.block { background: var(--white); border-radius: 16px; padding: 30px; margin-bottom: 30px; border: 1px solid var(--border); box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }
+h2 { margin-top: 0; font-size: 22px; color: #111827; border-left: 5px solid var(--green-strong); padding-left: 15px; margin-bottom: 25px; }
+h3 { font-size: 18px; color: var(--green-strong); margin-bottom: 15px; }
+
+/* TABLE */
+/* CSS bổ sung cho bảng từ vựng */
+.table-wrapper {
+  overflow-x: auto;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #fff;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+th {
+  background: #f9fafb;
+  padding: 12px;
+  text-align: left;
+  border-bottom: 2px solid #edf2f7;
+  color: #4b5563;
+  text-transform: uppercase;
+}
+td {
+  padding: 12px;
+  border-bottom: 1px solid #f3f4f6;
+  vertical-align: middle;
+}
+.ipa {
+  color: #059669;
+  font-family: 'Lucida Sans Unicode', sans-serif;
+  font-size: 13px;
+}
+/* Badge trang trí loại từ */
+.badge-v, .badge-n, .badge-m, .badge-p {
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.badge-v { background: #dcfce7; color: #166534; } /* Verb */
+.badge-n { background: #dbeafe; color: #1e40af; } /* Noun */
+.badge-m { background: #fef3c7; color: #92400e; } /* Modal */
+.badge-p { background: #f3e8ff; color: #6b21a8; } /* Phrase */
+
+/* LISTENING UI */
+/* CSS TỐI ƯU CHO LISTENING */
+.listening-optimization {
+  border-top: 4px solid var(--green-strong);
+}
+ 
+
+
+
+.level-tag {
+  background: #e0f2fe;
+  color: #0369a1;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.instruction {
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 25px;
+}
+
+/* Audio Player Styled */
+.main-audio-player {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 20px;
+  border-radius: 16px;
+  margin-bottom: 30px;
+}
+
+.player-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.icon-music {
+  font-size: 24px;
+  background: #fff;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+}
+
+.audio-title { font-weight: 700; color: #1e293b; }
+.audio-subtitle { font-size: 12px; color: #94a3b8; }
+
+audio { width: 100%; height: 40px; }
+
+/* Quiz Styles */
+.quiz-item { margin-bottom: 25px; }
+.question { font-weight: 600; margin-bottom: 12px; font-size: 15px; }
+.option {
+  padding: 12px 15px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+.option:hover { background: #f1f5f9; border-color: #cbd5e1; }
+.option.correct { background: #dcfce7; border-color: #22c55e; color: #166534; font-weight: 600; }
+.option.wrong { background: #fee2e2; border-color: #ef4444; color: #991b1b; }
+
+/* Script Styles */
+.btn-script-toggle {
+  width: 100%;
+  padding: 12px;
+  background: #f1f5f9;
+  border: 1px dashed #cbd5e1;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #475569;
+}
+
+/* Xóa bỏ display: none vì *ngIf đã quản lý việc này */
+.script-content {
+  margin-top: 15px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 0px; /* CEO thích vuông vức nên để 0px */
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02); /* Đổ bóng cực nhẹ cho sang */
+  animation: fadeIn 0.3s ease; /* Thêm hiệu ứng hiện ra mượt mà */
+}
+
+/* Hiệu ứng hiện ra nhẹ nhàng */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.script-tabs button {
+  background: none;
+  border: none;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.script-tabs button.active {
+  color: #3b82f6;
+  border-bottom: 2px solid #3b82f6; /* Gạch chân tab đang chọn */
+}
+
+/* Vùng chứa văn bản */
+.text-area {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #334155;
+  white-space: pre-wrap; /* Quan trọng: Giữ định dạng xuống dòng của bài nghe */
+}
+/* SHADOWING UI */
+/* CSS CHO SHADOWING THEO CÂU */
+.shadowing-long-form { border-top: 4px solid #f59e0b; }
+.badge-progress { background: #fef3c7; color: #92400e; padding: 4px 10px; border-radius: 8px; font-weight: 700; font-size: 13px; }
+/* Nhắm trực tiếp vào bộ điều hướng trong Shadowing */
+.shadowing-long-form .section-header {
+    display: flex !important;
+    align-items: center !important; /* Căn giữa theo chiều dọc */
+    width: 100% !important;
+}
+
+.shadowing-long-form .section-header h2 {
+    margin: 0 !important;
+    /* Không cho H2 lấy hết chiều rộng */
+    display: inline-block !important; 
+}
+
+/* Chiêu cuối: margin-left: auto sẽ đẩy chính nó sang bên phải */
+.shadowing-long-form .shadow-nav {
+    margin-left: auto !important; 
+    
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px;
+    background: #f1f5f9;
+    padding: 5px 12px;
+    border-radius: 20px;
+}
+
+/* Đảm bảo hint không bị nhảy lên trên */
+.shadowing-long-form .shadow-hint {
+    width: 100%;
+    margin-top: 15px !important;
+}
+.shadow-list { display: flex; flex-direction: column; gap: 15px; margin-top: 20px; }
+
+.shadow-row {
+  display: flex;
+  gap: 15px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 15px;
+  transition: all 0.3s;
+}
+
+/* Hiệu ứng câu đang focus (có thể dùng JS để thêm class focus) */
+.shadow-row:hover { border-color: #f59e0b; background: #fffcf5; }
+
+.row-number {
+  font-family: monospace;
+  font-weight: 800;
+  color: #cbd5e1;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.row-content { flex: 1; }
+
+.en-text { font-size: 16px; font-weight: 500; color: #334155; margin: 0 0 12px 0; }
+.en-text strong { color: #d97706; }
+
+.row-controls { display: flex; gap: 8px; flex-wrap: wrap; }
+
+/* Nút bấm nhỏ gọn */
+.mini-btn {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.mini-btn:hover { background: #f8fafc; }
+.mini-btn.record { background: #fff1f2; color: #be123c; border-color: #fecdd3; }
+.mini-btn.recording { background: #be123c; color: #fff; animation: pulse-shadow 1s infinite; }
+
+.user-playback { margin-top: 12px; padding-top: 10px; border-top: 1px dashed #e2e8f0; }
+.user-playback audio { width: 100%; height: 30px; filter: sepia(20%) saturate(70%); }
+
+@keyframes pulse-shadow {
+  0% { opacity: 1; } 50% { opacity: 0.7; } 100% { opacity: 1; }
+}
+
+/* CSS CHO WRITING PRO */
+.writing-hub { border-top: 4px solid #8b5cf6; }
+
+/* Progress Bar */
+.progress-container {
+  width: 200px;
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+.progress-bar {
+  height: 100%;
+  background: #8b5cf6;
+  transition: width 0.4s ease;
+}
+.progress-text { font-size: 11px; color: #64748b; font-weight: 700; display: block; margin-top: 4px; }
+
+.writing-list { margin-top: 30px; display: flex; flex-direction: column; gap: 40px; }
+
+.writing-item {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 20px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+@media (max-width: 768px) {
+  .writing-item { grid-template-columns: 1fr; }
+}
+
+.q-num { font-family: monospace; font-size: 24px; font-weight: 800; color: #e2e8f0; line-height: 1; }
+.vi-text { font-size: 16px; font-weight: 600; color: #334155; margin: 8px 0; }
+
+.hint-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag {
+  font-size: 11px; background: #f3f4f6; color: #4b5563; padding: 3px 8px; 
+  border-radius: 5px; cursor: pointer; transition: 0.2s;
+}
+.tag:hover { background: #8b5cf6; color: white; }
+
+/* Input Area */
+textarea {
+  width: 100%; min-height: 80px; padding: 12px; border: 1px solid #cbd5e1;
+  border-radius: 8px; font-family: inherit; font-size: 14px; margin-bottom: 10px;
+}
+textarea:focus { border-color: #8b5cf6; outline: none; box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1); }
+
+.btn-check {
+  background: white; border: 1px solid #8b5cf6; color: #8b5cf6;
+  padding: 6px 15px; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: 600;
+}
+.btn-check:hover { background: #8b5cf6; color: white; }
+
+.ans-feedback {
+  display: block !important; /* Quan trọng: Ghi đè mọi lệnh ẩn khác */
+    visibility: visible !important;
+    opacity: 1 !important;
+    
+    margin-top: 10px;
+    padding: 12px;
+    background-color: #e8f8f5; /* Màu xanh lá nhạt */
+    border-left: 4px solid #2ecc71; /* Viền xanh đậm */
+    color: #16a085;
+    border-radius: 4px;
+    font-size: 0.95rem;
+}
+
+/* Hiệu ứng khi hoàn thành */
+.writing-item.completed { opacity: 0.8; }
+
+/* SPEAKING COMPONENT */
+/* CSS CHO SPEAKING STUDIO */
+.speaking-studio { border-top: 4px solid #10b981; background: #fafafa; }
+.badge-ai { background: #dcfce7; color: #059669; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 800; text-transform: uppercase; }
+
+/* Topic Card */
+.topic-card {
+  display: flex; gap: 20px; background: white; padding: 20px;
+  border-radius: 16px; border: 1px solid #e2e8f0; margin-bottom: 25px; align-items: center;
+}
+.topic-icon { font-size: 30px; background: #f0fdf4; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 12px; }
+.topic-label { font-size: 11px; font-weight: 800; color: #10b981; text-transform: uppercase; }
+.topic-title { margin: 5px 0; color: #1e293b; }
+.topic-desc { margin: 0; color: #64748b; font-size: 14px; }
+
+/* Studio Grid */
+.studio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+@media (max-width: 768px) { .studio-grid { grid-template-columns: 1fr; } }
+
+/* Planning Area */
+.planning-area { display: flex; flex-direction: column; }
+.area-header { font-size: 13px; font-weight: 700; color: #475569; margin-bottom: 10px; }
+#speakingNotes {
+  flex: 1; min-height: 200px; padding: 15px; border-radius: 12px;
+  border: 1px solid #e2e8f0; font-family: inherit; font-size: 14px; line-height: 1.6;
+}
+
+.vocab-suggestion { margin-top: 15px; }
+.tiny-label { font-size: 11px; color: #94a3b8; font-weight: 700; display: block; margin-bottom: 8px; }
+.suggestion-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+.suggestion-tags span { background: #fff; border: 1px solid #e2e8f0; padding: 4px 10px; border-radius: 6px; font-size: 12px; color: #475569; }
+
+/* Recording Area */
+.recorder-box {
+  background: #1e293b; border-radius: 20px; padding: 40px 20px;
+  text-align: center; color: white; position: relative; overflow: hidden;
+}
+.timer { font-family: 'Courier New', monospace; font-size: 40px; font-weight: 700; color: #10b981; margin-bottom: 20px; }
+
+/* Visualizer */
+.visualizer-container { display: flex; justify-content: center; align-items: flex-end; gap: 4px; height: 30px; margin-bottom: 30px; }
+.wave-bar { width: 4px; background: #10b981; border-radius: 2px; height: 5px; transition: height 0.1s; }
+.recording .wave-bar { animation: wave 0.5s infinite alternate; }
+@keyframes wave { from { height: 5px; } to { height: 30px; } }
+.wave-bar:nth-child(2) { animation-delay: 0.1s; }
+.wave-bar:nth-child(3) { animation-delay: 0.2s; }
+
+/* Record Button */
+.main-record-btn {
+  width: 80px; height: 80px; border-radius: 50%; background: rgba(255,255,255,0.1);
+  border: 4px solid #ef4444; display: flex; align-items: center; justify-content: center;
+  cursor: pointer; margin: 0 auto 15px; transition: all 0.3s;
+}
+.btn-inner { width: 20px; height: 20px; background: #ef4444; border-radius: 50%; transition: all 0.3s; }
+.recording .btn-inner { border-radius: 4px; transform: scale(1.2); }
+.recording .main-record-btn { box-shadow: 0 0 20px rgba(239, 68, 68, 0.4); }
+
+/* AI Feedback Box */
+.ai-feedback-box { margin-top: 20px; background: white; border: 1px solid #e2e8f0; border-radius: 16px; padding: 20px; }
+.ai-header { font-weight: 800; color: #1e293b; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+.stats-row { display: flex; gap: 20px; margin-bottom: 15px; }
+.stat-item { flex: 1; background: #f8fafc; padding: 10px; border-radius: 10px; text-align: center; }
+.stat-val { display: block; font-size: 20px; font-weight: 800; color: #10b981; }
+.stat-lab { font-size: 11px; color: #94a3b8; text-transform: uppercase; font-weight: 700; }
+.ai-comment { font-size: 14px; color: #475569; line-height: 1.5; font-style: italic; }
+
+
+/* ===== GRAMMAR CHALLENGE ===== */
+.grammar-challenge { border-top: 4px solid #0ea5e9; } /* Màu xanh dương để phân biệt */
+.badge-grammar { background: #e0f2fe; color: #0369a1; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 800; }
+
+.vi-meaning { color: var(--muted); font-size: 14px; margin-bottom: 15px; }
+
+/* Vùng thả chữ */
+.word-drop-zone {
+  min-height: 60px;
+  background: #f8fafc;
+  border: 2px dashed #cbd5e1;
+  border-radius: 12px;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+/* Các viên gạch chữ */
+.word-chip {
+  background: white;
+  border: 1px solid #e2e8f0;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: #334155;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: all 0.2s;
+  user-select: none;
+}
+
+.word-chip:hover {
+  border-color: #0ea5e9;
+  background: #f0f9ff;
+  transform: translateY(-2px);
+}
+
+.word-chip.used {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.word-pool {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.btn-undo {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  color: #64748b;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.btn-check-grammar {
+  background: #0ea5e9;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.grammar-feedback {
+margin-top: 15px;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px;
+  border-radius: 8px;
+  
+  /* Xóa display: none cũ, để Angular tự điều khiển bằng *ngIf */
+  display: block !important; 
+  
+  /* Thêm màu sắc để phân biệt với nội dung khác */
+  background-color: #f0fdf4; 
+  border-left: 4px solid #22c55e;
+  color: #166534;
+  
+  /* Hiệu ứng xuất hiện cho xịn */
+  animation: fadeInDown 0.3s ease-out;
+}
+/* Hiệu ứng khi đang cầm từ kéo đi */
+.sortable-ghost {
+    opacity: 0.4;
+    background-color: #0ea5e9 !important;
+    border: 2px solid #0284c7 !important;
+}
+
+/* Thêm biểu tượng bàn tay khi di chuột vào chip */
+.word-chip {
+    cursor: grab;
+    touch-action: none; /* Quan trọng để kéo mượt trên Mobile */
+}
+
+.word-chip:active {
+    cursor: grabbing;
+}
+
+/* Vùng drag area khi trống thì có viền mờ đẹp hơn */
+.drag-area {
+    min-height: 60px;
+    padding: 10px;
+    border-radius: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    background: #f8fafc;
+    border: 2px solid #f1f5f9;
+}
+
+.word-drop-zone {
+    border: 2px dashed #0ea5e9;
+    background: #f0f9ff;
+}
+.grammar-feedback.correct { display: block; background: #dcfce7; color: #166534; }
+.grammar-feedback.wrong { display: block; background: #fee2e2; color: #991b1b; }
+/* Style chung cho Badge - Nhỏ và thanh lịch */
+.ipa {
+  color: #059669;
+  font-family: 'Lucida Sans Unicode', sans-serif;
+  font-size: 13px;
+  margin-left: 5px; /* Thêm một chút khoảng cách với loa */
+}
+
+/* Style chung: Vuông, sắc nét, hiện đại */
+[class^="badge-"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1px 6px;
+  border-radius: 0;           /* Vuông tuyệt đối theo ý CEO */
+  font-size: 10px;
+  font-weight: 700;           /* Chữ đậm để nổi bật trên nền nhạt */
+  text-transform: uppercase;
+  min-width: 35px;
+  letter-spacing: 0.5px;
+}
+
+/* Bộ màu chuẩn English Dictionary (Pastel High-Contrast) */
+.badge-v   { background-color: #fff1f0; color: #cf1322; } /* Verb - Đỏ quyền lực */
+.badge-n   { background-color: #e6f7ff; color: #096dd9; } /* Noun - Xanh tin cậy */
+.badge-adj { background-color: #f6ffed; color: #389e0d; } /* Adj - Xanh lá tươi mới */
+.badge-adv { background-color: #fff7e6; color: #d46b08; } /* Adv - Cam năng lượng */
+.badge-mod { background-color: #f9f0ff; color: #531dab; } /* Modal - Tím trí tuệ */
+.badge-phr { background-color: #f5f5f5; color: #595959; } /* Phrase - Xám trung tính */
+
+
+.speaker-btn {
+  cursor: pointer;
+  border: none;
+  background: none;
+  transition: transform 0.2s;
+}
+.speaker-btn:active { transform: scale(1.2); }
+
+.option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px; /* Hình vuông theo ý CEO */
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+/* Hiệu ứng hover khi chưa chọn */
+.option:hover:not(.is-disabled) {
+  border-color: #3b82f6;
+  background-color: #f8fafc;
+}
+
+/* TRẠNG THÁI ĐÚNG: Xanh lá (Success) */
+.option.is-correct {
+  background-color: #f0fdf4 !important; /* Xanh lá cực nhẹ */
+  border-color: #22c55e !important;   /* Viền xanh lá đậm */
+  color: #166534;
+}
+
+/* TRẠNG THÁI SAI: Đỏ (Error) */
+.option.is-incorrect {
+  background-color: #fef2f2 !important; /* Đỏ nhạt */
+  border-color: #ef4444 !important;   /* Viền đỏ đậm */
+  color: #991b1b;
+}
+
+/* Khóa click sau khi đã chọn */
+.option.is-disabled {
+  cursor: default;
+}
+
+.option-label {
+  font-weight: 700;
+  margin-right: 8px;
+}
+
+/* Style cho Icon */
+.status-icon {
+  font-size: 16px;
+  font-weight: bold;
+}
+.icon-success { color: #22c55e; }
+.icon-error { color: #ef4444; }
+/* Card tổng thể */
+.audio-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  padding: 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+/* Header chứa Info và Speed */
+.audio-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 16px;
+}
+
+.audio-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.audio-icon {
+  background: #f1f5f9;
+  color: #6366f1;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.audio-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1e293b;
+  letter-spacing: -0.025em;
+}
+
+.audio-subtitle {
+  font-size: 13px;
+  color: #64748b;
+}
+ 
+.select-wrapper {
+  position: relative;
+}
+
+.select-wrapper select {
+  appearance: none; /* Ẩn mũi tên mặc định */
+  background: #ffffff;
+  border: 2px solid #f1f5f9;
+  padding: 6px 30px 6px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.select-wrapper select:hover {
+  border-color: #e2e8f0;
+  background-color: #f8fafc;
+}
+
+/* Tạo mũi tên tùy chỉnh cho Select */
+.select-wrapper::after {
+  content: '▼';
+  font-size: 8px;
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #64748b;
+}
+
+/* Custom Audio Player nhìn sạch hơn */
+.audio-player-container audio {
+  width: 100%;
+  height: 40px;
+  filter: grayscale(1) opacity(0.8); /* Làm cho trình phát mặc định trông tối giản hơn */
+}
+/* Container bao quanh - Làm nhỏ lại và bỏ nền thừa */
+.audio-console {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Khoảng cách nhỏ giữa select và audio */
+  padding: 4px 0; /* Giảm padding dọc */
+}
+
+/* Audio player chiếm không gian còn lại */
+.audio-console audio {
+  flex: 1;
+  height: 30px; /* Thu nhỏ chiều cao audio player */
+}
+
+/* Khối Speed Control nhỏ gọn */
+.speed-control {
+  display: flex;
+  align-items: center;
+}
+
+.select-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Ô Select - Điểm mấu chốt để làm nhỏ */
+.speed-control select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #fff;
+  border: 1px solid #d1d5db;
+  
+  /* Kích thước cực nhỏ */
+  padding: 2px 18px 2px 6px; 
+  font-size: 11px; /* Chữ nhỏ lại */
+  font-weight: 700;
+  height: 26px; /* Chiều cao thấp hơn audio */
+  min-width: 55px; /* Chiều rộng vừa đủ hiện "1.0x" */
+  
+  color: #374151;
+  cursor: pointer;
+  outline: none;
+  border-radius: 2px;
+}
+
+/* Mũi tên nhỏ xíu cho tinh tế */
+.select-wrapper::after {
+  content: "";
+  position: absolute;
+  right: 6px;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  border-top: 4px solid #9ca3af; 
+  pointer-events: none;
+}
+
+.speed-control select:hover {
+  border-color: #3b82f6;
+  color: #3b82f6;
+}
+
+.shadow-hint {
+  font-size: 0.9rem;
+  color: #636e72; // Màu xám nhẹ cho tinh tế
+  line-height: 1.5;
+  margin: 8px 0 16px 0;
+  padding-left: 10px;
+  border-left: 3px solid #00b894; // Tạo một đường kẻ xanh bên trái cho "sang"
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 4px;
+
+  strong {
+    color: #2d3436;
+  }
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.listen-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f3f4f6;
+  padding: 5px 12px;
+  border-radius: 20px;
+}
+
+.nav-arrow {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-weight: bold;
+  color: #4f46e5;
+}
+
+.nav-arrow:disabled {
+  color: #ccc;
+}
+
+.nav-text {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+
+/* 1. Biến khối Shadowing thành Flexbox */
+.shadowing-long-form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* 2. Đẩy danh sách luyện tập lên vị trí thứ 2 */
+.shadowing-long-form .shadow-list {
+    order: 2;
+    margin-top: 20px;
+}
+
+/* 3. Đưa Section Header lên đầu (giữ nguyên tiêu đề) */
+/* Nhắm mục tiêu chính xác vào block Shadowing */
+.shadowing-long-form .section-header {
+    display: flex !important;
+    flex-direction: column !important;
+    
+    /* Ép tất cả về 0 để không bị thừa lề trái/trên */
+    padding: 0 !important;
+    margin: 0 0 15px 0 !important; 
+    
+    /* Nếu class common có căn giữa (align-items: center), ta ép lại về trái */
+    align-items: flex-start !important;
+    text-align: left !important;
+}
+
+/* Ép tiêu đề H2 sát lề */
+.shadowing-long-form .section-header h2 {
+  
+    display: block !important;
+}
+
+/* Ép cái Hint sát lề trái */
+.shadowing-long-form .shadow-hint {
+    margin: 0 !important; /* Xóa sạch margin thừa */
+    padding: 10px 0 10px 12px !important; /* Chỉ giữ lại padding trái để làm vạch đỏ */
+    width: 100% !important;
+    background: transparent; /* Nếu nó vẫn to quá, bỏ nền đi cho thoáng */
+    border-left: 3px solid #ef4444; /* Giữ vạch đỏ làm điểm nhấn */
+}
+
+.shadowing-long-form .shadow-hint p {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 13px; /* Thu nhỏ chữ một chút cho gọn */
+}
+
+.text-header-wrapper {
+    display: flex;
+    justify-content: space-between; /* Đẩy text sang trái, eye sang phải */
+    align-items: flex-start; /* Giữ con mắt ngang hàng với dòng đầu tiên của text */
+    gap: 15px;
+    width: 100%;
+}
+
+.en-text {
+    transition: all 0.3s ease;
+    flex: 1;
+}
+
+/* Khi bị ẩn: Chữ sẽ mờ đi và không thể đọc được */
+.en-text.is-hidden {
+    filter: blur(5px); /* Làm mờ chữ */
+    opacity: 0.3;
+    user-select: none; /* Không cho bôi đen để copy */
+}
+
+.btn-eye-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #64748b;
+    padding: 5px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.btn-eye-toggle:hover {
+    background: #f1f5f9;
+    color: #4f46e5;
+}
+.header-main {
+    display: flex;
+    justify-content: space-between; /* Đẩy H2 sang trái, pagination sang phải */
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px; /* Tạo khoảng cách với cái Hint bên dưới */
+}
+
+.shadow-nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f1f5f9; /* Màu nền nhẹ cho bộ nút */
+    padding: 6px 14px;
+    border-radius: 20px;
+    flex-shrink: 0; /* Không cho bộ nút bị co lại */
+}
+
+/* Tinh chỉnh lại H2 để nó không chiếm hết chỗ */
+.header-main h2 {
+    margin: 0 !important;
+    font-size: 1.25rem;
+    white-space: nowrap; /* Tránh việc tiêu đề bị nhảy dòng */
+}
+ 
+.shadow-topic-badge {
+    display: inline-flex;
+    align-items: center;
+    background: #e0e7ff; /* Màu xanh Indigo nhạt */
+    padding: 4px 12px;
+    border-radius: 100px; /* Bo tròn hoàn toàn */
+    margin-bottom: 15px;
+    border: 1px solid #c7d2fe;
+}
+
+.shadow-topic-badge .label {
+    font-size: 10px;
+    font-weight: 800;
+    color: #4338ca;
+    margin-right: 6px;
+    letter-spacing: 0.5px;
+}
+
+.shadow-topic-badge .value {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1e1b4b;
+}
+
+.planning-area textarea {
+    min-height: 200px; /* Độ cao tối thiểu */
+    height: 250px;     /* Độ cao CEO mong muốn */
+    line-height: 1.6;  /* Giúp giãn dòng cho dễ đọc */
+    padding: 15px;
+    resize: vertical;  /* Cho phép học viên tự kéo rộng thêm nếu muốn */
+}

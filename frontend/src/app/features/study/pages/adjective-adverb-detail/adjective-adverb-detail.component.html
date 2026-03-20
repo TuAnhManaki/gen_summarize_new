@@ -1,0 +1,59 @@
+<div *ngIf="wordData">
+  
+  <section class="page-header">
+    <div class="container">
+      <h1>Phân biệt: <span class="wordData-highlight">{{ wordData.adjective }}</span> vs <span class="wordData-highlight">{{ wordData.adverb }}</span></h1>
+      <p style="color: var(--muted); margin-top: 10px;">Cách dùng Tính từ và Trạng từ trong câu</p>
+    </div>
+  </section>
+
+  <main class="container main-content">
+
+    <div class="card">
+      <div style="margin-bottom: 20px;">
+        <span class="badge">Adjective</span>
+        <span class="badge">Adverb</span>
+      </div>
+      <p style="font-size: 18px; margin: 0;">
+        👉 <strong>{{ wordData.adjective }}</strong> (adj): {{ wordData.adjectiveMeaning }}<br>
+        👉 <strong>{{ wordData.adverb }}</strong> (adv): {{ wordData.adverbMeaning }}
+      </p>
+    </div>
+
+    <div class="card">
+      <h2><i class="fas fa-tag" style="color: var(--primary)"></i> {{ wordData.adjective }} (Tính từ)</h2>
+      <p>Bổ nghĩa cho <strong>danh từ</strong>, thường đứng trước danh từ hoặc sau động từ "to be".</p>
+
+      <div class="example-item" *ngFor="let ex of wordData.adjectiveExamples">
+        <button class="btn-audio" (click)="playAudio(ex.en)">
+          <i class="fas fa-volume-up"></i>
+        </button>
+        <div class="example-content">
+          <span class="example-en" [innerHTML]="ex.enHtml"></span>
+          <span class="example-vi">{{ ex.vi }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2><i class="fas fa-bolt" style="color: #eab308"></i> {{ wordData.adverb }} (Trạng từ)</h2>
+      <p>Bổ nghĩa cho <strong>động từ</strong>, dùng để mô tả cách thức một hành động diễn ra.</p>
+
+      <div class="example-item" *ngFor="let ex of wordData.adverbExamples">
+        <button class="btn-audio" (click)="playAudio(ex.en)">
+          <i class="fas fa-volume-up"></i>
+        </button>
+        <div class="example-content">
+          <span class="example-en" [innerHTML]="ex.enHtml"></span>
+          <span class="example-vi">{{ ex.vi }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card note-box" *ngIf="wordData.note">
+      <h2 style="color: #92400e;"><i class="fas fa-exclamation-triangle"></i> Ghi chú quan trọng</h2>
+      <p style="margin: 0;" [innerHTML]="wordData.note"></p>
+    </div>
+
+  </main>
+</div>

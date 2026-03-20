@@ -1,0 +1,79 @@
+<div class="container">
+  
+    <div class="video-block">
+      <video #videoPlayer (timeupdate)="onTimeUpdate()" controls>
+        <source [src]="videoSrc" type="video/mp4">
+      </video>
+    </div>
+  
+    <div class="transcript-wrapper">
+      <div class="transcript-header">
+        <i class="fas fa-closed-captioning"></i> Transcript (Click từ vựng để tra cứu)
+      </div>
+  
+      <div class="transcript-content" #transcriptContainer>
+        
+        <div *ngFor="let line of transcriptData; let i = index"
+             id="line-{{i}}"
+             class="transcript-row"
+             [class.active]="i === currentLineIndex"
+             (click)="seekTo(line.start)">
+          
+          <div class="jp-sentence">
+            <ng-container *ngFor="let token of line.jp_tokens">
+              
+              <span class="jp-token" 
+                    [class.is-space]="token.type === 'space'"
+                    (mouseenter)="onTokenHover($event, token)"
+                    (mouseleave)="onTokenLeave()">
+                
+                <ruby>
+                  {{ token.text }}
+                  <rt *ngIf="token.furigana && token.furigana !== token.text">
+                    {{ token.furigana }}
+                  </rt>
+                </ruby>
+  
+              </span>
+  
+            </ng-container>
+          </div>
+  
+          <div class="vi-translation">{{ line.vi }}</div>
+  
+        </div>
+  
+      </div>
+    </div>
+  
+    <div class="dictionary-tooltip" 
+         *ngIf="isTooltipVisible && hoveredToken"
+         [style.left.px]="tooltipPos.x" 
+         [style.top.px]="tooltipPos.y">
+         
+      <div class="tooltip-header">
+        <span class="token-text">{{ hoveredToken.text }}</span>
+        <span class="token-romaji" *ngIf="hoveredToken.romaji">/{{ hoveredToken.romaji }}/</span>
+      </div>
+      
+      <div class="tooltip-body">
+        <div class="meaning" *ngIf="hoveredToken.meaning">
+          <i class="fas fa-check"></i> {{ hoveredToken.meaning }}
+        </div>
+        
+        <div class="meta-info">
+          <span class="badge" *ngIf="hoveredToken.type">{{ hoveredToken.type }}</span>
+          <div *ngIf="hoveredToken.baseForm" class="base-form">
+            Gốc: {{ hoveredToken.baseForm }}
+          </div>
+        </div>
+  
+        <div class="grammar-box" *ngIf="hoveredToken.grammar">
+          <i class="fas fa-info-circle"></i> {{ hoveredToken.grammar }}
+        </div>
+      </div>
+      
+      <div class="tooltip-arrow"></div>
+    </div>
+  
+  </div>

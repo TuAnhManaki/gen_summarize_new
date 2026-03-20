@@ -1,0 +1,149 @@
+<div class="admin-container">
+  
+  <div class="header-section">
+    <div>
+      <h2>Quản lý bài viết</h2>
+      <p class="subtitle">Tổng số: {{ totalElements }} bài viết</p>
+    </div>
+    <a routerLink="/blog/admin/posts/create" class="btn-create">
+      <i class="fas fa-plus"></i> Viết bài mới
+    </a>
+  </div>
+
+  <div class="filter-bar">
+    <div class="filter-group search-input">
+      <i class="fas fa-search"></i>
+      <input type="text" placeholder="Tìm theo tiêu đề..." 
+             [(ngModel)]="filter.keyword" (keyup.enter)="onSearch()">
+    </div>
+
+    <div class="filter-group">
+      <select [(ngModel)]="filter.categoryId" (change)="onSearch()">
+        <option [ngValue]="null">-- Tất cả danh mục --</option>
+        <option *ngFor="let cat of categories" [ngValue]="cat.id">{{ cat.name }}</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <select [(ngModel)]="filter.status" (change)="onSearch()">
+        <option [ngValue]="null">-- Tất cả trạng thái --</option>
+        <option value="PUBLISHED">Đã đăng</option>
+        <option value="DRAFT">Bản nháp</option>
+        <option value="ARCHIVED">Lưu trữ</option>
+      </select>
+    </div>
+
+    <button class="btn-reset" (click)="clearFilter()" title="Xóa bộ lọc">
+      <i class="fas fa-sync-alt"></i>
+    </button>
+  </div>
+
+  <div class="table-responsive">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th width="50">#</th>
+          <th width="80">Ảnh</th>
+          
+          <th (click)="onSort('title')" class="sortable">
+            Tiêu đề 
+            <i class="fas" *ngIf="sortBy === 'title'" 
+               [class.fa-sort-up]="sortDir === 'asc'" 
+               [class.fa-sort-down]="sortDir === 'desc'"></i>
+          </th>
+          
+          <th>Danh mục</th>
+          
+          <th (click)="onSort('status')" class="sortable">
+            Trạng thái
+            <i class="fas" *ngIf="sortBy === 'status'" 
+               [class.fa-sort-up]="sortDir === 'asc'" 
+               [class.fa-sort-down]="sortDir === 'desc'"></i>
+          </th>
+          
+          <th (click)="onSort('createdAt')" class="sortable">
+            Ngày tạo / View
+            <i class="fas" *ngIf="sortBy === 'createdAt'" 
+               [class.fa-sort-up]="sortDir === 'asc'" 
+               [class.fa-sort-down]="sortDir === 'desc'"></i>
+          </th>
+          
+          <th width="100">Hành động</th>
+        </tr>
+      </thead>
+      
+      <tbody>
+        <tr *ngIf="isLoading">
+          <td colspan="7" class="text-center py-5">Đang tải dữ liệu...</td>
+        </tr>
+
+        <tr *ngFor="let post of posts; let i = index">
+          <td>{{ (currentPage * pageSize) + i + 1 }}</td>
+          
+          <td>
+            <div class="thumb-wrapper">
+              <img [src]="post.metaData.thumbnail || 'assets/no-image.png'" alt="Thumb">
+            </div>
+          </td>
+
+          <td>
+            <div class="post-title">{{ post.title }}</div>
+            <div class="post-tags">
+              <span *ngFor="let tag of post.metaData.tags | slice:0:3" class="tag-badge">#{{ tag }}</span>
+            </div>
+            <small class="text-muted">Slug: {{ post.slug }}</small>
+          </td>
+
+          <td>{{ post.categoryName }}</td>
+
+          <td>
+            <span class="badge" [ngClass]="getStatusClass(post.status)">
+              {{ post.status }}
+            </span>
+          </td>
+
+          <td>
+            <div>{{ post.createdAt | date:'dd/MM/yyyy' }}</div>
+            <small class="text-muted">
+              <i class="far fa-eye"></i> {{ post.metaData.views }} | 
+              <i class="far fa-clock"></i> {{ post.metaData.readingTime }}'
+            </small>
+          </td>
+
+          <td>
+            <div class="actions">
+              <a [routerLink]="['/blog/admin/posts/edit', post.id]" class="btn-icon edit">
+                <i class="fas fa-pen"></i>
+              </a>
+              <button (click)="deletePost(post.id)" class="btn-icon delete">
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          </td>
+        </tr>
+
+        <tr *ngIf="!isLoading && posts.length === 0">
+          <td colspan="7" class="text-center py-5">Không tìm thấy bài viết nào.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="pagination-area" *ngIf="totalElements > 0">
+    <div class="page-info">
+      Hiển thị {{ posts.length }} / {{ totalElements }} kết quả
+    </div>
+    <div class="page-controls">
+      <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 0">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      
+      <span class="page-number">{{ currentPage + 1 }}</span>
+      
+      <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage >= totalPages - 1">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+
+</div>

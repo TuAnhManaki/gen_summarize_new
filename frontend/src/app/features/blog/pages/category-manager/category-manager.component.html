@@ -1,0 +1,81 @@
+<div class="cat-container">
+  
+    <div class="panel list-panel">
+      <div class="panel-header">
+        <h3>Danh sách ({{ categories.length }})</h3>
+      </div>
+      
+      <div class="list-wrapper">
+        <div *ngIf="categories.length === 0" class="empty-state">
+          Chưa có danh mục nào.
+        </div>
+  
+        <ul class="list-group">
+          <li *ngFor="let cat of categories" 
+              class="list-item" 
+              [class.active]="selectedId === cat.id">
+            
+            <div class="cat-info">
+              <span class="cat-name">{{ cat.name }}</span>
+              <small class="cat-slug">/{{ cat.slug }}</small>
+            </div>
+  
+            <div class="actions">
+              <button class="btn-icon edit" (click)="onEdit(cat)" title="Sửa">
+                <i class="fas fa-pen"></i>
+              </button>
+              <button class="btn-icon delete" (click)="onDelete(cat.id)" title="Xóa">
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="panel form-panel">
+      <div class="panel-header">
+        <h3>{{ isEditMode ? 'Cập nhật danh mục' : 'Thêm mới danh mục' }}</h3>
+      </div>
+  
+      <form (ngSubmit)="onSubmit()" class="form-content">
+        
+        <div class="form-group">
+          <label>Tên danh mục <span class="required">*</span></label>
+          <input 
+            type="text" 
+            [(ngModel)]="formModel.name" 
+            name="name" 
+            (input)="generateSlug()"
+            placeholder="Ví dụ: Lập trình Java"
+            required
+            autofocus>
+        </div>
+  
+        <div class="form-group">
+          <label>Slug (URL) <span class="required">*</span></label>
+          <input 
+            type="text" 
+            [(ngModel)]="formModel.slug" 
+            name="slug"
+            class="slug-input"
+            placeholder="vi-du-lap-trinh-java"
+            required>
+          <small class="hint">Chuỗi đường dẫn tĩnh, không dấu, ngăn cách bởi gạch ngang.</small>
+        </div>
+  
+        <div class="btn-group">
+          <button type="submit" class="btn-save" [disabled]="isLoading || !formModel.name">
+            <i class="fas fa-save"></i> 
+            {{ isEditMode ? 'Lưu thay đổi' : 'Tạo mới' }}
+          </button>
+          
+          <button type="button" class="btn-cancel" (click)="resetForm()" *ngIf="isEditMode || formModel.name">
+            Hủy bỏ
+          </button>
+        </div>
+  
+      </form>
+    </div>
+  
+  </div>

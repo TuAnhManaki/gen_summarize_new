@@ -1,0 +1,54 @@
+
+<div *ngIf="isLoading" class="loading-container">
+  Loading structures...
+</div>
+
+<div *ngIf="!isLoading && structures">
+  
+  <section class="page-header">
+    <div class="container">
+      <h1>Cấu trúc: <span class="highlight">{{ structures.title }}</span></h1>
+      <p style="color: var(--muted); margin-top: 10px;">{{ structures.subTitle }}</p>
+    </div>
+  </section>
+
+  <main class="container main-content">
+
+    <div class="card">
+      <p style="font-size: 18px; margin: 0;" [innerHTML]="structures.description"></p>
+    </div>
+
+    <ng-container *ngFor="let section of structures.sections">
+      
+      <div class="card" *ngIf="section.type === 'formula'">
+        <h2>
+          <i [class]="section.icon" [style.color]="section.iconColor"></i> 
+          {{ section.title }}
+        </h2>
+        
+        <div class="formula">{{ section.formula }}</div>
+
+        <div class="example-item" *ngFor="let ex of section.examples">
+          <button class="btn-audio" (click)="speak(ex.en)">
+            <i class="fas fa-volume-up"></i>
+          </button>
+          <div class="example-content">
+            <span class="example-en" [innerHTML]="ex.enHtml"></span>
+            <span class="example-vi">{{ ex.vi }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card note-box" *ngIf="section.type === 'note'">
+        <h2 [style.color]="section.iconColor" style="font-size: 20px;">
+          <i [class]="section.icon"></i> {{ section.title }}
+        </h2>
+        <ul style="margin: 10px 0 0 20px; padding: 0;">
+          <li *ngFor="let item of section.noteItems" [innerHTML]="item"></li>
+        </ul>
+      </div>
+
+    </ng-container>
+
+  </main>
+</div>

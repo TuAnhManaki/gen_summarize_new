@@ -1,0 +1,214 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Inter:wght@400;600&display=swap');
+
+:host {
+  --primary: #3b82f6; /* Xanh dương cho theme Nhật */
+  --primary-light: #eff6ff;
+  --text-jp: #1e293b;
+  --text-vi: #64748b;
+  --tooltip-bg: #1e293b;
+  font-family: 'Inter', sans-serif;
+}
+
+.container { max-width: 900px; margin: 0 auto; padding: 20px; position: relative; }
+
+/* VIDEO BLOCK */
+.video-block {
+  background: black;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+video { width: 100%; display: block; max-height: 450px; }
+
+/* TRANSCRIPT WRAPPER */
+.transcript-wrapper {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+}
+
+.transcript-header {
+  background: #f8fafc;
+  padding: 12px 20px;
+  font-weight: 700;
+  color: #475569;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 14px;
+}
+
+.transcript-content {
+  max-height: 400px;
+  overflow-y: auto;
+  position: relative;
+  scroll-behavior: smooth;
+}
+
+/* TRANSCRIPT ROW */
+.transcript-row {
+  padding: 16px 24px;
+  border-bottom: 1px solid #f1f5f9;
+  cursor: pointer;
+  transition: 0.2s;
+  border-left: 4px solid transparent;
+}
+
+.transcript-row:hover { background: #f8fafc; }
+.transcript-row.active {
+  background: var(--primary-light);
+  border-left-color: var(--primary);
+}
+
+/* JAPANESE SENTENCE & TOKENS */
+.jp-sentence {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 22px;
+  color: var(--text-jp);
+  line-height: 1.8; /* Tăng chiều cao dòng để chứa Furigana */
+  margin-bottom: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline; /* Căn chân chữ cho đều */
+}
+
+/* TOKEN STYLE */
+.jp-token {
+  position: relative;
+  cursor: help; /* Con trỏ dấu ? khi hover */
+  border-radius: 4px;
+  transition: 0.1s;
+  margin: 0 1px;
+}
+
+.jp-token:hover {
+  background-color: rgba(59, 130, 246, 0.15); /* Highlight nhẹ khi hover */
+  color: var(--primary);
+}
+
+.jp-token.is-space {
+  display: inline-block;
+  width: 6px; /* Khoảng cách giữa các từ nếu có space */
+  pointer-events: none;
+}
+
+/* RUBY (FURIGANA) STYLING */
+ruby {
+  ruby-position: over; /* Bắt buộc hiển thị ở trên */
+  display: inline-flex;
+  flex-direction: column-reverse; /* Hack nhỏ để căn chỉnh tốt hơn trên một số trình duyệt */
+  vertical-align: bottom;
+}
+
+rt {
+  font-size: 10px; /* Chữ nhỏ furi */
+  color: #64748b;
+  text-align: center;
+  font-weight: 400;
+  user-select: none;
+  line-height: 1;
+  margin-bottom: -2px;
+}
+
+/* VIETNAMESE TRANSLATION */
+.vi-translation {
+  font-size: 14px;
+  color: var(--text-vi);
+  font-style: italic;
+}
+
+/* --- TOOLTIP STYLE (DICTIONARY POPUP) --- */
+.dictionary-tooltip {
+  position: fixed; /* Fixed để tính toán theo viewport, không bị che bởi overflow: hidden */
+  background: var(--tooltip-bg);
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  width: 260px;
+  z-index: 9999;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  font-size: 14px;
+  pointer-events: none; /* Để chuột không bị kẹt vào tooltip */
+  transform: translate(-50%, -100%); /* Căn giữa và đẩy lên trên */
+  margin-top: -8px; /* Khoảng cách với từ */
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translate(-50%, -90%); }
+  to { opacity: 1; transform: translate(-50%, -100%); }
+}
+
+.tooltip-header {
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+}
+
+.token-text {
+  font-size: 18px;
+  font-weight: 700;
+  color: #60a5fa; /* Màu xanh sáng */
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+.token-romaji {
+  color: #94a3b8;
+  font-size: 13px;
+  margin-left: 6px;
+}
+
+.tooltip-body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.meaning {
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.meta-info {
+  display: flex;
+  gap: 8px;
+  font-size: 12px;
+  align-items: center;
+}
+
+.badge {
+  background: #475569;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #e2e8f0;
+}
+
+.base-form {
+  color: #cbd5e1;
+  font-style: italic;
+}
+
+.grammar-box {
+  background: rgba(255,255,255,0.1);
+  padding: 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #fbbf24; /* Màu vàng cho ngữ pháp */
+  margin-top: 4px;
+}
+
+/* Mũi tên tam giác dưới tooltip */
+.tooltip-arrow {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0; 
+  height: 0; 
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid var(--tooltip-bg);
+}

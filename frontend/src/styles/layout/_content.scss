@@ -1,0 +1,8 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the content of the site/application.
+// -----------------------------------------------------------------------------
+
+app-content {
+  /* grow giúp nội dung chiếm trọn diện tích còn lại */
+  @apply block flex w-full grow flex-col;
+}

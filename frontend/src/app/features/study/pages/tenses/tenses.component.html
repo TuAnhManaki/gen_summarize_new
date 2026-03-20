@@ -1,0 +1,30 @@
+<section class="page-header">
+  <div class="container">
+    <h1>Hệ thống 12 thì Tiếng Anh</h1>
+    <p class="page-desc">
+      Từ các thì căn bản đến nâng cao. Chúng tôi giúp bạn nắm vững
+      <strong>cấu trúc, cách dùng</strong> và
+      <strong>ngữ cảnh thực tế</strong> để tự tin làm chủ mọi tình huống giao
+      tiếp.
+    </p>
+  </div>
+</section>
+
+<section class="container">
+  <div class="grid">
+    <div
+      class="card"
+      *ngFor="let item of grammarList"
+      [routerLink]="['/danh-muc/cac_thi_co_ban', item.slug]"
+    >
+      <div class="badge badge-hot">{{ item.badge }}</div>
+      <h3>{{ item.title }}</h3>
+      <p class="use">{{ item.whenToUse }}</p>
+      <div class="formula">{{ item.affirmative }}</div>
+      <div class="example" *ngFor="let ex of item.example">
+        <span class="example-en">{{ ex.en }}</span>
+        <span class="example-vi">{{ ex.vi }}</span>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,40 @@
+/* Styling chuyên biệt cho class ai-summary chứa nội dung HTML từ Backend trả về */
+.ai-summary {
+  line-height: 1.6;
+}
+
+.ai-summary p {
+  margin-bottom: 0.75rem;
+}
+
+.ai-summary p:last-child {
+  margin-bottom: 0;
+}
+
+.ai-summary ul {
+  padding-left: 1.25rem;
+  margin-bottom: 1rem;
+  list-style-type: none; /* Tắt bullet mặc định để custom */
+}
+
+.ai-summary li {
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+
+/* Custom icon bullet bằng CSS cho đẹp hơn dấu chấm tròn bình thường */
+.ai-summary li::before {
+  content: "→";
+  position: absolute;
+  left: -1.25rem;
+  color: #3b82f6; /* Màu xanh nổi bật */
+  font-weight: bold;
+}
+
+.ai-summary strong {
+  font-weight: 700;
+  color: #111827; /* Màu đen đậm để nổi bật keywords */
+  background-color: #fef08a; /* Highlight vàng nhạt nhẹ */
+  padding: 0 2px;
+  border-radius: 2px;
+}

@@ -1,0 +1,166 @@
+:host {
+  /* Biến CSS cục bộ */
+  --primary: #22c55e;
+  --primary-dark: #16a34a;
+  --primary-light: #f0fdf4;
+  --bg: #f8fafc;
+  --white: #ffffff;
+  --text: #334155;
+  --dark: #0f172a;
+  --muted: #64748b;
+  --border: #e2e8f0;
+
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: var(--text);
+  line-height: 1.6;
+  background: var(--bg);
+  display: block;
+  min-height: 100vh;
+}
+
+.container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+/* ===== BANNER MÀU XANH ===== */
+.page-header {
+  padding: 60px 0 80px;
+  background: linear-gradient(135deg, var(--primary-light) 0%, #ffffff 100%);
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+.page-header h1 { font-size: 42px; font-weight: 800; color: var(--dark); margin: 0; }
+.page-header span { color: var(--primary-dark); }
+
+/* ===== MAIN CONTENT ===== */
+.main-content { margin-top: -40px; padding-bottom: 80px; }
+
+.card {
+  background: var(--white);
+  border-radius: 24px;
+  padding: 32px;
+  margin-bottom: 24px;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+}
+
+h2 { font-size: 20px; margin: 0 0 20px; color: var(--dark); display: flex; align-items: center; gap: 10px; }
+
+/* VERB BOX TỐI ƯU */
+.verb-box { display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 10px; }
+.verb-tag {
+  background: var(--bg);
+  padding: 15px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  flex: 1;
+  min-width: 150px;
+  text-align: center;
+  transition: 0.3s;
+}
+.verb-tag:hover { border-color: var(--primary); transform: translateY(-3px); }
+.verb-label { font-size: 11px; color: var(--muted); font-weight: 700; display: block; text-transform: uppercase; margin-bottom: 4px; }
+.verb-value { font-size: 22px; font-weight: 800; color: var(--primary-dark); }
+
+/* EXAMPLE ITEM */
+.example-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--bg);
+  padding: 16px;
+  border-radius: 16px;
+  margin-top: 12px;
+  transition: 0.2s;
+}
+.example-item:hover { background: var(--primary-light); }
+
+.btn-audio {
+  background: var(--white);
+  border: 1px solid var(--border);
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; color: var(--primary-dark);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  flex-shrink: 0;
+}
+.btn-audio:hover { background: var(--primary-dark); color: white; border-color: var(--primary-dark); }
+.example-text { font-size: 16px; line-height: 1.4; }
+
+/* EXERCISE OPTIONS */
+.question-text { font-size: 17px; font-weight: 600; margin: 20px 0 12px; }
+.options { display: flex; gap: 12px; }
+.option {
+  flex: 1; padding: 14px; text-align: center;
+  background: white; border: 2px solid var(--border);
+  border-radius: 14px; cursor: pointer; font-weight: 700; transition: 0.2s;
+}
+.option:hover { border-color: var(--primary); color: var(--primary); }
+
+
+.explanation-box {
+  margin-top: 16px;
+  background: #eff6ff; /* Màu xanh dương rất nhạt */
+  border: 1px solid #dbeafe;
+  border-radius: 12px;
+  padding: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Đường viền trang trí bên trái */
+.explanation-box::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: #3b82f6; /* Màu xanh dương chủ đạo */
+}
+
+.exp-header {
+  font-weight: 700;
+  color: #1e40af; /* Xanh dương đậm */
+  font-size: 13px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.exp-content {
+  font-size: 15px;
+  color: #334155;
+  line-height: 1.6;
+}
+
+/* Hiệu ứng hiện ra từ từ */
+.fade-in {
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Class logic cho Angular */
+.option.correct { 
+  background: var(--primary-light); 
+  border-color: var(--primary); 
+  color: var(--primary-dark); 
+}
+.option.wrong { 
+  background: #fef2f2; 
+  border-color: #ef4444; 
+  color: #b91c1c; 
+}
+
+@media (max-width: 600px) {
+  .options { flex-direction: column; }
+  .verb-box { flex-direction: column; }
+}
+
+.fade-in { animation: fadeIn 0.5s ease-in; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }

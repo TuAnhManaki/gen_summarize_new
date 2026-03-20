@@ -1,0 +1,92 @@
+:host {
+  --primary: #22c55e;
+  --primary-dark: #16a34a;
+  --primary-light: #f0fdf4;
+  --bg: #f8fafc;
+  --dark: #0f172a;
+  --text: #334155;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --white: #ffffff;
+  
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  display: block;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+.container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+
+/* PAGE HEADER */
+.page-header {
+  padding: 60px 0 80px;
+  background: linear-gradient(135deg, var(--primary-light) 0%, #ffffff 100%);
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+.page-header h1 { font-size: 38px; font-weight: 800; color: var(--dark); margin: 0; }
+.word-highlight { color: var(--primary-dark); }
+
+/* MAIN CONTENT */
+.main-content { margin-top: -40px; padding-bottom: 60px; }
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 32px;
+  margin-bottom: 24px;
+  box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+}
+
+h2 { font-size: 20px; font-weight: 800; color: var(--dark); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+
+.badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 10px;
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  font-size: 13px;
+  font-weight: 700;
+  margin-right: 8px;
+  text-transform: uppercase;
+}
+
+/* EXAMPLE ITEM */
+.example-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: #f8fafc;
+  padding: 18px;
+  border-radius: 16px;
+  margin-top: 12px;
+  border-left: 4px solid var(--primary);
+}
+
+.btn-audio {
+  background: var(--white);
+  border: 1px solid var(--border);
+  width: 42px; height: 42px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; color: var(--primary-dark);
+  flex-shrink: 0; transition: 0.2s;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+.btn-audio:hover { background: var(--primary-dark); color: white; }
+
+.example-content { font-size: 16px; }
+.example-en { font-weight: 700; color: var(--dark); display: block; }
+.example-vi { color: var(--muted); font-size: 14px; font-style: italic; }
+
+.note-box {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  padding: 20px;
+  border-radius: 16px;
+  color: #92400e;
+}

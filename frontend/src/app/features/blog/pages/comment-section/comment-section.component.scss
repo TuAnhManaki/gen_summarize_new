@@ -1,0 +1,123 @@
+:host {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    color: #333;
+    --primary: #22c55e;
+    --primary-dark: #15803d;
+    --primary-light: #f0fdf4;
+    --border: #e5e7eb;
+  }
+  
+  .comment-container { background: white; 
+    margin-top: 20px;
+    padding: 20px 20px;    
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    border: 1px solid #e5e7eb;
+}
+  .header-title { font-size: 20px; font-weight: 700; margin-bottom: 20px; color: #111; }
+  
+  /* === INPUT WRAPPER === */
+  .input-wrapper { position: relative; margin-bottom: 25px; }
+  
+  textarea {
+    width: 100%; padding: 12px 40px 12px 16px;
+    border: 1px solid var(--border); background: #f9fafb;
+    border-radius: 20px; /* Bo tròn hơn cho hiện đại */
+    font-size: 14px; outline: none; resize: none;
+    font-family: inherit; transition: 0.2s; box-sizing: border-box;
+  }
+  textarea:focus { background: white; border-color: var(--primary); }
+  
+  .smile-icon { position: absolute; right: 45px; top: 12px; color: #9ca3af; font-size: 18px; cursor: pointer; }
+  .btn-send {
+    position: absolute; right: 10px; top: 8px;
+    background: none; border: none; color: var(--primary);
+    font-size: 18px; cursor: pointer;
+  }
+  
+  /* === COMMENT LIST === */
+  .comment-thread { margin-bottom: 20px; border-bottom: 1px solid #f3f4f6; padding-bottom: 20px; }
+  .comment-thread:last-child { border-bottom: none; }
+  
+  .comment-item { display: flex; gap: 12px; }
+  
+  /* Avatar */
+  .avatar {
+    width: 36px; height: 36px;
+    background: #e5e7eb; color: #4b5563;
+    font-weight: 700; font-size: 16px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .avatar.small { width: 28px; height: 28px; font-size: 13px; } /* Avatar nhỏ cho reply */
+  
+  .content-body { flex: 1; }
+  
+  .username { font-weight: 700; font-size: 14px; color: #111; margin-bottom: 2px; }
+  .text { font-size: 14px; line-height: 1.5; color: #374151; margin-bottom: 6px; }
+  
+  /* === ACTIONS === */
+  .actions { display: flex; align-items: center; gap: 15px; font-size: 13px; color: #6b7280; }
+  
+  .action-btn { cursor: pointer; display: flex; align-items: center; gap: 4px; font-weight: 500; transition: 0.2s; }
+  .action-btn:hover { color: var(--primary); }
+  
+  /* LIKE BUTTON ACTIVE STATE */
+  .like-btn.active { 
+    color: var(--primary); /* Màu xanh lá */
+    font-weight: 600;
+  }
+  /* Hiệu ứng rung nhẹ khi active */
+  .like-btn.active i { animation: pop 0.3s ease; }
+  
+  @keyframes pop {
+    50% { transform: scale(1.2); }
+  }
+  
+  .time { margin-left: auto; font-size: 12px; color: #9ca3af; }
+  
+  /* === REPLY SECTION === */
+  /* Danh sách trả lời thụt vào */
+  .replies-list {
+    margin-left: 48px; /* Thụt vào bằng chiều rộng avatar + gap */
+    margin-top: 15px;
+    border-left: 2px solid #f3f4f6;
+    padding-left: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  /* Ô nhập trả lời */
+  .reply-input-wrapper {
+    margin-top: 10px;
+    display: flex; gap: 10px;
+    animation: fadeIn 0.2s;
+  }
+  .reply-input-wrapper textarea {
+    padding: 8px 12px; border-radius: 8px; font-size: 13px;
+  }
+  .btn-reply-send {
+    background: var(--primary); color: white; border: none;
+    padding: 0 15px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer;
+    white-space: nowrap;
+  }
+  
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
+  
+  /* === UTILS === */
+  .btn-load-more {
+    width: 100%; padding: 10px; background: var(--primary-light); color: var(--primary-dark);
+    border: none; border-radius: 8px; font-weight: 700; font-size: 14px; cursor: pointer;
+  }
+  .btn-load-more:hover { background: #dcfce7; }
+  
+  /* Login Tooltip (Giữ nguyên từ bài trước) */
+  .login-tooltip { position: absolute; top: 110%; left: 0; z-index: 10; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1)); }
+  .tooltip-content { background: white; padding: 16px; border-radius: 8px; border: 1px solid var(--border); min-width: 220px; }
+  .tooltip-actions { display: flex; gap: 8px; margin-top: 10px; }
+  .btn-login { background: var(--primary); color: white; border: none; padding: 6px 12px; border-radius: 6px; font-size: 13px; cursor: pointer; }
+  .btn-close { background: #f3f4f6; color: #4b5563; border: none; padding: 6px 12px; border-radius: 6px; font-size: 13px; cursor: pointer; }
+  .tooltip-arrow { position: absolute; top: -6px; left: 20px; width: 12px; height: 12px; background: white; transform: rotate(45deg); border-left: 1px solid var(--border); border-top: 1px solid var(--border); }

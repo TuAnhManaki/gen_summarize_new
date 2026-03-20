@@ -1,0 +1,85 @@
+<div class="hero">
+  <div class="container">
+    <span class="hero-badge">Day 22: Intensive Listening</span>
+    <h1>Luyện nghe video: Making Decisions</h1>
+  </div>
+</div>
+
+<main class="container main-content">
+
+  <div class="video-block">
+    <video #videoPlayer 
+           (timeupdate)="onTimeUpdate()" 
+           controls 
+           [poster]="posterSrc">
+      <source [src]="videoSrc" type="video/mp4">
+      Trình duyệt không hỗ trợ thẻ video.
+    </video>
+  </div>
+
+  <div class="transcript-content" 
+     *ngIf="isTranscriptOpen" 
+     #transcriptContainer> <div *ngFor="let line of transcriptData; let i = index" 
+       id="line-{{i}}" 
+       class="transcript-row"
+       [class.active]="i === currentLineIndex"
+       (click)="seekTo(line.start)">
+       
+    <div class="time-stamp">{{ line.start | number:'1.0-0' }}s</div>
+    <div class="text-group">
+      <div class="en-text">{{ line.jp }}</div>
+      <div class="vi-text">{{ line.vi }}</div>
+    </div>
+  </div>
+
+</div>
+
+  <div class="block">
+    <div class="badge-step">Phần 1</div>
+    <h2><i class="fas fa-list-check"></i> Comprehension Quiz</h2>
+    
+    <div class="quiz-grid">
+      <div class="quiz-card">
+        <p>1. {{ quiz.question }}</p>
+        
+        <label class="option" *ngFor="let opt of quiz.options" 
+               [class.selected]="selectedQuizOption === opt.value">
+          <input type="radio" name="quiz" [value]="opt.value" [(ngModel)]="selectedQuizOption"> 
+          {{ opt.label }}
+        </label>
+      </div>
+    </div>
+
+    <button class="btn btn-primary" style="margin-top: 20px;" (click)="checkQuiz()">
+      Kiểm tra đáp án
+    </button>
+    
+    <div class="feedback-msg" *ngIf="quizFeedback.type" [ngClass]="quizFeedback.type">
+      {{ quizFeedback.msg }}
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="badge-step">Phần 2</div>
+    <h2><i class="fas fa-pen-nib"></i> Gap Fill Challenge</h2>
+    
+    <div class="gap-fill-area">
+      <p>
+        The 10-10-10 rule helps you gain a <strong>(1)</strong> 
+        <input type="text" class="gap-input" placeholder="..." 
+               [(ngModel)]="gapInput" 
+               (keyup.enter)="checkGapFill()"> 
+        perspective.
+      </p>
+    </div>
+
+    <button class="btn btn-primary" style="margin-top: 20px;" (click)="checkGapFill()">
+      Kiểm tra điền từ
+    </button>
+
+    <div class="feedback-msg" *ngIf="gapFeedback.type" [ngClass]="gapFeedback.type">
+      {{ gapFeedback.msg }}
+    </div>
+  </div>
+
+</main>

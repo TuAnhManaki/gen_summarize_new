@@ -1,0 +1,6 @@
+package com.btc.summarize_new.common;
+
+public class HeaderNames {
+    public static final String USER_ID = "X-User-Id";
+    public static final String USER_ROLE = "X-User-Role";
+}

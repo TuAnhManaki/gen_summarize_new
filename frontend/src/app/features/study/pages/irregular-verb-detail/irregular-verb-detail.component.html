@@ -1,0 +1,84 @@
+<div *ngIf="verbData" class="fade-in">
+
+  <section class="page-header">
+    <div class="container">
+      <h1>Irregular Verb: <span>{{ verbData.v1 }}</span></h1>
+      <p style="color: var(--muted); margin-top: 10px;">
+        {{ verbData.detail.context }}
+      </p>
+    </div>
+  </section>
+
+  <main class="container main-content">
+
+    <div class="card">
+      <h2>
+        <i class="fas fa-layer-group" style="color:var(--primary)"></i> 
+        Các dạng của động từ
+      </h2>
+      <div class="verb-box">
+        <div class="verb-tag">
+          <span class="verb-label">V1 - Hiện tại</span>
+          <span class="verb-value">{{ verbData.v1 }}</span>
+        </div>
+        <div class="verb-tag">
+          <span class="verb-label">V2 - Quá khứ</span>
+          <span class="verb-value">{{ verbData.v2 }}</span>
+        </div>
+        <div class="verb-tag">
+          <span class="verb-label">V3 - Phân từ</span>
+          <span class="verb-value">{{ verbData.v3 }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>
+        <i class="fas fa-comment-dots" style="color:#3b82f6"></i> 
+        Ví dụ giao tiếp
+      </h2>
+      
+      <div class="example-item" *ngFor="let ex of verbData.detail.examples">
+        <button class="btn-audio" (click)="speak(ex.en)">
+          <i class="fas fa-volume-up"></i>
+        </button>
+        <div class="example-text">
+          <div style="font-weight: 700; color: var(--dark);" [innerHTML]="ex.enHtml"></div>
+          <div style="font-size: 14px; color: var(--muted);">{{ ex.vi }}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>
+        <i class="fas fa-tasks" style="color:#f59e0b"></i> 
+        Luyện tập
+      </h2>
+      
+      <div class="question-group" 
+           *ngFor="let exercise of verbData.detail.exercises; let i = index" 
+           [style.margin-top.px]="i > 0 ? 30 : 0">
+        
+        <p class="question-text">{{ i + 1 }}. {{ exercise.question }}</p>
+        
+        <div class="options">
+          <div class="option" 
+               *ngFor="let opt of exercise.options"
+               [ngClass]="getOptionClass(i, opt)"
+               (click)="checkAnswer(i, opt)">
+            {{ opt }}
+          </div>
+        </div>
+    
+        <div *ngIf="userAnswers[i] && exercise.explanation" class="explanation-box fade-in">
+          <div class="exp-header">
+            <i class="fas fa-lightbulb"></i> Giải thích chi tiết:
+          </div>
+          <div class="exp-content" [innerHTML]="exercise.explanation"></div>
+        </div>
+    
+      </div>
+    </div>
+
+  </main>
+</div>

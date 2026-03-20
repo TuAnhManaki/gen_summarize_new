@@ -1,0 +1,101 @@
+<div class="edit-container">
+    <div class="header">
+      <h2>Chỉnh sửa bài viết</h2>
+      <div class="actions">
+        <button class="btn-cancel" routerLink="/blog/admin/posts">Quay lại</button>
+        <button class="btn-save" (click)="onSubmit()" [disabled]="isLoading">
+          {{ isLoading ? 'Đang lưu...' : 'Lưu thay đổi' }}
+        </button>
+      </div>
+    </div>
+  
+    <form [formGroup]="editForm" class="form-grid">
+      
+      <div class="main-col">
+        <div class="card">
+          <div class="form-group">
+            <label>Tiêu đề</label>
+            <input type="text" formControlName="title" placeholder="Nhập tiêu đề bài viết...">
+          </div>
+          
+          <div class="form-group">
+            <label>Slug (URL)</label>
+            <input type="text" formControlName="slug" class="slug-input">
+          </div>
+  
+          <div class="form-group">
+            <label>Nội dung</label>
+            <textarea formControlName="content" rows="15" placeholder="Nội dung HTML..."></textarea>
+          </div>
+          
+          <div class="form-group" formGroupName="metaData">
+              <label>Tóm tắt (Summary)</label>
+              <textarea formControlName="summary" rows="3"></textarea>
+          </div>
+        </div>
+  
+        <div class="card" formGroupName="metaData">
+          <h3>Cấu hình SEO</h3>
+          <div formGroupName="seo">
+            <div class="form-group">
+              <label>SEO Title / Keywords</label>
+              <input type="text" formControlName="keywords" placeholder="frontend, angular...">
+            </div>
+            <div class="form-group">
+              <label>SEO Description</label>
+              <textarea formControlName="description" rows="2"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="side-col">
+        
+        <div class="card">
+          <h3>Xuất bản</h3>
+          <div class="form-group">
+              <label>Trạng thái</label>
+              <select formControlName="status">
+                  <option value="DRAFT">Bản nháp</option>
+                  <option value="PUBLISHED">Công khai</option>
+                  <option value="ARCHIVED">Lưu trữ</option>
+              </select>
+          </div>
+          
+          <div class="form-group">
+              <label>Danh mục</label>
+              <select formControlName="categoryId">
+                  <option [ngValue]="null">-- Chọn danh mục --</option>
+                  <option *ngFor="let cat of categories" [ngValue]="cat.id">
+                      {{ cat.name }}
+                  </option>
+              </select>
+          </div>
+        </div>
+  
+        <div class="card" formGroupName="metaData">
+          <h3>Thông tin khác</h3>
+          
+          <div class="form-group">
+              <label>Thumbnail URL</label>
+              <input type="text" formControlName="thumbnail">
+              <div class="img-preview" *ngIf="editForm.get('metaData.thumbnail')?.value">
+                  <img [src]="editForm.get('metaData.thumbnail')?.value">
+              </div>
+          </div>
+  
+          <div class="form-group">
+              <label>Tags (cách nhau bởi dấu phẩy)</label>
+              <input type="text" formControlName="tags" placeholder="Technology, Angular, AI">
+          </div>
+  
+          <div class="form-group">
+              <label>Thời gian đọc (phút)</label>
+              <input type="number" formControlName="readingTime">
+          </div>
+        </div>
+  
+      </div>
+  
+    </form>
+  </div>

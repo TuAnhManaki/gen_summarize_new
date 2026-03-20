@@ -1,0 +1,199 @@
+<div class="lesson-header">
+  <div class="container">
+    <span class="badge">{{ grammarDetail?.badge }}</span>
+    <h1>{{ grammarDetail?.title }}</h1>
+    <p class="page-desc">{{ grammarDetail?.description }}</p>
+  </div>
+</div>
+
+<main class="lesson-content container">
+  <div class="main-article">
+    <section id="usage">
+      <h2>01. Khi nào cần sử dụng?</h2>
+      <div class="card">
+        <p>
+          {{ grammarDetail?.desUse }}
+        </p>
+        <div class="usage-grid">
+          <div
+            class="usage-item"
+            *ngFor="let item of grammarDetail?.overview?.whenToUse"
+          >
+            ✅ {{ item }}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="formula">
+      <h2>02. Cấu trúc câu chuẩn</h2>
+      <div class="card">
+        <div class="structure-item">
+          <span class="structure-label">Khẳng định</span>
+          <div class="formula">
+            {{ grammarDetail?.overview?.structures?.affirmative }}
+          </div>
+        </div>
+        <div class="structure-item">
+          <span class="structure-label">Phủ định</span>
+          <div class="formula">
+            {{ grammarDetail?.overview?.structures?.negative }}
+          </div>
+        </div>
+        <div class="structure-item">
+          <span class="structure-label">Câu hỏi</span>
+          <div class="formula">
+            {{ grammarDetail?.overview?.structures?.question }}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="examples">
+      <h2>03. Ví dụ thực tế</h2>
+      <div class="card">
+        <div
+          class="example-box"
+          *ngFor="let item of grammarDetail?.overview?.examples"
+          (click)="playAudio(item.en)"
+        >
+          <div class="play-btn">▶</div>
+          <div>
+            <span class="ex-en">{{ item.en }}</span>
+            <span class="ex-vi">{{ item.vi }}</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="exercises">
+      <h2>04. Thực hành ngay</h2>
+      <div class="card">
+        <div *ngFor="let ex of exercises; let i = index" class="quiz-item">
+          <p class="quiz-question">
+            <strong>Câu {{ i + 1 }}:</strong> {{ ex.question }}
+          </p>
+
+          <!-- FILL BLANK giữ nguyên -->
+          <div *ngIf="ex.type === 'FILL_BLANK'">
+            <input
+              type="text"
+              [(ngModel)]="ex.userAnswer"
+              [disabled]="ex.status !== undefined"
+              [class.input-correct]="ex.status === 'correct'"
+              [class.input-wrong]="ex.status === 'wrong'"
+            />
+
+            <div *ngIf="ex.status === 'wrong'" class="feedback-text">
+              Đáp án đúng: <strong>{{ ex.answer }}</strong>
+            </div>
+          </div>
+
+          <!-- MULTIPLE CHOICE -->
+          <div *ngIf="ex.type === 'MULTIPLE_CHOICE'" class="quiz-options">
+            <label
+              *ngFor="let opt of ex.options"
+              class="option-label"
+              [class.option-correct]="
+                ex.status === 'correct' && opt === ex.userAnswer
+              "
+              [class.option-wrong]="
+                ex.status === 'wrong' && opt === ex.userAnswer
+              "
+              [class.option-true]="ex.status === 'wrong' && opt === ex.answer"
+            >
+              <input
+                type="radio"
+                [name]="'question-' + i"
+                [value]="opt"
+                [(ngModel)]="ex.userAnswer"
+                [disabled]="ex.status !== undefined"
+              />
+
+              <span class="option-text">{{ opt }}</span>
+            </label>
+
+            <div *ngIf="ex.status === 'wrong'" class="feedback-text">
+              Đáp án đúng: <strong>{{ ex.answer }}</strong>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn btn-outline" (click)="checkAnswer()">
+          Kiểm tra đáp án
+        </button>
+      </div>
+    </section>
+
+    <div class="cta-fixed">
+      <button class="btn btn-primary">🎤 Luyện nói với AI</button>
+      <div *ngIf="nextLesson" class="flex justify-end">
+        <a
+          [routerLink]="['/danh-muc/cac_thi_co_ban', nextLesson.slug]"
+          class="group inline-flex cursor-pointer items-center justify-between gap-3 rounded-2xl border-2 border-slate-800 bg-white px-6 py-4 no-underline shadow-sm transition-all hover:bg-slate-50 hover:shadow-md"
+        >
+          <span class="text-lg font-bold text-slate-800">
+            Tiếp theo: {{ nextLesson.name }}
+          </span>
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="2.5"
+            stroke="currentColor"
+            class="h-5 w-5 text-slate-800 transition-transform group-hover:translate-x-1"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+            />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="side-nav">
+      <h4>Nội dung bài học</h4>
+
+      <a
+        (click)="scrollTo('usage')"
+        [class.active]="currentSection === 'usage'"
+        style="cursor: pointer"
+      >
+        01. Cách dùng
+      </a>
+
+      <a
+        (click)="scrollTo('formula')"
+        [class.active]="currentSection === 'formula'"
+        style="cursor: pointer"
+      >
+        02. Cấu trúc
+      </a>
+
+      <a
+        (click)="scrollTo('examples')"
+        [class.active]="currentSection === 'examples'"
+        style="cursor: pointer"
+      >
+        03. Ví dụ
+      </a>
+
+      <a
+        (click)="scrollTo('exercises')"
+        [class.active]="currentSection === 'exercises'"
+        style="cursor: pointer"
+      >
+        04. Bài tập
+      </a>
+    </div>
+
+    <div class="note-box" *ngIf="grammarDetail?.note">
+      <strong>Lưu ý:</strong> {{ grammarDetail?.note }}
+    </div>
+  </aside>
+</main>

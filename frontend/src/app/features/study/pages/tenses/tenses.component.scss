@@ -1,0 +1,234 @@
+/* =========================================
+   1. VARIABLES & CONFIG
+   ========================================= */
+$primary: #22c55e;
+$primary-dark: #16a34a;
+$primary-light: #f0fdf4;
+$bg-color: #f8fafc;
+$dark: #0f172a;
+$text: #334155;
+$muted: #64748b;
+$border: #e2e8f0;
+$white: #ffffff;
+$font-stack: "Inter", system-ui, -apple-system, sans-serif;
+
+/* =========================================
+      2. GLOBAL STYLES
+      ========================================= */
+body {
+  margin: 0;
+  background: $bg-color;
+  color: $text;
+  line-height: 1.6;
+  font-family: $font-stack;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* =========================================
+      3. HEADER & NAV
+      ========================================= */
+header {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid $border;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  .menu {
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-weight: 800;
+    color: $primary-dark;
+    font-size: 22px;
+    letter-spacing: -0.5px;
+  }
+
+  nav {
+    display: flex;
+    gap: 24px;
+
+    a {
+      font-size: 15px;
+      font-weight: 500;
+      color: $text;
+      transition: 0.3s;
+
+      &:hover {
+        color: $primary-dark;
+      }
+    }
+  }
+}
+
+/* =========================================
+      4. PAGE HEADER (HERO)
+      ========================================= */
+.page-header {
+  padding: 80px 0 60px;
+  background: linear-gradient(135deg, #e8f5e9 0%, #ffffff 100%);
+  text-align: center;
+
+  h1 {
+    font-size: 42px;
+    font-weight: 800;
+    color: $dark;
+    margin: 0;
+    letter-spacing: -1px;
+  }
+
+  .page-desc {
+    margin: 15px auto 0;
+    max-width: 650px;
+    font-size: 18px;
+    color: $text;
+    opacity: 0.9;
+  }
+}
+
+/* =========================================
+      5. GRID SYSTEM
+      ========================================= */
+.grid {
+  display: grid;
+  gap: 30px;
+  margin-top: -40px; /* Hiệu ứng đè lên header */
+  padding-bottom: 80px;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* =========================================
+   6. CARD COMPONENT (STRICT ALIGNMENT)
+   ========================================= */
+.card {
+  background: $white;
+  border: 1px solid $border;
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Cấu trúc dọc */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+    border-color: $primary;
+  }
+
+  /* --- 1. Badge (Nhãn) --- */
+  .badge {
+    display: inline-block;
+    font-size: 11px;
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+
+    /* SỬA Ở ĐÂY: Giảm khoảng cách với Title */
+    margin-bottom: 8px;
+
+    align-self: flex-start;
+
+    &-hot {
+      background: #dcfce7;
+      color: #166534;
+    }
+    &-normal {
+      background: #fef3c7;
+      color: #92400e;
+    }
+    &-pro {
+      background: #f1f5f9;
+      color: #475569;
+    }
+  }
+
+  /* 2. TITLE: Căn lên trên cùng */
+  h3 {
+    margin: 0 0 12px;
+    font-size: 20px;
+    font-weight: 800;
+    color: $dark;
+
+    min-height: 54px;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .use {
+    font-size: 15px;
+    color: $muted;
+    margin-bottom: 20px;
+    min-height: 96px;
+  }
+
+  .formula {
+    background: $bg-color;
+    padding: 10px 15px;
+    border-radius: 12px;
+    font-family: "Courier New", monospace;
+    font-size: 13px;
+    font-weight: 600;
+    color: $primary-dark;
+    margin-bottom: 20px;
+
+    min-height: 42px;
+    display: flex;
+    align-items: center; /* Căn giữa công thức theo chiều dọc */
+  }
+
+  /* --- 5. Ví dụ (.example) --- */
+  /* Dùng margin-top: auto để đẩy xuống đáy card, lấp đầy khoảng trống còn lại */
+  .example {
+    margin-top: auto;
+    padding: 16px;
+    background: $primary-light;
+    border-radius: 16px;
+    border-left: 4px solid $primary;
+
+    /* Cho phép box ví dụ giãn nở tự do theo nội dung */
+    flex-grow: 1;
+
+    &-en {
+      display: block;
+      font-weight: 700;
+      color: $dark;
+      font-size: 16px;
+    }
+
+    &-vi {
+      display: block;
+      color: $muted;
+      font-size: 14px;
+      margin-top: 4px;
+      font-style: italic;
+    }
+  }
+}

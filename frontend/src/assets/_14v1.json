@@ -1,0 +1,1162 @@
+[
+  {
+    "start": 186.55,
+    "end": 188.55,
+    "vi": "(Ngọc Diệp Phi) Uffufu.",
+    "jp_tokens": [
+      {
+        "text": "玉葉妃",
+        "furigana": "ぎょくようひ",
+        "romaji": "Gyokuyouhi",
+        "meaning": "Ngọc Diệp Phi",
+        "type": "Danh từ riêng",
+        "grammar": null
+      },
+      {
+        "text": "ウッフフ",
+        "furigana": "ウッフフ",
+        "romaji": "uffufu",
+        "meaning": "Tiếng cười",
+        "type": "Từ tượng thanh",
+        "grammar": null
+      }
+    ]
+  },
+  {
+    "start": 188.55,
+    "end": 192.06,
+    "vi": "(Hồng Nương) Người nghiêm túc chứ? (Ngọc Diệp Phi) Đương nhiên.",
+    "jp_tokens": [
+      {
+        "text": "本気",
+        "furigana": "ほんき",
+        "romaji": "honki",
+        "meaning": "nghiêm túc, thật lòng",
+        "type": "Danh từ / Tính từ đuôi Na",
+        "grammar": null
+      },
+      {
+        "text": "です",
+        "furigana": "です",
+        "romaji": "desu",
+        "meaning": "là",
+        "type": "Trợ động từ",
+        "grammar": "Lịch sự"
+      },
+      {
+        "text": "か",
+        "furigana": "か",
+        "romaji": "ka",
+        "meaning": "?",
+        "type": "Trợ từ",
+        "grammar": "Nghi vấn"
+      },
+      {
+        "text": "もちろん",
+        "furigana": "もちろん",
+        "romaji": "mochiron",
+        "meaning": "đương nhiên, tất nhiên",
+        "type": "Trạng từ",
+        "grammar": null
+      }
+    ]
+  },
+  {
+    "start": 192.06,
+    "end": 195.56,
+    "vi": "Khó khăn lắm Maomao mới quay lại mà.",
+    "jp_tokens": [
+      {
+        "text": "せっかく",
+        "furigana": "せっかく",
+        "romaji": "sekkaku",
+        "meaning": "khó khăn lắm mới / cất công",
+        "type": "Trạng từ",
+        "grammar": null
+      },
+      {
+        "text": "猫猫",
+        "furigana": "マオマオ",
+        "romaji": "Maomao",
+        "meaning": "Maomao (Miêu Miêu)",
+        "type": "Danh từ riêng",
+        "grammar": null
+      },
+      {
+        "text": "が",
+        "furigana": "が",
+        "romaji": "ga",
+        "meaning": "thì/là",
+        "type": "Trợ từ",
+        "grammar": "Chủ ngữ"
+      },
+      {
+        "text": "戻ってきて",
+        "furigana": "もどってきて",
+        "romaji": "modottekite",
+        "meaning": "quay trở lại",
+        "type": "Động từ ghép",
+        "grammar": "Thể Te (Tiếp diễn/Nối)"
+      },
+      {
+        "text": "くれた",
+        "furigana": "くれた",
+        "romaji": "kureta",
+        "meaning": "đã (làm cho tôi)",
+        "type": "Động từ bổ trợ",
+        "grammar": "Quá khứ"
+      },
+      {
+        "text": "んだ",
+        "furigana": "んだ",
+        "romaji": "nda",
+        "meaning": "bởi vì / giải thích",
+        "type": "Ngữ pháp",
+        "grammar": "Nhấn mạnh lý do"
+      },
+      {
+        "text": "もの",
+        "furigana": "もの",
+        "romaji": "mono",
+        "meaning": "mà / cơ mà",
+        "type": "Trợ từ",
+        "grammar": "Vĩ tố (nữ tính/lý do)"
+      }
+    ]
+  },
+  {
+    "start": 199.57,
+    "end": 201.53,
+    "vi": "(Maomao) <<Chỉ thế này thôi sao>>",
+    "jp_tokens": [
+      {
+        "text": "こんな",
+        "furigana": "こんな",
+        "romaji": "konna",
+        "meaning": "như thế này",
+        "type": "Từ chỉ định",
+        "grammar": null
+      },
+      {
+        "text": "もの",
+        "furigana": "もの",
+        "romaji": "mono",
+        "meaning": "thứ / cái",
+        "type": "Danh từ",
+        "grammar": null
+      },
+      {
+        "text": "か",
+        "furigana": "か",
+        "romaji": "ka",
+        "meaning": "sao/hả",
+        "type": "Trợ từ",
+        "grammar": "Nghi vấn tự hỏi"
+      }
+    ]
+  },
+  {
+    "start": 201.53,
+    "end": 206.10,
+    "vi": "<<Khác với Hậu cung, Ngoại đình chẳng có mấy thảo dược mọc>>",
+    "jp_tokens": [
+      {
+        "text": "後宮",
+        "furigana": "こうきゅう",
+        "romaji": "koukyuu",
+        "meaning": "Hậu cung",
+        "type": "Danh từ",
+        "grammar": null
+      },
+      {
+        "text": "と",
+        "furigana": "と",
+        "romaji": "to",
+        "meaning": "với",
+        "type": "Trợ từ",
+        "grammar": null
+      },
+      {
+        "text": "違って",
+        "furigana": "ちがって",
+        "romaji": "chigatte",
+        "meaning": "khác",
+        "type": "Động từ",
+        "grammar": "Thể Te"
+      },
+      {
+        "text": "外廷",
+        "furigana": "がいてい",
+        "romaji": "gaitei",
+        "meaning": "Ngoại đình",
+        "type": "Danh từ",
+        "grammar": null
+      },
+      {
+        "text": "は",
+        "furigana": "は",
+        "romaji": "wa",
+        "meaning": "thì",
+        "type": "Trợ từ",
+        "grammar": "Chủ đề"
+      },
+      {
+        "text": "ろくに",
+        "furigana": "ろくに",
+        "romaji": "rokuni",
+        "meaning": "không... ra hồn / chẳng mấy",
+        "type": "Phó từ",
+        "grammar": "Đi với phủ định"
+      },
+      {
+        "text": "薬草",
+        "furigana": "やくそう",
+        "romaji": "yakusou",
+        "meaning": "thảo dược",
+        "type": "Danh từ",
+        "grammar": null
+      },
+      {
+        "text": "が",
+        "furigana": "が",
+        "romaji": "ga",
+        "meaning": "thì/là",
+        "type": "Trợ từ",
+        "grammar": null
+      },
+      {
+        "text": "生えてない",
+        "furigana": "はえてない",
+        "romaji": "haetenai",
+        "meaning": "không mọc",
+        "type": "Động từ",
+        "grammar": "Phủ định (V-te iru dạng rút gọn)"
+      }
+    ]
+  },
+  {
+    "start": 206.10,
+    "end": 208.14,
+    "vi": "<<Phải nhân giống dần dần thôi>>",
+    "jp_tokens": [
+      {
+        "text": "少しずつ",
+        "furigana": "すこしずつ",
+        "romaji": "sukoshizutsu",
+        "meaning": "từng chút một / dần dần",
+        "type": "Phó từ",
+        "grammar": null
+      },
+      {
+        "text": "増やさない",
+        "furigana": "ふやさない",
+        "romaji": "fuyasanai",
+        "meaning": "không làm tăng lên",
+        "type": "Động từ",
+        "grammar": "Thể Nai (Phủ định)"
+      },
+      {
+        "text": "と",
+        "furigana": "と",
+        "romaji": "to",
+        "meaning": "nếu không... (phải...)",
+        "type": "Trợ từ",
+        "grammar": "Câu điều kiện (nghĩa bắt buộc)"
+      }
+    ]
+  },
+  {
+    "start": 208.14,
+    "end": 210.54,
+    "vi": "(Thủy Liên) Tiểu Miêu. Hự...",
+    "jp_tokens": [
+      {
+        "text": "小猫",
+        "furigana": "シャオマオ",
+        "romaji": "Shaomao",
+        "meaning": "Tiểu Miêu (bé mèo)",
+        "type": "Danh từ riêng",
+        "grammar": null
+      },
+      {
+        "text": "うっ",
+        "furigana": "うっ",
+        "romaji": "u",
+        "meaning": "Á/Hự (tiếng rên)",
+        "type": "Thán từ",
+        "grammar": null
+      }
+    ]
+  },
+  {
+    "start": 210.54,
+    "end": 214.55,
+    "vi": "Ta nhớ việc ta nhờ là dọn dẹp phòng làm việc cơ mà nhỉ.",
+    "jp_tokens": [
+      {
+        "text": "掃除",
+        "furigana": "そうじ",
+        "romaji": "souji",
+        "meaning": "dọn dẹp",
+        "type": "Danh từ",
+        "grammar": null
+      },
+      {
+        "text": "を",
+        "furigana": "を",
+        "romaji": "o",
+        "meaning": "thì",
+        "type": "Trợ từ",
+        "grammar": "Tân ngữ"
+      },
+      {
+        "text": "頼んだ",
+        "furigana": "たのんだ",
+        "romaji": "tanonda",
+        "meaning": "đã nhờ cậy",
+        "type": "Động từ",
+        "grammar": "Quá khứ"
+      },
+      {
+        "text": "の",
+        "furigana": "の",
+        "romaji": "no",
+        "meaning": "cái việc",
+        "type": "Trợ từ",
+        "grammar": "Danh từ hóa"
+      },
+      {
+        "text": "は",
+        "furigana": "は",
+        "romaji": "wa",
+        "meaning": "là",
+        "type": "Trợ từ",
+        "grammar": "Chủ đề"
+      },
+      {
+        "text": "執務室",
+        "furigana": "しつむしつ",
+        "romaji": "shitsumushitsu",
+        "meaning": "phòng làm việc/văn phòng",
+        "type": "Danh từ",
+        "grammar": null
+      },
+      {
+        "text": "じゃなかった",
+        "furigana": "じゃなかった",
+        "romaji": "janakatta",
+        "meaning": "chẳng phải là... sao",
+        "type": "Cụm từ",
+        "grammar": "Phủ định quá khứ"
+      },
+      {
+        "text": "かしら",
+        "furigana": "かしら",
+        "romaji": "kashira",
+        "meaning": "nhỉ/phải không (nữ)",
+        "type": "Trợ từ",
+        "grammar": "Nghi vấn"
+      }
+    ]
+  },
+  {
+    "start": 214.55,
+    "end": 216.55,
+    "vi": "Tôi đi ngay đây.",
+    "jp_tokens": [
+      {
+        "text": "すぐ",
+        "furigana": "すぐ",
+        "romaji": "sugu",
+        "meaning": "ngay lập tức",
+        "type": "Trạng từ",
+        "grammar": null
+      },
+      {
+        "text": "行きます",
+        "furigana": "いきます",
+        "romaji": "ikimasu",
+        "meaning": "đi",
+        "type": "Động từ",
+        "grammar": "Lịch sự (Masu)"
+      }
+    ]
+  },
+  {
+    "start": 216.55,
+    "end": 220.02,
+    "vi": "Soạt soạt... Nghịch đất vừa vừa thôi nhé.",
+    "jp_tokens": [
+      {
+        "text": "土いじり",
+        "furigana": "つちいじり",
+        "romaji": "tsuchiijiri",
+        "meaning": "nghịch đất/làm vườn",
+        "type": "Danh từ",
+        "grammar": null
+      },
+      {
+        "text": "は",
+        "furigana": "は",
+        "romaji": "wa",
+        "meaning": "thì",
+        "type": "Trợ từ",
+        "grammar": null
+      },
+      {
+        "text": "ほどほど",
+        "furigana": "ほどほど",
+        "romaji": "hodohodo",
+        "meaning": "chừng mực/vừa phải",
+        "type": "Tính từ đuôi Na/Danh từ",
+        "grammar": null
+      },
+      {
+        "text": "に",
+        "furigana": "に",
+        "romaji": "ni",
+        "meaning": "một cách...",
+        "type": "Trợ từ",
+        "grammar": "Tạo phó từ"
+      },
+      {
+        "text": "ね",
+        "furigana": "ね",
+        "romaji": "ne",
+        "meaning": "nhé",
+        "type": "Trợ từ",
+        "grammar": "Cảm thán"
+      }
+    ]
+  },
+  {
+    "start": 220.02,
+    "end": 222.05,
+    "vi": "<<Đáng gờm thật>>",
+    "jp_tokens": [
+      {
+        "text": "手ごわい",
+        "furigana": "てごわい",
+        "romaji": "tegowai",
+        "meaning": "đáng gờm, khó chơi",
+        "type": "Tính từ đuôi I",
+        "grammar": null
+      }
+    ]
+  },
+  {
+    "start": 222.05,
+    "end": 225.02,
+    "vi": "(Nhâm Thị) Có chuyện gì thế? (Cao Thuận) Ai biết ạ.",
+    "jp_tokens": [
+      {
+        "text": "どういう",
+        "furigana": "どういう",
+        "romaji": "douiu",
+        "meaning": "thế nào/kiểu gì",
+        "type": "Từ nghi vấn",
+        "grammar": null
+      },
+      {
+        "text": "こと",
+        "furigana": "こと",
+        "romaji": "koto",
+        "meaning": "chuyện/việc",
+        "type": "Danh từ",
+        "grammar": null
+      },
+      {
+        "text": "だ",
+        "furigana": "だ",
+        "romaji": "da",
+        "meaning": "là",
+        "type": "Trợ động từ",
+        "grammar": "Khẳng định"
+      },
+      {
+        "text": "さぁ",
+        "furigana": "さぁ",
+        "romaji": "saa",
+        "meaning": "Ai mà biết/Chà...",
+        "type": "Thán từ",
+        "grammar": null
+      }
+    ]
+  },
+  {
+    "start": 236.54,
+    "end": 241.04,
+    "vi": "Ngươi có biết việc ở Chá Lựu Cung đã có Thục Phi mới chuyển vào không?",
+    "jp_tokens": [
+      {
+        "text": "柘榴宮",
+        "furigana": "ざくろきゅう",
+        "romaji": "Zakurokyuu",
+        "meaning": "Chá Lựu Cung",
+        "type": "Danh từ riêng",
+        "grammar": null
+      },
+      {
+        "text": "に",
+        "furigana": "に",
+        "romaji": "ni",
+        "meaning": "ở/vào",
+        "type": "Trợ từ",
+        "grammar": null
+      },
+      {
+        "text": "新しい",
+        "furigana": "あたらしい",
+        "romaji": "atarashii",
+        "meaning": "mới",
+        "type": "Tính từ đuôi I",
+        "grammar": null
+      },
+      {
+        "text": "淑妃",
+        "furigana": "しゅくひ",
+        "romaji": "Shukuhi",
+        "meaning": "Thục Phi",
+        "type": "Danh từ",
+        "grammar": null
+      },
+      {
+        "text": "が",
+        "furigana": "が",
+        "romaji": "ga",
+        "meaning": "thì",
+        "type": "Trợ từ",
+        "grammar": "Chủ ngữ"
+      },
+      {
+        "text": "入った",
+        "furigana": "はいった",
+        "romaji": "haitta",
+        "meaning": "đã vào",
+        "type": "Động từ",
+        "grammar": "Quá khứ"
+      },
+      {
+        "text": "こと",
+        "furigana": "こと",
+        "romaji": "koto",
+        "meaning": "việc/sự thật",
+        "type": "Danh từ",
+        "grammar": "Danh từ hóa"
+      },
+      {
+        "text": "は",
+        "furigana": "は",
+        "romaji": "wa",
+        "meaning": "thì",
+        "type": "Trợ từ",
+        "grammar": "Chủ đề"
+      },
+      {
+        "text": "知っている",
+        "furigana": "しっている",
+        "romaji": "shitteiru",
+        "meaning": "biết",
+        "type": "Động từ",
+        "grammar": "Tiếp diễn (Trạng thái)"
+      },
+      {
+        "text": "か",
+        "furigana": "か",
+        "romaji": "ka",
+        "meaning": "?",
+        "type": "Trợ từ",
+        "grammar": "Nghi vấn"
+      }
+    ]
+  },
+  {
+    "start": 242.54,
+    "end": 246.01,
+    "vi": "<<Người kế nhiệm của A Đa Phi đã rời đi sao>>",
+    "jp_tokens": [
+      {
+        "text": "いなくなった",
+        "furigana": "いなくなった",
+        "romaji": "inakunatta",
+        "meaning": "đã không còn/rời đi",
+        "type": "Động từ",
+        "grammar": "Quá khứ"
+      },
+      {
+        "text": "阿多妃",
+        "furigana": "あーどぅおひ",
+        "romaji": "Aaduohi",
+        "meaning": "A Đa Phi",
+        "type": "Danh từ riêng",
+        "grammar": null
+      },
+      {
+        "text": "の",
+        "furigana": "の",
+        "romaji": "no",
+        "meaning": "của",
+        "type": "Trợ từ",
+        "grammar": "Sở hữu"
+      },
+      {
+        "text": "後釜",
+        "furigana": "あとがま",
+        "romaji": "atogama",
+        "meaning": "người kế nhiệm/thay thế",
+        "type": "Danh từ",
+        "grammar": null
+      },
+      {
+        "text": "か",
+        "furigana": "か",
+        "romaji": "ka",
+        "meaning": "hả",
+        "type": "Trợ từ",
+        "grammar": "Tự vấn"
+      }
+    ]
+  },
+  {
+    "start": 248.05,
+    "end": 253.12,
+    "vi": "Nghe nói Hậu cung muốn giáo dục phi tần cho cô ấy, nên muốn ngươi làm giảng viên.",
+    "jp_tokens": [
+      {
+        "text": "そこで",
+        "furigana": "そこで",
+        "romaji": "sokode",
+        "meaning": "do đó/vì vậy",
+        "type": "Liên từ",
+        "grammar": null
+      },
+      {
+        "text": "妃教育",
+        "furigana": "きさききょういく",
+        "romaji": "kisakikyouiku",
+        "meaning": "giáo dục phi tần",
+        "type": "Danh từ ghép",
+        "grammar": null
+      },
+      {
+        "text": "を",
+        "furigana": "を",
+        "romaji": "o",
+        "meaning": "thì",
+        "type": "Trợ từ",
+        "grammar": "Tân ngữ"
+      },
+      {
+        "text": "したい",
+        "furigana": "したい",
+        "romaji": "shitai",
+        "meaning": "muốn làm",
+        "type": "Động từ",
+        "grammar": "Thể Tai (Muốn)"
+      },
+      {
+        "text": "そうなんだ",
+        "furigana": "そうなんだ",
+        "romaji": "sounanda",
+        "meaning": "nghe nói là",
+        "type": "Ngữ pháp",
+        "grammar": "Truyền đạt"
+      },
+      {
+        "text": "が",
+        "furigana": "が",
+        "romaji": "ga",
+        "meaning": "nhưng",
+        "type": "Trợ từ",
+        "grammar": "Nối câu"
+      },
+      {
+        "text": "お前",
+        "furigana": "おまえ",
+        "romaji": "omae",
+        "meaning": "ngươi/cô",
+        "type": "Đại từ",
+        "grammar": null
+      },
+      {
+        "text": "に",
+        "furigana": "に",
+        "romaji": "ni",
+        "meaning": "cho/đối với",
+        "type": "Trợ từ",
+        "grammar": "Đối tượng"
+      },
+      {
+        "text": "講師",
+        "furigana": "こうし",
+        "romaji": "koushi",
+        "meaning": "giảng viên",
+        "type": "Danh từ",
+        "grammar": null
+      },
+      {
+        "text": "を",
+        "furigana": "を",
+        "romaji": "o",
+        "meaning": "thì",
+        "type": "Trợ từ",
+        "grammar": null
+      },
+      {
+        "text": "しろ",
+        "furigana": "しろ",
+        "romaji": "shiro",
+        "meaning": "hãy làm",
+        "type": "Động từ",
+        "grammar": "Mệnh lệnh (Suru)"
+      },
+      {
+        "text": "との",
+        "furigana": "との",
+        "romaji": "tono",
+        "meaning": "rằng là (trích dẫn lệnh)",
+        "type": "Trợ từ ghép",
+        "grammar": null
+      },
+      {
+        "text": "こと",
+        "furigana": "こと",
+        "romaji": "koto",
+        "meaning": "chuyện/việc",
+        "type": "Danh từ",
+        "grammar": null
+      },
+      {
+        "text": "だ",
+        "furigana": "だ",
+        "romaji": "da",
+        "meaning": "là",
+        "type": "Trợ động từ",
+        "grammar": null
+      }
+    ]
+  },
+  {
+    "start": 259.06,
+    "end": 261.06,
+    "vi": "Hừm... Người cứ đùa.",
+    "jp_tokens": [
+      {
+        "text": "ご冗談",
+        "furigana": "ごじょうだん",
+        "romaji": "gojoudan",
+        "meaning": "chuyện đùa",
+        "type": "Danh từ",
+        "grammar": "Kính ngữ (Go)"
+      },
+      {
+        "text": "を",
+        "furigana": "を",
+        "romaji": "o",
+        "meaning": "(làm ơn thôi...)",
+        "type": "Trợ từ",
+        "grammar": "Tân ngữ lửng"
+      }
+    ]
+  },
+  {
+    "start": 261.06,
+    "end": 265.06,
+    "vi": "Đùa gì chứ, tên người giới thiệu cũng được viết ở đây này.",
+    "jp_tokens": [
+      {
+        "text": "何",
+        "furigana": "なに",
+        "romaji": "nani",
+        "meaning": "cái gì",
+        "type": "Nghi vấn từ",
+        "grammar": null
+      },
+      {
+        "text": "が",
+        "furigana": "が",
+        "romaji": "ga",
+        "meaning": "là",
+        "type": "Trợ từ",
+        "grammar": "Chủ ngữ"
+      },
+      {
+        "text": "冗談",
+        "furigana": "じょうだん",
+        "romaji": "joudan",
+        "meaning": "chuyện đùa",
+        "type": "Danh từ",
+        "grammar": null
+      },
+      {
+        "text": "だ",
+        "furigana": "だ",
+        "romaji": "da",
+        "meaning": "đâu/chứ",
+        "type": "Trợ động từ",
+        "grammar": "Khẳng định mạnh"
+      },
+      {
+        "text": "推薦人",
+        "furigana": "すいせんにん",
+        "romaji": "suisennin",
+        "meaning": "người giới thiệu/đề cử",
+        "type": "Danh từ",
+        "grammar": null
+      },
+      {
+        "text": "の",
+        "furigana": "の",
+        "romaji": "no",
+        "meaning": "của",
+        "type": "Trợ từ",
+        "grammar": null
+      },
+      {
+        "text": "名前",
+        "furigana": "なまえ",
+        "romaji": "namae",
+        "meaning": "tên",
+        "type": "Danh từ",
+        "grammar": null
+      },
+      {
+        "text": "も",
+        "furigana": "も",
+        "romaji": "mo",
+        "meaning": "cũng",
+        "type": "Trợ từ",
+        "grammar": null
+      },
+      {
+        "text": "書いてある",
+        "furigana": "かいてある",
+        "romaji": "kaitearu",
+        "meaning": "được viết (sẵn)",
+        "type": "Động từ ghép",
+        "grammar": "V-te aru (Trạng thái kết quả)"
+      },
+      {
+        "text": "だろ",
+        "furigana": "だろ",
+        "romaji": "daro",
+        "meaning": "đúng không",
+        "type": "Trợ động từ",
+        "grammar": "Suy đoán"
+      }
+    ]
+  },
+  {
+    "start": 268.53,
+    "end": 271.04,
+    "vi": "Còn một lá nữa.",
+    "jp_tokens": [
+      {
+        "text": "もう",
+        "furigana": "もう",
+        "romaji": "mou",
+        "meaning": "thêm/nữa",
+        "type": "Phó từ",
+        "grammar": null
+      },
+      {
+        "text": "１通",
+        "furigana": "いっつう",
+        "romaji": "ittsuu",
+        "meaning": "1 lá (thư)",
+        "type": "Lượng từ",
+        "grammar": null
+      },
+      {
+        "text": "ある",
+        "furigana": "ある",
+        "romaji": "aru",
+        "meaning": "có",
+        "type": "Động từ",
+        "grammar": "Tồn tại"
+      }
+    ]
+  },
+  {
+    "start": 273.07,
+    "end": 275.11,
+    "vi": "Đến cả Lê Hoa nương nương cũng...",
+    "jp_tokens": [
+      {
+        "text": "梨花さま",
+        "furigana": "りふぁさま",
+        "romaji": "Rifasama",
+        "meaning": "Lê Hoa nương nương",
+        "type": "Danh từ riêng",
+        "grammar": "Kính ngữ (Sama)"
+      },
+      {
+        "text": "まで",
+        "furigana": "まで",
+        "romaji": "made",
+        "meaning": "đến cả/cho tới",
+        "type": "Trợ từ",
+        "grammar": null
+      }
+    ]
+  },
+  {
+    "start": 279.14,
+    "end": 281.18,
+    "vi": "<<Là chuyện đó sao...>>",
+    "jp_tokens": [
+      {
+        "text": "あれ",
+        "furigana": "あれ",
+        "romaji": "are",
+        "meaning": "cái đó (chuyện đó)",
+        "type": "Đại từ chỉ định",
+        "grammar": null
+      },
+      {
+        "text": "か",
+        "furigana": "か",
+        "romaji": "ka",
+        "meaning": "hả/sao",
+        "type": "Trợ từ",
+        "grammar": "Nghi vấn"
+      }
+    ]
+  },
+  {
+    "start": 281.18,
+    "end": 283.65,
+    "vi": "Chuyện là vậy nên nhờ ngươi đấy.",
+    "jp_tokens": [
+      {
+        "text": "というわけ",
+        "furigana": "というわけ",
+        "romaji": "toiuwake",
+        "meaning": "lý do là vậy / chuyện là thế",
+        "type": "Cụm từ",
+        "grammar": null
+      },
+      {
+        "text": "で",
+        "furigana": "で",
+        "romaji": "de",
+        "meaning": "nên/vì thế",
+        "type": "Trợ từ",
+        "grammar": null
+      },
+      {
+        "text": "頼んだ",
+        "furigana": "たのんだ",
+        "romaji": "tanonda",
+        "meaning": "nhờ cậy",
+        "type": "Động từ",
+        "grammar": "Quá khứ (xác nhận lệnh)"
+      },
+      {
+        "text": "ぞ",
+        "furigana": "ぞ",
+        "romaji": "zo",
+        "meaning": "đấy/nhá",
+        "type": "Trợ từ",
+        "grammar": "Vĩ tố nam tính"
+      }
+    ]
+  },
+  {
+    "start": 288.55,
+    "end": 293.56,
+    "vi": "<<Được hai vị Phi tần nhờ vả thì đúng là không thể ngó lơ được>>",
+    "jp_tokens": [
+      {
+        "text": "２人",
+        "furigana": "ふたり",
+        "romaji": "futari",
+        "meaning": "hai người",
+        "type": "Lượng từ",
+        "grammar": null
+      },
+      {
+        "text": "の",
+        "furigana": "の",
+        "romaji": "no",
+        "meaning": "của",
+        "type": "Trợ từ",
+        "grammar": null
+      },
+      {
+        "text": "妃",
+        "furigana": "きさき",
+        "romaji": "kisaki",
+        "meaning": "Phi tần",
+        "type": "Danh từ",
+        "grammar": null
+      },
+      {
+        "text": "に",
+        "furigana": "に",
+        "romaji": "ni",
+        "meaning": "bởi/từ",
+        "type": "Trợ từ",
+        "grammar": "Tác nhân bị động"
+      },
+      {
+        "text": "頼まれて",
+        "furigana": "たのまれて",
+        "romaji": "tanomarete",
+        "meaning": "bị/được nhờ",
+        "type": "Động từ",
+        "grammar": "Bị động + Thể Te"
+      },
+      {
+        "text": "は",
+        "furigana": "は",
+        "romaji": "wa",
+        "meaning": "thì",
+        "type": "Trợ từ",
+        "grammar": "Điều kiện"
+      },
+      {
+        "text": "さすがに",
+        "furigana": "さすがに",
+        "romaji": "sasugani",
+        "meaning": "quả thực là/đúng là",
+        "type": "Phó từ",
+        "grammar": null
+      },
+      {
+        "text": "無視",
+        "furigana": "むし",
+        "romaji": "mushi",
+        "meaning": "ngó lơ/bỏ qua",
+        "type": "Danh từ",
+        "grammar": null
+      },
+      {
+        "text": "できない",
+        "furigana": "できない",
+        "romaji": "dekinai",
+        "meaning": "không thể",
+        "type": "Động từ",
+        "grammar": "Khả năng phủ định"
+      }
+    ]
+  },
+  {
+    "start": 293.56,
+    "end": 297.53,
+    "vi": "<<Hơn nữa khoản tiền thưởng còn được viết rất cẩn thận>>",
+    "jp_tokens": [
+      {
+        "text": "ご丁寧",
+        "furigana": "ごていねい",
+        "romaji": "goteinei",
+        "meaning": "lịch sự/cẩn thận",
+        "type": "Tính từ đuôi Na",
+        "grammar": "Kính ngữ"
+      },
+      {
+        "text": "に",
+        "furigana": "に",
+        "romaji": "ni",
+        "meaning": "một cách...",
+        "type": "Trợ từ",
+        "grammar": null
+      },
+      {
+        "text": "褒賞",
+        "furigana": "ほうしょう",
+        "romaji": "houshou",
+        "meaning": "tiền thưởng/phần thưởng",
+        "type": "Danh từ",
+        "grammar": null
+      },
+      {
+        "text": "の",
+        "furigana": "の",
+        "romaji": "no",
+        "meaning": "của",
+        "type": "Trợ từ",
+        "grammar": null
+      },
+      {
+        "text": "額",
+        "furigana": "がく",
+        "romaji": "gaku",
+        "meaning": "khoản/mức",
+        "type": "Danh từ",
+        "grammar": null
+      },
+      {
+        "text": "まで",
+        "furigana": "まで",
+        "romaji": "made",
+        "meaning": "đến cả",
+        "type": "Trợ từ",
+        "grammar": "Nhấn mạnh mức độ"
+      },
+      {
+        "text": "書かれていた",
+        "furigana": "かかれていた",
+        "romaji": "kakareteita",
+        "meaning": "được viết",
+        "type": "Động từ",
+        "grammar": "Bị động + Quá khứ tiếp diễn"
+      },
+      {
+        "text": "し",
+        "furigana": "し",
+        "romaji": "shi",
+        "meaning": "hơn nữa/vả lại",
+        "type": "Trợ từ",
+        "grammar": "Liệt kê lý do"
+      }
+    ]
+  },
+  {
+    "start": 297.53,
+    "end": 301.63,
+    "vi": "<<Cơ mà bà già cũng hét giá dữ thật đấy>>",
+    "jp_tokens": [
+      {
+        "text": "にしても",
+        "furigana": "にしても",
+        "romaji": "nishitemo",
+        "meaning": "dẫu vậy/cơ mà",
+        "type": "Liên từ",
+        "grammar": null
+      },
+      {
+        "text": "婆",
+        "furigana": "ばばあ",
+        "romaji": "babaa",
+        "meaning": "bà già/mụ già",
+        "type": "Danh từ",
+        "grammar": "Suồng sã"
+      },
+      {
+        "text": "かなり",
+        "furigana": "かなり",
+        "romaji": "kanari",
+        "meaning": "khá là/dữ dội",
+        "type": "Phó từ",
+        "grammar": null
+      },
+      {
+        "text": "吹っかけてる",
+        "furigana": "ふっかけてる",
+        "romaji": "fukkaketeru",
+        "meaning": "hét giá/thách giá",
+        "type": "Động từ",
+        "grammar": "Tiếp diễn (V-te iru rút gọn)"
+      },
+      {
+        "text": "な",
+        "furigana": "な",
+        "romaji": "na",
+        "meaning": "nhỉ/đấy",
+        "type": "Trợ từ",
+        "grammar": "Cảm thán"
+      }
+    ]
+  }
+]

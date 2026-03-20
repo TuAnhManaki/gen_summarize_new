@@ -1,0 +1,94 @@
+<div class="comment-container">
+  
+    <h3 class="header-title">Ý kiến ({{ comments.length }})</h3>
+  
+    <div class="input-wrapper main-input">
+      <textarea 
+        id="mainInput"
+        rows="1"
+        placeholder="Chia sẻ ý kiến của bạn" 
+        [(ngModel)]="mainCommentText"
+        (click)="onFocusInput()"
+        (keyup.enter)="submitMainComment()"></textarea>
+      
+      <i class="far fa-smile smile-icon"></i>
+      <button class="btn-send" *ngIf="mainCommentText.trim()" (click)="submitMainComment()">
+        <i class="fas fa-paper-plane"></i>
+      </button>
+  
+      <div class="login-tooltip" *ngIf="showLoginPopup">
+        <div class="tooltip-content">
+          <p>Đăng nhập để bình luận</p>
+          <div class="tooltip-actions">
+            <button class="btn-login" (click)="goToLogin()">Đăng nhập</button>
+            <button class="btn-close" (click)="showLoginPopup = false">Đóng</button>
+          </div>
+        </div>
+        <div class="tooltip-arrow"></div>
+      </div>
+    </div>
+  
+    <div class="comment-list">
+      <div class="comment-thread" *ngFor="let item of comments">
+        
+        <div class="comment-item parent">
+          <div class="avatar">{{ item.avatar }}</div>
+          
+          <div class="content-body">
+            <div class="username">{{ item.user }}</div>
+            <div class="text">{{ item.content }}</div>
+            
+            <div class="actions">
+              <span class="action-btn like-btn" 
+                    [class.active]="item.liked" 
+                    (click)="toggleLike(item)">
+                <i [class]="item.liked ? 'fas fa-thumbs-up' : 'far fa-thumbs-up'"></i> 
+                Thích
+                <span class="count" *ngIf="item.likes > 0">({{ item.likes }})</span>
+              </span>
+  
+              <span class="action-btn reply-btn" (click)="toggleReplyBox(item)">
+                Trả lời
+              </span>
+              
+              <span class="time">{{ item.time }}</span>
+            </div>
+  
+            <div class="reply-input-wrapper" *ngIf="item.showReplyBox">
+              <textarea 
+                rows="1" 
+                placeholder="Viết câu trả lời..." 
+                [(ngModel)]="item.replyText"
+                (keyup.enter)="submitReply(item)"
+                autoFocus></textarea>
+              <button class="btn-reply-send" (click)="submitReply(item)">Gửi</button>
+            </div>
+          </div>
+        </div>
+  
+        <div class="replies-list" *ngIf="item.replies.length > 0">
+          <div class="comment-item reply" *ngFor="let rep of item.replies">
+            <div class="avatar small">{{ rep.avatar }}</div>
+            
+            <div class="content-body">
+              <div class="username">{{ rep.user }}</div>
+              <div class="text">{{ rep.content }}</div>
+              
+              <div class="actions">
+                <span class="action-btn like-btn" 
+                      [class.active]="rep.liked" 
+                      (click)="toggleLike(rep)">
+                  <i [class]="rep.liked ? 'fas fa-thumbs-up' : 'far fa-thumbs-up'"></i> 
+                  Thích <span class="count" *ngIf="rep.likes > 0">({{ rep.likes }})</span>
+                </span>
+                <span class="time">{{ rep.time }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  
+    <button class="btn-load-more">Xem thêm ý kiến</button>
+  </div>

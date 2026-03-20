@@ -1,0 +1,612 @@
+ body { 
+  margin: 0; 
+  font-family: var(--font-main); /* Đưa font vào body */
+  background: var(--bg-common); 
+  color: var(--text); 
+  line-height: 1.7; 
+  scroll-behavior: smooth; 
+  
+}
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+a { text-decoration: none; color: inherit; }
+
+/* ===== HEADER ===== */
+header { background: white; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+.menu { height: 64px; display: flex; align-items: center; justify-content: space-between; }
+.logo { font-weight: 700; color: var(--green-strong); font-size: 20px; }
+nav a { margin-left: 20px; font-size: 14px; font-weight: 600; color: var(--muted); transition: 0.3s; }
+nav a:hover { color: var(--green-strong); }
+
+/* ===== HERO (PHẦN CÓ MÀU RIÊNG) ===== */
+/* Cấu trúc lại Hero để không bị trôi */
+/* ===== HERO SECTION - ĐÃ HẠ THẤP CHIỀU CAO & TỐI ƯU UX ===== */
+.hero-portal {
+  background: var(--green-light);
+  /* Hiệu ứng nền tạo chiều sâu */
+  background-image: radial-gradient(circle at 50% 50%, rgba(34, 197, 94, 0.12) 0%, transparent 70%);
+  /* Giảm padding để hạ thấp chiều cao */
+  padding: 60px 0 80px 0; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: auto; /* Bỏ 60vh để chiều cao gọn gàng hơn */
+}
+
+.hero-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Badge AI */
+.ai-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--white);
+  padding: 8px 18px; /* Thu gọn padding */
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--green-strong);
+  margin-bottom: 25px; /* Giảm margin */
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+/* Tiêu đề chính h1 */
+.hero-portal h1 {
+  font-size: 60px; /* Tối ưu lại kích thước chữ */
+  line-height: 1.1;
+  font-weight: 900;
+  letter-spacing: -2px;
+  margin: 0 0 20px 0;
+  color: var(--dark);
+}
+
+/* Hiệu ứng chữ đổi màu (Gradient) */
+.hero-portal h1 span {
+  display: block;
+  background: linear-gradient(90deg, var(--green-strong), var(--green-mid));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Làm nổi bật cụm từ Online */
+.highlight-online {
+  position: relative;
+  display: inline-block;
+  color: var(--dark); /* Đảm bảo màu chữ rõ ràng */
+}
+.highlight-online::after {
+  content: "";
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: rgba(34, 197, 94, 0.2);
+  z-index: -1;
+}
+
+/* Mô tả description */
+.hero-portal .description {
+  font-size: 20px;
+  color: var(--text);
+  max-width: 700px;
+  margin: 0 auto 35px auto; /* Giảm margin bottom */
+  line-height: 1.6;
+}
+
+.description strong {
+  color: var(--green-strong);
+  font-weight: 700;
+}
+
+/* Nút kêu gọi hành động (CTA) với hiệu ứng tên lửa */
+.btn-cta {
+  background: var(--green-strong);
+  color: white;
+  padding: 18px 45px; /* Thu gọn nút một chút */
+  border-radius: 16px;
+  font-weight: 700;
+  font-size: 19px;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 12px 28px rgba(21, 128, 61, 0.25);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-cta::after {
+  content: "🚀";
+  margin-left: 10px;
+  transition: 0.3s;
+  display: inline-block;
+}
+
+.btn-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 35px rgba(21, 128, 61, 0.35);
+  background: #126a32;
+}
+
+.btn-cta:hover::after {
+  transform: translateX(8px);
+}
+
+/* Phụ đề dưới nút */
+.cta-note {
+  margin-top: 18px;
+  font-size: 14px;
+  color: var(--green-strong);
+  font-weight: 600;
+}
+
+/* Responsive cho điện thoại */
+@media (max-width: 768px) {
+  .hero-portal h1 { font-size: 38px; letter-spacing: -1px; }
+  .hero-portal .description { font-size: 17px; }
+  .hero-portal { padding: 50px 0; }
+  .btn-cta { padding: 15px 35px; font-size: 17px; }
+  .highlight-online::after { height: 6px; bottom: 5px; }
+}
+
+.feature-tags {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 35px;
+  flex-wrap: wrap;
+}
+
+.feature-tags span {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--green-strong);
+  background: rgba(34, 197, 94, 0.1);
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  transition: 0.3s;
+}
+
+.feature-tags span:hover {
+  background: var(--green-mid);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* ===== CÁC SECTION KHÁC (DÙNG MÀU CHUNG) ===== */
+section { 
+  padding: 80px 0; 
+  background: var(--bg-common); /* Đồng nhất màu trắng/xám nhạt */
+}
+
+h2 { font-size: 30px; color: var(--dark); margin-bottom: 10px; text-align: center; }
+.section-desc { text-align: center; color: var(--muted); margin-bottom: 50px; font-size: 16px; max-width: 750px; margin-left: auto; margin-right: auto; }
+
+/* 1. WHY SECTION */
+.why-section {
+    padding: 60px 0;
+    background-color: var(--white);
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 45px auto;
+  }
+
+  .section-header h2 {
+    font-size: 32px;
+    color: var(--dark);
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+
+  .section-header .section-desc {
+    font-size: 17px;
+    color: var(--text);
+    line-height: 1.6;
+    opacity: 0.9;
+  }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .why-card {
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 24px;
+    border: 1px solid #f1f5f9;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    position: relative;
+  }
+
+  .why-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--green-mid);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+  }
+
+  .why-icon-wrapper {
+    width: 56px;
+    height: 56px;
+    background: var(--green-light);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    margin-bottom: 24px;
+    color: var(--green-strong);
+  }
+
+  .why-card h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+    color: var(--dark);
+    font-weight: 700;
+  }
+
+  .why-card p {
+    font-size: 15px;
+    color: var(--text);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  /* Danh sách lợi ích nhỏ trong từng thẻ */
+  .card-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-top: auto;
+  }
+
+  .card-features li {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--green-strong);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+
+  .card-features li::before {
+    content: "●";
+    font-size: 8px;
+  }
+
+  @media (max-width: 768px) {
+    .why-grid { grid-template-columns: 1fr; }
+    .why-card { padding: 30px; }
+  }
+
+/* 2. LEVELS SECTION */
+.levels-section {
+    padding: 80px 0;
+    background: #ffffff; /* Nền nhạt để làm nổi bật các Card trắng */
+  }
+
+  .levels-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .level-card {
+    background: var(--white);
+    padding: 40px 30px;
+    border-radius: 24px;
+    border: 1px solid rgba(0,0,0,0.05);
+    position: relative;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .level-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(21, 128, 61, 0.1);
+    border-color: var(--green-mid);
+  }
+
+  /* Tag hiển thị cấp độ */
+  .level-badge {
+    position: absolute;
+    top: -15px;
+    left: 30px;
+    background: var(--green-strong);
+    color: white;
+    padding: 6px 15px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 10px rgba(21, 128, 61, 0.2);
+  }
+
+  .level-card h3 {
+    font-size: 22px;
+    color: var(--dark);
+    margin: 10px 0 15px 0;
+    font-weight: 800;
+  }
+
+  .level-topics {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 25px 0;
+    flex-grow: 1;
+  }
+
+  .level-topics li {
+    font-size: 15px;
+    color: var(--text);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 0.8;
+  }
+
+  .level-topics li::before {
+    content: "•";
+    color: var(--green-mid);
+    font-weight: bold;
+  }
+
+  /* Phần kết quả đạt được */
+  .level-res-box {
+    background: var(--green-light);
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .level-res-box span {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: var(--green-strong);
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+
+  .level-res-box p {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--dark);
+    margin: 0;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .levels-grid { grid-template-columns: 1fr; }
+    .level-card { margin-top: 20px; }
+  }
+
+/* 3. ROADMAP SECTION (Đã bỏ màu nền xám để đồng nhất) */
+.roadmap-section {
+    padding: 80px 0;
+    background-color:  var(--green-light);
+  }
+
+  .roadmap-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+  }
+
+  /* Đường kẻ dọc nối các bước */
+  .roadmap-container::before {
+    content: "";
+    position: absolute;
+    left: 50px; /* Căn chỉnh theo vị trí của số index */
+    top: 150px;
+    bottom: 100px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--green-mid) 50%, #e5e7eb 50%);
+    background-size: 1px 20px; /* Tạo hiệu ứng đứt đoạn */
+    z-index: 1;
+  }
+
+  .road-item {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 50px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Vòng tròn số thứ tự */
+  .road-index {
+    width: 60px;
+    height: 60px;
+    background: var(--white);
+    border: 3px solid var(--green-mid);
+    color: var(--green-strong);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 900;
+    border-radius: 50%;
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  }
+
+  .road-content {
+    background: #fcfdfd;
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid #f1f5f9;
+    width: 100%;
+    transition: all 0.3s ease;
+  }
+
+  .road-item:hover .road-content {
+    background: #ffffff;
+    transform: translateX(10px);
+    border-color: var(--green-mid);
+    box-shadow: 0 15px 35px rgba(34, 197, 94, 0.08);
+  }
+
+  .road-content h3 {
+    font-size: 22px;
+    margin: 0 0 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--dark);
+  }
+
+  .road-subtitle {
+    color: var(--green-strong);
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 15px;
+    display: block;
+  }
+
+  .road-detail {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+  }
+
+  .road-detail li {
+    font-size: 15px;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .road-detail li::before {
+    content: "✓";
+    color: var(--green-mid);
+    font-weight: bold;
+  }
+
+  @media (max-width: 768px) {
+    .roadmap-container::before { left: 40px; }
+    .road-item { gap: 20px; }
+    .road-index { width: 45px; height: 45px; font-size: 18px; }
+    .road-detail { grid-template-columns: 1fr; }
+  }
+
+/* 4. KNOWLEDGE GRID */
+.knowledge-section {
+    padding: 80px 0;
+    background-color:  var(--green-light);
+  }
+
+  .knowledge-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .knowledge-card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid #f1f5f9;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    position: relative;
+  }
+
+  /* Hiệu ứng Hover chuyên nghiệp */
+  .knowledge-card:hover {
+    border-color: var(--green-mid);
+    background: var(--green-light);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(34, 197, 94, 0.08);
+  }
+
+  .knowledge-card h3 {
+    font-size: 20px;
+    color: var(--dark);
+    margin: 0 0 12px 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .knowledge-card p {
+    font-size: 15px;
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .knowledge-card span {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--green-strong);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: gap 0.3s ease;
+  }
+
+  .knowledge-card:hover span {
+    gap: 10px; /* Mũi tên trượt ra khi hover */
+  }
+
+  /* Nhãn phân loại nhỏ */
+  .k-tag {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 10px;
+    text-transform: uppercase;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: #f1f5f9;
+    color: #94a3b8;
+  }
+
+  .knowledge-card:hover .k-tag {
+    background: var(--green-mid);
+    color: white;
+  }
+
+  @media (max-width: 768px) {
+    .knowledge-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+ 

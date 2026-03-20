@@ -1,0 +1,94 @@
+<div class="home">
+  <div class="login-card">
+    <!-- LEFT -->
+    <div class="login-form">
+      <h1 class="login-title">Đăng nhập</h1>
+
+      <p class="login-desc">
+        Tiếp tục hành trình nói tiếng Anh <br />
+        <span>tự tin mỗi ngày</span> 🚀
+      </p>
+
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label>Email</label>
+          <input
+            type="email"
+            placeholder="you@example.com"
+            formControlName="email"
+            [class.border-red-500]="
+              loginForm.get('email')?.invalid && loginForm.get('email')?.touched
+            "
+          />
+
+          <p
+            *ngIf="
+              loginForm.get('email')?.invalid && loginForm.get('email')?.touched
+            "
+            class="mt-1 text-xs text-red-500"
+          >
+            Email không hợp lệ
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label>Mật khẩu</label>
+          <input
+            type="password"
+            placeholder="••••••••"
+            formControlName="password"
+            [class.border-red-500]="
+              loginForm.get('password')?.invalid &&
+              loginForm.get('password')?.touched
+            "
+          />
+
+          <p
+            *ngIf="
+              loginForm.get('password')?.invalid &&
+              loginForm.get('password')?.touched
+            "
+            class="mt-1 text-xs text-red-500"
+          >
+            Mật khẩu tối thiểu 6 ký tự
+          </p>
+        </div>
+
+        <div class="form-meta">
+          <label>
+            <input type="checkbox" formControlName="rememberMe" />
+            Ghi nhớ đăng nhập
+          </label>
+          <a routerLink="/auth/forgot_password">Quên mật khẩu?</a>
+        </div>
+
+        <button type="submit" class="btn-primary">Đăng nhập</button>
+      </form>
+
+      <p class="register-link">
+        Chưa có tài khoản?
+        <a routerLink="/auth/register">Đăng ký miễn phí</a>
+      </p>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="login-image">
+      <img
+        src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
+        alt=""
+      />
+
+      <div class="overlay">
+        <h2>
+          Học để <br />
+          nói được
+        </h2>
+        <p>
+          Không học lan man.<br />
+          Mỗi ngày một chút –<br />
+          <b>giao tiếp thật.</b>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

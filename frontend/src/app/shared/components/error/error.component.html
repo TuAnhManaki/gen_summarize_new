@@ -1,0 +1,15 @@
+<div class="container" *ngIf="errorData$ | async as error">
+  <h1 class="error-code">{{ error.code }}</h1>
+
+  <h2 class="error-title">{{ error.title }}</h2>
+
+  <p class="error-description">
+    {{ error.description }}
+  </p>
+
+  <div class="error-actions">
+    <a routerLink="/" class="btn btn-primary">
+      Quay về trang chủ
+    </a>
+  </div>
+</div>

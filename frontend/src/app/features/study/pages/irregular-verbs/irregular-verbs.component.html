@@ -1,0 +1,128 @@
+<section class="page-header">
+  <div class="container">
+    <h1>Bảng Động Từ Bất Quy Tắc</h1>
+    <p class="sub-desc">
+      Tra cứu nhanh và chính xác 3 dạng của động từ kèm ví dụ thực tế.
+    </p>
+  </div>
+</section>
+
+<div class="container">
+  <div class="controls">
+    <div class="search-box">
+      <input type="text" 
+             placeholder="Tìm kiếm động từ (ví dụ: go, see... )"
+             [(ngModel)]="searchTerm" 
+             (keyup.enter)="onFilter()">
+      
+      <button class="btn-search" (click)="onFilter()">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+
+    <select [(ngModel)]="selectedLevel" (change)="onFilter()">
+      <option value="ALL">Tất cả mức độ</option>
+      <option value="Beginner">Beginner (Phổ biến nhất)</option>
+      <option value="Intermediate">Intermediate</option>
+      <option value="Advanced">Advanced</option>
+    </select>
+  </div>
+
+  <div class="scroll-hint">Vuốt sang trái để xem đầy đủ →</div>
+
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>V1 (Nguyên thể)</th>
+          <th>V2 (Quá khứ)</th>
+          <th>V3 (Phân từ)</th>
+          <th>Nghĩa & Ví dụ giao tiếp</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let verb of verbs" 
+        class="hover:bg-gray-50"
+            (click)="goToDetail(verb.v1)">
+          <td>
+            <span class="v1">{{ verb.v1 }}</span>
+            <span
+              class="lvl-tag"
+              [ngClass]="{
+                'lvl-basic': verb.level === 'B',
+                'lvl-int': verb.level === 'I'
+              }"
+            >
+              {{ verb.level }}
+            </span>
+          </td>
+          <td class="v2">{{ verb.v2 }}</td>
+          <td class="v3">{{ verb.v3 }}</td>
+          <td>
+            <div
+              class="example-container"
+              style="display: flex; align-items: center; gap: 12px"
+            >
+              <button
+                class="btn-audio"
+                (click)="$event.stopPropagation(); speak(verb.examples.en)"
+                title="Nghe phát âm"
+              >
+                <i class="fas fa-volume-up"></i>
+              </button>
+              <div class="meaning-block">
+                <span
+                  class="meaning"
+                  style="font-weight: 700; display: block"
+                  >{{ verb.meaning }}</span
+                >
+                <span
+                  class="example-text"
+                  style="font-size: 14px; color: #64748b; font-style: italic"
+                  [innerHTML]="verb.examples.enHtml"
+                >
+                </span>
+              </div>
+            </div>
+          </td>
+        </tr>
+
+        <tr *ngIf="verbs.length === 0">
+          <td
+            colspan="4"
+            style="text-align: center; padding: 40px; color: var(--muted)"
+          >
+            Không tìm thấy động từ nào phù hợp.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="pagination" *ngIf="totalPages > 1 && !isLoading">
+    <div
+      class="page-btn page-arrow"
+      [class.disabled]="currentPage === 1"
+      (click)="changePage(currentPage - 1)"
+    >
+      <i class="fas fa-chevron-left"></i>
+    </div>
+
+    <div
+      *ngFor="let page of pagesArray"
+      class="page-btn"
+      [class.active]="page === currentPage"
+      (click)="changePage(page)"
+    >
+      {{ page }}
+    </div>
+
+    <div
+      class="page-btn page-arrow"
+      [class.disabled]="currentPage === totalPages"
+      (click)="changePage(currentPage + 1)"
+    >
+      <i class="fas fa-chevron-right"></i>
+    </div>
+  </div>
+</div>

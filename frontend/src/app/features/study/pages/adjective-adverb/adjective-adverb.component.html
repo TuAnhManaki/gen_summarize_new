@@ -1,0 +1,88 @@
+<section class="page-header">
+  <div class="container">
+    <h1>Tính từ & Trạng từ</h1>
+    <p>Danh sách các cặp từ thông dụng giúp bạn miêu tả chính xác hơn.</p>
+  </div>
+</section>
+
+<div class="container main-content">
+  
+  <div class="controls-row">
+    
+    <div class="search-box">
+      <input type="text" 
+             placeholder="Tìm kiếm từ vựng (ví dụ: fast, good...)"
+             [(ngModel)]="searchTerm" 
+             (keyup.enter)="onSearch()">
+      
+      <button class="btn-search" (click)="onSearch()">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+
+    <div class="filter-box">
+      <select [(ngModel)]="filterType" (change)="onSearch()"> <option value="All">Tất cả các cặp</option>
+        <option value="Ly">Biến đổi đuôi -ly</option>
+        <option value="Special">Trường hợp đặc biệt</option>
+      </select>
+    </div>
+
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Tính từ (Adj)</th>
+          <th>Trạng từ (Adv)</th>
+          <th>Ví dụ giao tiếp</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of wordList"
+        class="hover:bg-gray-50"
+            (click)="goToDetail(item.adjective)">
+          <td class="word-adj">{{ item.adjective }}</td>
+          <td class="word-adv">{{ item.adverb }}</td>
+          <td>
+            <div class="example-cell">
+              <button class="btn-audio" (click)="$event.stopPropagation(); speak(item.shortExample.en)">
+                <i class="fas fa-volume-up"></i>
+              </button>
+              <span class="example-text" [innerHTML]="item.shortExample.enHtml"></span>
+            </div>
+          </td>
+        </tr>
+        
+        <tr *ngIf="wordList.length === 0">
+          <td colspan="3" style="text-align: center; padding: 40px; color: #64748b;">
+            Không tìm thấy từ vựng nào.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="pagination" *ngIf="totalPages > 1 && !isLoading">
+    
+    <div class="page-btn" 
+         [class.disabled]="currentPage === 0"
+         (click)="changePage(currentPage - 1)">
+      <i class="fas fa-chevron-left"></i>
+    </div>
+
+    <div *ngFor="let page of pagesArray" 
+         class="page-btn" 
+         [class.active]="page === currentPage"
+         (click)="changePage(page)">
+      {{ page + 1 }} </div>
+
+    <div class="page-btn" 
+         [class.disabled]="currentPage === totalPages - 1"
+         (click)="changePage(currentPage + 1)">
+      <i class="fas fa-chevron-right"></i>
+    </div>
+
+  </div>
+
+</div>

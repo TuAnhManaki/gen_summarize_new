@@ -1,0 +1,1634 @@
+[
+    {
+      "start": 0,
+      "end": 85.08,
+      "jp": "♬～",
+      "vi": "(Nhạc dạo)"
+    },
+    {
+      "start": 94.56,
+      "end": 99.03,
+      "jp": "♬～",
+      "vi": "(Nhạc dạo)"
+    },
+    {
+      "start": 99.03,
+      "end": 103.54,
+      "jp": "♬～（足音）",
+      "vi": "(Tiếng bước chân)"
+    },
+    {
+      "start": 103.54,
+      "end": 184.02,
+      "jp": "♬～",
+      "vi": "(Nhạc dạo)"
+    },
+    {
+      "start": 186.55,
+      "end": 188.55,
+      "jp": "（玉葉妃）　ウッフフ。",
+      "vi": "(Ngọc Diệp Phi) Uffufu."
+    },
+    {
+      "start": 188.55,
+      "end": 192.06,
+      "jp": "（紅娘）　本気ですか？\n（玉葉妃）　もちろん。",
+      "vi": "(Hồng Nương) Người nghiêm túc chứ?\n(Ngọc Diệp Phi) Đương nhiên rồi."
+    },
+    {
+      "start": 192.06,
+      "end": 195.56,
+      "jp": "（玉葉妃）　せっかく猫猫が\n戻ってきてくれたんだもの。",
+      "vi": "(Ngọc Diệp Phi) Khó khăn lắm Miêu Miêu mới quay lại với chúng ta mà."
+    },
+    {
+      "start": 199.57,
+      "end": 201.53,
+      "jp": "（猫猫）《こんなものか》",
+      "vi": "(Miêu Miêu) 《Chỉ có thế này thôi sao》"
+    },
+    {
+      "start": 201.53,
+      "end": 206.1,
+      "jp": "《後宮と違って　外廷は\nろくに薬草が生えてない》",
+      "vi": "《Khác với Hậu cung, ở Ngoại đình chẳng có mấy loại dược thảo mọc》"
+    },
+    {
+      "start": 206.1,
+      "end": 208.14,
+      "jp": "《少しずつ増やさないと》",
+      "vi": "《Phải nhân giống dần dần thôi》"
+    },
+    {
+      "start": 208.14,
+      "end": 210.54,
+      "jp": "（水蓮）　小猫。\nうっ…。",
+      "vi": "(Thủy Liên) Tiểu Miêu.\nÁ..."
+    },
+    {
+      "start": 210.54,
+      "end": 214.55,
+      "jp": "（水蓮）　掃除を頼んだのは\n執務室じゃなかったかしら。",
+      "vi": "(Thủy Liên) Ta nhờ cháu dọn dẹp phòng làm việc cơ mà nhỉ?"
+    },
+    {
+      "start": 214.55,
+      "end": 216.55,
+      "jp": "すぐ行きます。",
+      "vi": "Cháu đi ngay đây ạ."
+    },
+    {
+      "start": 216.55,
+      "end": 220.02,
+      "jp": "さささ…。\n土いじりは　ほどほどにね。",
+      "vi": "Nhanh chân lên...\nNghịch đất vừa phải thôi nhé."
+    },
+    {
+      "start": 220.02,
+      "end": 222.05,
+      "jp": "《手ごわい》",
+      "vi": "《Bà ấy thật đáng gờm》"
+    },
+    {
+      "start": 222.05,
+      "end": 225.02,
+      "jp": "（壬氏）　どういうことだ？\n（高順）　さぁ。",
+      "vi": "(Nhâm Thị) Chuyện này là sao?\n(Cao Thuận) Ai biết được."
+    },
+    {
+      "start": 225.02,
+      "end": 226.56,
+      "jp": "ん～…。",
+      "vi": "Hừm..."
+    },
+    {
+      "start": 226.56,
+      "end": 228.59,
+      "jp": "（ノック）",
+      "vi": "(Tiếng gõ cửa)"
+    },
+    {
+      "start": 228.59,
+      "end": 230.63,
+      "jp": "⚟失礼します⚞",
+      "vi": "⚟Xin phép⚞"
+    },
+    {
+      "start": 236.54,
+      "end": 241.04,
+      "jp": "柘榴宮に新しい淑妃が\n入ったことは知っているか？",
+      "vi": "Ngươi có biết Thạch Lựu Cung vừa có một vị Thục phi mới chuyển vào không?"
+    },
+    {
+      "start": 241.04,
+      "end": 242.54,
+      "jp": "はぁ。",
+      "vi": "Vâng."
+    },
+    {
+      "start": 242.54,
+      "end": 246.01,
+      "jp": "《いなくなった阿多妃の後釜か》",
+      "vi": "《Là người thay thế cho A Đa Phi đã rời đi sao》"
+    },
+    {
+      "start": 248.05,
+      "end": 253.12,
+      "jp": "そこで後宮としては\n妃教育をしたいそうなんだが➡",
+      "vi": "Nghe nói phía Hậu cung muốn tổ chức giáo dục cho các phi tần,"
+    },
+    {
+      "start": 253.12,
+      "end": 257.12,
+      "jp": "お前に講師をしろとのことだ。",
+      "vi": "Và họ chỉ định ngươi làm giảng sư."
+    },
+    {
+      "start": 259.06,
+      "end": 261.06,
+      "jp": "フッ…　ご冗談を。",
+      "vi": "Hừ... Ngài cứ đùa."
+    },
+    {
+      "start": 261.06,
+      "end": 265.06,
+      "jp": "何が冗談だ\n推薦人の名前も書いてあるだろ。",
+      "vi": "Đùa gì chứ, tên người đề cử cũng được ghi trong đó đấy."
+    },
+    {
+      "start": 265.06,
+      "end": 266.93,
+      "jp": "推薦人？",
+      "vi": "Người đề cử?"
+    },
+    {
+      "start": 268.53,
+      "end": 271.04,
+      "jp": "もう１通ある。",
+      "vi": "Còn một bức thư nữa."
+    },
+    {
+      "start": 273.07,
+      "end": 275.11,
+      "jp": "梨花さままで…。",
+      "vi": "Đến cả Lê Hoa nương nương cũng..."
+    },
+    {
+      "start": 275.11,
+      "end": 276.61,
+      "jp": "あっ。",
+      "vi": "A."
+    },
+    {
+      "start": 279.14,
+      "end": 281.18,
+      "jp": "《あれか…》",
+      "vi": "《Là chuyện đó sao...》"
+    },
+    {
+      "start": 281.18,
+      "end": 283.65,
+      "jp": "というわけで頼んだぞ。",
+      "vi": "Chuyện là vậy đó, nhờ cả vào ngươi."
+    },
+    {
+      "start": 287.09,
+      "end": 288.55,
+      "jp": "ハァ…。",
+      "vi": "Haizz..."
+    },
+    {
+      "start": 288.55,
+      "end": 293.56,
+      "jp": "《２人の妃に頼まれては\nさすがに無視できない》",
+      "vi": "《Được hai vị Phi tần nhờ cậy thì đúng là không thể làm ngơ được》"
+    },
+    {
+      "start": 293.56,
+      "end": 297.53,
+      "jp": "《ご丁寧に褒賞の額まで\n書かれていたし》",
+      "vi": "《Lại còn viết rõ cả tiền thưởng hậu hĩnh thế này》"
+    },
+    {
+      "start": 297.53,
+      "end": 301.63,
+      "jp": "《にしても婆\nかなり　吹っかけてるな》",
+      "vi": "《Cơ mà mụ già, hét giá cao thật đấy》"
+    },
+    {
+      "start": 301.63,
+      "end": 304.6,
+      "jp": "（やり手婆）｟ヒヒっ　ヒヒヒ…｠",
+      "vi": "(Bà chủ) ｟Hihihi... Hihihi...｠"
+    },
+    {
+      "start": 304.6,
+      "end": 306.64,
+      "jp": "フフン。",
+      "vi": "Hừm."
+    },
+    {
+      "start": 306.64,
+      "end": 308.11,
+      "jp": "《今のうち》",
+      "vi": "《Tranh thủ lúc này》"
+    },
+    {
+      "start": 309.54,
+      "end": 312.54,
+      "jp": "この荷が講義で使う教材か？\nギクっ！",
+      "vi": "Đống hành lý này là giáo cụ dùng cho bài giảng sao?\nGiật mình!"
+    },
+    {
+      "start": 312.54,
+      "end": 315.05,
+      "jp": "はい　こっちが請求書です。",
+      "vi": "Vâng, còn đây là hóa đơn ạ."
+    },
+    {
+      "start": 315.05,
+      "end": 318.05,
+      "jp": "ん？　こんなものか。",
+      "vi": "Hửm? Từng này sao."
+    },
+    {
+      "start": 318.05,
+      "end": 322.55,
+      "jp": "ウフフ　何だか　ここだけ\n墨の色が違うわね。",
+      "vi": "Ufufu, lạ nhỉ, chỉ có chỗ này là màu mực khác thôi."
+    },
+    {
+      "start": 322.55,
+      "end": 324.02,
+      "jp": "《ドキっ》",
+      "vi": "《Thót tim》"
+    },
+    {
+      "start": 324.02,
+      "end": 326.06,
+      "jp": "ウフフ…。\n《やっぱり手ごわい》",
+      "vi": "Ufufu...\n《Quả nhiên đáng gờm》"
+    },
+    {
+      "start": 326.06,
+      "end": 329.63,
+      "jp": "《ばあやがいる限り　坊ちゃんを\nかもにするのは難しそうだ》",
+      "vi": "《Chừng nào còn bà vú nuôi ở đây, thì khó mà moi tiền của thiếu gia này được》"
+    },
+    {
+      "start": 329.63,
+      "end": 331.03,
+      "jp": "中身は何だ？",
+      "vi": "Bên trong là gì thế?"
+    },
+    {
+      "start": 331.03,
+      "end": 332.56,
+      "jp": "あっ…　ん！",
+      "vi": "A... ưm!"
+    },
+    {
+      "start": 332.56,
+      "end": 335.03,
+      "jp": "《大事な教材を\n見せるわけにはいかない》",
+      "vi": "《Không thể để hắn thấy giáo cụ quan trọng được》"
+    },
+    {
+      "start": 335.03,
+      "end": 338.54,
+      "jp": "シャ～！\nわ…　分かった　見ない。",
+      "vi": "Gào...!\nĐ... Được rồi, ta không nhìn đâu."
+    },
+    {
+      "start": 340.04,
+      "end": 342.04,
+      "jp": "運ぶなら手伝いましょうか？",
+      "vi": "Có cần ta giúp mang đi không?"
+    },
+    {
+      "start": 342.04,
+      "end": 344.04,
+      "jp": "結構です。",
+      "vi": "Không cần đâu ạ."
+    },
+    {
+      "start": 344.04,
+      "end": 347.01,
+      "jp": "《やるからには徹底的にやる》",
+      "vi": "《Đã làm thì phải làm cho tới nơi tới chốn》"
+    },
+    {
+      "start": 350.12,
+      "end": 354.55,
+      "jp": "《久しぶりだな　この感じ\n妙に女くさくて落ち着く》",
+      "vi": "《Lâu rồi mới có cảm giác này, mùi phấn son phụ nữ nồng nàn thật yên tâm》"
+    },
+    {
+      "start": 354.55,
+      "end": 358.06,
+      "jp": "⚟壬氏さまよ⚞\n⚟今日も麗しいわ⚞",
+      "vi": "⚟Là Nhâm Thị đại nhân kìa⚞\n⚟Hôm nay ngài ấy vẫn đẹp quá⚞"
+    },
+    {
+      "start": 362.06,
+      "end": 364.56,
+      "jp": "随分　集まってますね。",
+      "vi": "Tụ tập đông đủ quá nhỉ."
+    },
+    {
+      "start": 364.56,
+      "end": 367.57,
+      "jp": "授業の噂を聞いて\n集まったんだろう。",
+      "vi": "Chắc là nghe tin đồn về buổi học nên kéo đến đây mà."
+    },
+    {
+      "start": 370.07,
+      "end": 374.67,
+      "jp": "言っておくが\n授業を受けるのは上級妃のみだ。",
+      "vi": "Ta nói trước, chỉ có các Thượng cấp phi tần mới được tham gia buổi học."
+    },
+    {
+      "start": 374.67,
+      "end": 376.58,
+      "jp": "用のない者は下がるように。",
+      "vi": "Kẻ không phận sự thì lui ra."
+    },
+    {
+      "start": 376.58,
+      "end": 382.05,
+      "jp": "（歓声）",
+      "vi": "(Tiếng reo hò)"
+    },
+    {
+      "start": 382.05,
+      "end": 385.55,
+      "jp": "《この宦官　あやかしか何かか？》",
+      "vi": "《Tên hoạn quan này là yêu quái hay gì vậy?》"
+    },
+    {
+      "start": 397.16,
+      "end": 399.06,
+      "jp": "ハッ　いけません！",
+      "vi": "Khoan, không được ạ!"
+    },
+    {
+      "start": 399.06,
+      "end": 400.57,
+      "jp": "なぜだ？",
+      "vi": "Tại sao?"
+    },
+    {
+      "start": 400.57,
+      "end": 405.04,
+      "jp": "「授業を受けるのは上級妃のみ」と\nおっしゃったのは壬氏さまです。",
+      "vi": "Chính Nhâm Thị đại nhân đã nói \"Chỉ có Thượng cấp phi tần mới được tham gia\" còn gì."
+    },
+    {
+      "start": 405.04,
+      "end": 408.54,
+      "jp": "《くそっ　見た目の割に\nがっしりしてる》",
+      "vi": "《Chết tiệt, nhìn thế mà hắn khỏe thật》"
+    },
+    {
+      "start": 408.54,
+      "end": 414.05,
+      "jp": "ここから先は　女の園における\n他言無用の秘術ですので！",
+      "vi": "Kể từ đây là bí thuật trong khu vườn của nữ nhân, tuyệt đối không thể tiết lộ ra ngoài!"
+    },
+    {
+      "start": 415.58,
+      "end": 418.65,
+      "jp": "（玉葉妃）　フッ　フッフフ…。\nん？",
+      "vi": "(Ngọc Diệp Phi) Hư... Hư hư hư...\nHử?"
+    },
+    {
+      "start": 420.55,
+      "end": 424.06,
+      "jp": "《玉葉さま\n相変わらず　おキレイだ》",
+      "vi": "《Ngọc Diệp nương nương vẫn xinh đẹp như mọi khi》"
+    },
+    {
+      "start": 424.06,
+      "end": 427.06,
+      "jp": "《紅娘さまも\n特に変わりないようだ》",
+      "vi": "《Hồng Nương nương nương cũng không có gì thay đổi》"
+    },
+    {
+      "start": 427.06,
+      "end": 430.06,
+      "jp": "《里樹さまは萎縮しているのか》",
+      "vi": "《Lý Thụ nương nương đang co rúm lại sao?》"
+    },
+    {
+      "start": 430.06,
+      "end": 434.63,
+      "jp": "《まぁ　他の上級妃が３人もいれば\n無理もないか》",
+      "vi": "《Mà, có tới 3 vị Thượng cấp phi tần khác ở đây thì cũng phải thôi》"
+    },
+    {
+      "start": 434.63,
+      "end": 437.14,
+      "jp": "《あの毒見役の侍女が\nそばにいれば➡",
+      "vi": "《Nếu có cô hầu nữ thử độc kia ở bên cạnh,"
+    },
+    {
+      "start": 437.14,
+      "end": 439.14,
+      "jp": "以前よりはマシだろう》",
+      "vi": "thì chắc cũng đỡ hơn trước rồi》"
+    },
+    {
+      "start": 439.14,
+      "end": 442.67,
+      "jp": "《梨花さまも　ほとんど\n前の豊かな体形に戻って➡",
+      "vi": "《Lê Hoa nương nương cũng đã khôi phục lại thân hình đầy đặn,"
+    },
+    {
+      "start": 442.67,
+      "end": 444.58,
+      "jp": "体調も良さそうだ》",
+      "vi": "sức khỏe có vẻ cũng tốt lên》"
+    },
+    {
+      "start": 444.58,
+      "end": 448.55,
+      "jp": "《ん？　あの侍女は\nおしろいの時の…》",
+      "vi": "《Hửm? Cô cung nữ kia là người trong vụ án phấn trang điểm...》"
+    },
+    {
+      "start": 448.55,
+      "end": 451.58,
+      "jp": "《そんなに警戒しなくても…》",
+      "vi": "《Cũng đâu cần cảnh giác dữ vậy...》"
+    },
+    {
+      "start": 451.58,
+      "end": 457.56,
+      "jp": "《そして　阿多妃の後釜\n新しい淑妃・楼蘭妃か》",
+      "vi": "《Và kia là người thay thế A Đa Phi, tân Thục phi Lâu Lan Phi sao》"
+    },
+    {
+      "start": 457.56,
+      "end": 460.59,
+      "jp": "《南国調の派手な服は趣味か？》",
+      "vi": "《Bộ trang phục lòe loẹt kiểu phương Nam kia là sở thích à?》"
+    },
+    {
+      "start": 460.59,
+      "end": 466.06,
+      "jp": "《顔立ちは北寄りに見えるが\n元がよく分からないな》",
+      "vi": "《Đường nét khuôn mặt thì giống người phương Bắc, nhưng gốc gác thì không rõ lắm》"
+    },
+    {
+      "start": 466.06,
+      "end": 468.57,
+      "jp": "（あくび）",
+      "vi": "(Ngáp)"
+    },
+    {
+      "start": 468.57,
+      "end": 472.57,
+      "jp": "《年頃からして\n帝のお手つきにはなりそうだ》",
+      "vi": "《Nhìn độ tuổi đó thì chắc cũng sắp được Hoàng thượng sủng hạnh thôi》"
+    },
+    {
+      "start": 472.57,
+      "end": 477.58,
+      "jp": "《後宮のバランスが崩れることは\nなさそうだが》",
+      "vi": "《Có vẻ sự cân bằng trong Hậu cung sẽ không bị phá vỡ đâu》"
+    },
+    {
+      "start": 477.58,
+      "end": 480.55,
+      "jp": "《まぁ　どうでもいいか》",
+      "vi": "《Mà thôi, sao cũng được》"
+    },
+    {
+      "start": 482.08,
+      "end": 487.69,
+      "jp": "このたび　講師を承りました\n猫猫と申します。",
+      "vi": "Tiểu nữ là Miêu Miêu, người đảm nhận vai trò giảng sư lần này."
+    },
+    {
+      "start": 487.69,
+      "end": 493.53,
+      "jp": "これから　皆さまにお教えするのは\n女の園における秘術故➡",
+      "vi": "Những điều tiểu nữ sắp truyền đạt sau đây là bí thuật chốn nữ nhi,"
+    },
+    {
+      "start": 493.53,
+      "end": 498.03,
+      "jp": "他言無用にお願いします。",
+      "vi": "kính mong các vị tuyệt đối không tiết lộ ra ngoài."
+    },
+    {
+      "start": 498.03,
+      "end": 501.03,
+      "jp": "それでは　教材をお配りします。",
+      "vi": "Sau đây, tiểu nữ xin phát giáo cụ."
+    },
+    {
+      "start": 512.58,
+      "end": 517.15,
+      "jp": "（玉葉妃）　まぁ～　ウッフフ…。\n（紅娘）　ハァ…。",
+      "vi": "(Ngọc Diệp Phi) Chà... Uffufu...\n(Hồng Nương) Haizz..."
+    },
+    {
+      "start": 517.15,
+      "end": 522.55,
+      "jp": "（侍女）　うわぁ～　ヒィ～\nおっとと…　フゥ…。",
+      "vi": "(Thị nữ) Oa... Híii...\nÔi chao... Phù..."
+    },
+    {
+      "start": 522.55,
+      "end": 526.02,
+      "jp": "（里樹妃）　うぅ…　うわぁ…。\n（河南）　あぁ　あ…。",
+      "vi": "(Lý Thụ Phi) Ư... Oa...\n(Hà Nam) A... A..."
+    },
+    {
+      "start": 526.02,
+      "end": 529.53,
+      "jp": "（里樹妃）　はぁ～…。",
+      "vi": "(Lý Thụ Phi) Haaaa..."
+    },
+    {
+      "start": 549.05,
+      "end": 553.02,
+      "jp": "ん～…。\n一体何が起きているんでしょうか。",
+      "vi": "Hừm...\nRốt cuộc chuyện gì đang xảy ra bên trong thế nhỉ."
+    },
+    {
+      "start": 553.02,
+      "end": 555.52,
+      "jp": "分からんな。",
+      "vi": "Ta không biết."
+    },
+    {
+      "start": 561.53,
+      "end": 565.6,
+      "jp": "ご苦労　長かったな。",
+      "vi": "Vất vả rồi, lâu quá nhỉ."
+    },
+    {
+      "start": 565.6,
+      "end": 568.17,
+      "jp": "《こいつ　聞き耳　立ててたな》\nん？",
+      "vi": "《Tên này đứng nghe lén à》\nHử?"
+    },
+    {
+      "start": 568.17,
+      "end": 571.04,
+      "jp": "どうしました？",
+      "vi": "Có chuyện gì vậy?"
+    },
+    {
+      "start": 571.04,
+      "end": 573.54,
+      "jp": "これは　一体どういう状況だ？",
+      "vi": "Thế này là tình huống gì đây?"
+    },
+    {
+      "start": 573.54,
+      "end": 575.57,
+      "jp": "マンネリ離脱。\nハァ…。",
+      "vi": "Thoát khỏi sự nhàm chán.\nHaizz..."
+    },
+    {
+      "start": 575.57,
+      "end": 578.54,
+      "jp": "（梨花妃）　ここを　こうして…。",
+      "vi": "(Lê Hoa Phi) Chỗ này... làm thế này..."
+    },
+    {
+      "start": 578.54,
+      "end": 580.51,
+      "jp": "（里樹妃）　無理　絶対無理。\n（額を打ち付ける音）",
+      "vi": "(Lý Thụ Phi) Không thể nào, tuyệt đối không thể.\n(Tiếng đập đầu)"
+    },
+    {
+      "start": 580.51,
+      "end": 583.05,
+      "jp": "（河南）　里樹さま！\n（額を打ち付ける音）",
+      "vi": "(Hà Nam) Lý Thụ nương nương!\n(Tiếng đập đầu)"
+    },
+    {
+      "start": 583.05,
+      "end": 586.55,
+      "jp": "言われた通りに\n講義をしただけです。",
+      "vi": "Tôi chỉ giảng dạy đúng như những gì được yêu cầu thôi."
+    },
+    {
+      "start": 586.55,
+      "end": 593.16,
+      "jp": "《それでも推薦人の２人には\n喜んでもらえたみたいだ》",
+      "vi": "《Dù sao thì có vẻ hai người đề cử cũng rất hài lòng》"
+    },
+    {
+      "start": 598.56,
+      "end": 604.54,
+      "jp": "《最後まで何を考えているのか\nよく分からない妃だったな》",
+      "vi": "《Đến cuối cùng vẫn là một vị Phi tần khó hiểu》"
+    },
+    {
+      "start": 608.54,
+      "end": 610.54,
+      "jp": "《好きに使ってくれ》",
+      "vi": "《Muốn dùng sao thì tùy》"
+    },
+    {
+      "start": 610.54,
+      "end": 613.04,
+      "jp": "なぁ　どんな授業をやったんだ？",
+      "vi": "Này, rốt cuộc ngươi dạy cái gì thế?"
+    },
+    {
+      "start": 613.04,
+      "end": 616.11,
+      "jp": "後日　帝に感想を伺ってください。",
+      "vi": "Sau này ngài cứ hỏi cảm tưởng của Hoàng thượng là biết."
+    },
+    {
+      "start": 616.11,
+      "end": 617.58,
+      "jp": "おい。",
+      "vi": "Này."
+    },
+    {
+      "start": 633.53,
+      "end": 636.07,
+      "jp": "疲れた…。",
+      "vi": "Mệt quá..."
+    },
+    {
+      "start": 636.07,
+      "end": 642.04,
+      "jp": "フフっ　フフフ…\n褒賞の金一封　楽しみだ。",
+      "vi": "Fufu... Fufufu...\nMong chờ túi tiền thưởng quá đi."
+    },
+    {
+      "start": 646.04,
+      "end": 648.08,
+      "jp": "（爆発音）",
+      "vi": "(Tiếng nổ)"
+    },
+    {
+      "start": 650.65,
+      "end": 653.12,
+      "jp": "⚟どうした⁉⚞\n⚟こっちだ⚞",
+      "vi": "⚟Chuyện gì thế!?⚞\n⚟Đằng này!⚞"
+    },
+    {
+      "start": 660.56,
+      "end": 664.1,
+      "jp": "｟ウフフ｠\nやめておくか　うぅ…　寒っ。",
+      "vi": "｟Ufufu｠\nThôi bỏ đi... Ư... Lạnh quá."
+    },
+    {
+      "start": 664.1,
+      "end": 667.07,
+      "jp": "（寝床に潜り込む音）",
+      "vi": "(Tiếng chui vào chăn)"
+    },
+    {
+      "start": 670.14,
+      "end": 672.6,
+      "jp": "（陸孫）　羅漢さま　羅漢さま！",
+      "vi": "(Lục Tôn) La Hán đại nhân! La Hán đại nhân!"
+    },
+    {
+      "start": 682.05,
+      "end": 686.55,
+      "jp": "（陸孫）　羅漢さま　こんな所に。",
+      "vi": "(Lục Tôn) La Hán đại nhân, ngài ở đây sao."
+    },
+    {
+      "start": 686.55,
+      "end": 688.59,
+      "jp": "（羅漢）　ふむ…。",
+      "vi": "(La Hán) Hừm..."
+    },
+    {
+      "start": 688.59,
+      "end": 690.56,
+      "jp": "何か気になることでも？",
+      "vi": "Có chuyện gì khiến ngài bận tâm sao?"
+    },
+    {
+      "start": 690.56,
+      "end": 694.06,
+      "jp": "いや　何もないよ。",
+      "vi": "Không, không có gì đâu."
+    },
+    {
+      "start": 704.04,
+      "end": 707.04,
+      "jp": "《昨日の音　何だったんだろう》",
+      "vi": "《Tiếng động hôm qua là gì ấy nhỉ》"
+    },
+    {
+      "start": 708.57,
+      "end": 714.11,
+      "jp": "《宦官なのに後宮だけじゃなく\n外廷の仕事もあるのか》",
+      "vi": "《Là hoạn quan mà không chỉ ở Hậu cung, còn có cả việc ở Ngoại đình nữa sao》"
+    },
+    {
+      "start": 714.11,
+      "end": 719.48,
+      "jp": "《くだらない法案だろうと➡\n無視するわけに\nいかないみたいだし》",
+      "vi": "《Dù là mấy dự luật vớ vẩn thì có vẻ cũng không thể lờ đi được》"
+    },
+    {
+      "start": 722.05,
+      "end": 725.56,
+      "jp": "《いい紙だから　売れば\n小遣いになるんだけど》",
+      "vi": "《Giấy tốt thế này, đem bán cũng kiếm được chút tiền tiêu vặt》"
+    },
+    {
+      "start": 725.56,
+      "end": 728.06,
+      "jp": "《燃やすなんて　もったいない》",
+      "vi": "《Đem đốt thì phí thật》"
+    },
+    {
+      "start": 729.56,
+      "end": 732.06,
+      "jp": "《ゴミ焼き場　軍部の辺りか…》",
+      "vi": "《Bãi đốt rác... ở gần khu quân sự à...》"
+    },
+    {
+      "start": 732.06,
+      "end": 734.57,
+      "jp": "小猫。",
+      "vi": "Tiểu Miêu."
+    },
+    {
+      "start": 734.57,
+      "end": 737.04,
+      "jp": "外は寒いので。",
+      "vi": "Bên ngoài lạnh lắm."
+    },
+    {
+      "start": 739.64,
+      "end": 741.67,
+      "jp": "ありがとうございます。",
+      "vi": "Cảm ơn ạ."
+    },
+    {
+      "start": 741.67,
+      "end": 743.58,
+      "jp": "《さすが　まめだ》",
+      "vi": "《Quả nhiên là chu đáo》"
+    },
+    {
+      "start": 743.58,
+      "end": 746.04,
+      "jp": "《宦官にしておくには\nもったいない》",
+      "vi": "《Để làm hoạn quan thì phí thật》"
+    },
+    {
+      "start": 749.55,
+      "end": 752.55,
+      "jp": "あ…　これは\n壬氏さまからのものですので。",
+      "vi": "A... cái này là của Nhâm Thị đại nhân ban cho."
+    },
+    {
+      "start": 752.55,
+      "end": 756.05,
+      "jp": "私は　ただ\n渡しただけに過ぎませんので。",
+      "vi": "Tôi chỉ là người đưa giúp thôi."
+    },
+    {
+      "start": 756.05,
+      "end": 757.56,
+      "jp": "そうですか。",
+      "vi": "Ra là vậy."
+    },
+    {
+      "start": 757.56,
+      "end": 763.16,
+      "jp": "《下女に綿入れ１枚渡すのにも\n許可が必要なんて　大変だな》",
+      "vi": "《Cho cung nữ một cái áo bông cũng cần xin phép, vất vả thật》"
+    },
+    {
+      "start": 763.16,
+      "end": 766.06,
+      "jp": "ありがとうございます　壬氏さま。",
+      "vi": "Đa tạ Nhâm Thị đại nhân."
+    },
+    {
+      "start": 766.06,
+      "end": 768.03,
+      "jp": "気にするな。",
+      "vi": "Đừng bận tâm."
+    },
+    {
+      "start": 774.54,
+      "end": 778.54,
+      "jp": "《外廷は\n後宮の何倍もの広さがあるのに➡",
+      "vi": "《Ngoại đình rộng gấp mấy lần Hậu cung,"
+    },
+    {
+      "start": 778.54,
+      "end": 781.08,
+      "jp": "薬草は　あまり見当たらない》",
+      "vi": "vậy mà chẳng thấy thuốc đâu》"
+    },
+    {
+      "start": 781.08,
+      "end": 783.58,
+      "jp": "《やっぱり　めぼしい薬草は➡",
+      "vi": "《Quả nhiên mấy cây thuốc ngon lành,"
+    },
+    {
+      "start": 783.58,
+      "end": 788.15,
+      "jp": "どこにでもある\nタンポポかヨモギくらいか》",
+      "vi": "cũng chỉ loanh quanh bồ công anh hay ngải cứu thôi sao》"
+    },
+    {
+      "start": 788.15,
+      "end": 790.56,
+      "jp": "《冬場で見つけにくいとはいえ➡",
+      "vi": "《Dù biết mùa đông khó tìm,"
+    },
+    {
+      "start": 790.56,
+      "end": 794.03,
+      "jp": "この辺りにも\n種を植えておこうかな》",
+      "vi": "nhưng chắc mình nên gieo ít hạt ở quanh đây thôi》"
+    },
+    {
+      "start": 795.56,
+      "end": 799.06,
+      "jp": "あっ　マンジュシャゲ！\nここにも　あそこにも！",
+      "vi": "A, Bỉ Ngạn Hoa! Ở đây nữa, đằng kia nữa!"
+    },
+    {
+      "start": 799.06,
+      "end": 802.53,
+      "jp": "球根を水にさらすと\nうまいんだよなぁ。",
+      "vi": "Củ này mà ngâm nước thì ăn ngon lắm đây."
+    },
+    {
+      "start": 802.53,
+      "end": 807.07,
+      "jp": "毒抜きを失敗すると\n腹痛で苦しむ羽目になるけど。",
+      "vi": "Mỗi tội khử độc không kỹ thì đau bụng quằn quại luôn."
+    },
+    {
+      "start": 808.61,
+      "end": 812.64,
+      "jp": "あっ　李白さまだ\n帯の色が以前とは違う。",
+      "vi": "A, là Lý Bạch đại nhân. Màu đai lưng khác trước rồi."
+    },
+    {
+      "start": 812.64,
+      "end": 815.05,
+      "jp": "ということは出世したのか？",
+      "vi": "Tức là được thăng chức rồi sao?"
+    },
+    {
+      "start": 815.05,
+      "end": 818.05,
+      "jp": "（李白）　ん？　おぉ　嬢ちゃん。",
+      "vi": "(Lý Bạch) Hử? Ồ, là cô nương đấy à."
+    },
+    {
+      "start": 818.05,
+      "end": 820.05,
+      "jp": "李白さま。",
+      "vi": "Lý Bạch đại nhân."
+    },
+    {
+      "start": 820.05,
+      "end": 825.02,
+      "jp": "妃の付き添いか何かか？\n後宮から出てくるなんて珍しい。",
+      "vi": "Đi tháp tùng Phi tần hay sao? Hiếm khi thấy cô đi ra khỏi Hậu cung đấy."
+    },
+    {
+      "start": 825.02,
+      "end": 828.53,
+      "jp": "《私が解雇されたこと\n知らないのか》",
+      "vi": "《Ngài ấy không biết mình bị đuổi việc sao》"
+    },
+    {
+      "start": 828.53,
+      "end": 830.6,
+      "jp": "《李白さま》",
+      "vi": "《Lý Bạch đại nhân》"
+    },
+    {
+      "start": 830.6,
+      "end": 834.63,
+      "jp": "《緑青館三姫の１人\n白鈴小姐に惚れて➡",
+      "vi": "《Mê mẩn Bạch Linh tiểu thư, một trong tam đại hoa khôi Lục Thanh Quán,"
+    },
+    {
+      "start": 834.63,
+      "end": 837.04,
+      "jp": "女のために出世しようとする➡",
+      "vi": "vì gái mà nỗ lực thăng quan tiến chức,"
+    },
+    {
+      "start": 837.04,
+      "end": 840.04,
+      "jp": "愛すべき\nばかなところがある男だ》",
+      "vi": "đúng là một gã ngốc đáng yêu》"
+    },
+    {
+      "start": 841.57,
+      "end": 847.55,
+      "jp": "《白鈴小姐を呼ぶには\n平民の半年分の銀が必要になる》",
+      "vi": "《Muốn mời được Bạch Linh tiểu thư, cần số bạc bằng thu nhập nửa năm của thường dân》"
+    },
+    {
+      "start": 847.55,
+      "end": 850.05,
+      "jp": "《高くて\nそうそう呼べないもんな》",
+      "vi": "《Đắt đỏ thế thì không mời thường xuyên được đâu》"
+    },
+    {
+      "start": 850.05,
+      "end": 855.12,
+      "jp": "《緑青館には禿相手に　よく茶を\n飲みに来てるらしいけど➡",
+      "vi": "《Nghe nói ngài ấy hay đến Lục Thanh Quán uống trà với mấy đứa nhỏ,"
+    },
+    {
+      "start": 855.12,
+      "end": 857.69,
+      "jp": "会うことはなかったし》",
+      "vi": "nhưng chưa gặp cô ấy bao giờ》"
+    },
+    {
+      "start": 857.69,
+      "end": 859.56,
+      "jp": "《天上の蜜を知った男は➡",
+      "vi": "《Kẻ đã nếm mật ngọt trên trời,"
+    },
+    {
+      "start": 859.56,
+      "end": 863.56,
+      "jp": "一目でも拝めればと\n通い詰めてるんだろう》",
+      "vi": "chắc hẳn đang lui tới thường xuyên chỉ để mong gặp mặt một lần》"
+    },
+    {
+      "start": 863.56,
+      "end": 866.03,
+      "jp": "《頑張ってるんだな》",
+      "vi": "《Cố gắng thật đấy》"
+    },
+    {
+      "start": 866.03,
+      "end": 867.57,
+      "jp": "ん？　何だ？",
+      "vi": "Hử? Sao thế?"
+    },
+    {
+      "start": 867.57,
+      "end": 870.54,
+      "jp": "いえ　今は後宮勤めから➡",
+      "vi": "Dạ không, hiện tại thay vì làm việc trong Hậu cung,"
+    },
+    {
+      "start": 870.54,
+      "end": 873.57,
+      "jp": "とある　ご仁の部屋付きに\nなりましたので。",
+      "vi": "tiểu nữ đã chuyển sang làm người hầu riêng cho một vị đại nhân rồi ạ."
+    },
+    {
+      "start": 873.57,
+      "end": 877.14,
+      "jp": "部屋付き？　誰だ　そんな物好きは。",
+      "vi": "Hầu riêng? Ai mà có sở thích kỳ lạ thế."
+    },
+    {
+      "start": 877.14,
+      "end": 880.04,
+      "jp": "ええ　物好きですよね。",
+      "vi": "Vâng, đúng là sở thích kỳ lạ."
+    },
+    {
+      "start": 880.04,
+      "end": 884.52,
+      "jp": "ところで　お取り込み中では？\nちょっとな。",
+      "vi": "Mà ngài đang bận việc sao?\nỪ, một chút."
+    },
+    {
+      "start": 884.52,
+      "end": 887.52,
+      "jp": "この季節には\n珍しくもないボヤだよ。",
+      "vi": "Một vụ cháy nhỏ, cũng không hiếm gặp vào mùa này."
+    },
+    {
+      "start": 887.52,
+      "end": 891.06,
+      "jp": "火元が分からないってことで\n駆り出されてるんだ。",
+      "vi": "Không tìm ra nguyên nhân cháy nên ta bị điều đến đây."
+    },
+    {
+      "start": 891.06,
+      "end": 895.56,
+      "jp": "《原因不明ねぇ\n昨日の音は　これか》",
+      "vi": "《Nguyên nhân không rõ sao... Tiếng động hôm qua là cái này à》"
+    },
+    {
+      "start": 895.56,
+      "end": 899.13,
+      "jp": "ケガ人は？\n（李白）　倉庫番だけだ。",
+      "vi": "Có ai bị thương không ạ?\n(Lý Bạch) Chỉ có người thủ kho thôi."
+    },
+    {
+      "start": 899.13,
+      "end": 903.53,
+      "jp": "命に別条はないが…\nって　おい　あんまり近づくなよ。",
+      "vi": "Không nguy hiểm đến tính mạng nhưng mà... Này, đừng có lại gần quá."
+    },
+    {
+      "start": 903.53,
+      "end": 905.04,
+      "jp": "分かりました。",
+      "vi": "Tiểu nữ biết rồi."
+    },
+    {
+      "start": 905.04,
+      "end": 910.04,
+      "jp": "《そんな話　聞かされて\n首を突っ込むなと言われても》",
+      "vi": "《Nghe chuyện như thế mà bảo đừng xía vào thì hơi khó đấy》"
+    },
+    {
+      "start": 912.01,
+      "end": 915.01,
+      "jp": "《隣の小屋にまで届いた煤》",
+      "vi": "《Muội than bay sang tận nhà kho bên cạnh》"
+    },
+    {
+      "start": 915.01,
+      "end": 918.02,
+      "jp": "《建物の周りに散らばった破片》",
+      "vi": "《Mảnh vỡ văng tung tóe quanh tòa nhà》"
+    },
+    {
+      "start": 918.02,
+      "end": 922.59,
+      "jp": "《これじゃ\nボヤというより爆発に近い》",
+      "vi": "《Thế này thì giống vụ nổ hơn là cháy nhỏ》"
+    },
+    {
+      "start": 922.59,
+      "end": 925.16,
+      "jp": "《なるほど》",
+      "vi": "《Ra là vậy》"
+    },
+    {
+      "start": 925.16,
+      "end": 928.53,
+      "jp": "《火付けの疑いありと\nみてるわけか》",
+      "vi": "《Họ nghi ngờ có kẻ phóng hỏa》"
+    },
+    {
+      "start": 928.53,
+      "end": 934.03,
+      "jp": "《下っ端役人ではなく　李白さまが\n出てくるのも　うなずける》",
+      "vi": "《Bảo sao Lý Bạch đại nhân phải đích thân ra mặt chứ không phải lính quèn》"
+    },
+    {
+      "start": 934.03,
+      "end": 940.04,
+      "jp": "《そこらの倉庫なら　ともかく\nここは帝のいる宮殿内だ》",
+      "vi": "《Nếu là nhà kho bình thường thì không nói, đây lại là trong cung điện nơi Hoàng thượng ở》"
+    },
+    {
+      "start": 940.04,
+      "end": 944.08,
+      "jp": "《この国は\nおおむね平和であるが➡",
+      "vi": "《Đất nước này nhìn chung thì hòa bình,"
+    },
+    {
+      "start": 944.08,
+      "end": 949.05,
+      "jp": "全ての人間が　現状に満足している\nわけではないだろう》",
+      "vi": "nhưng không phải ai cũng hài lòng với hiện tại》"
+    },
+    {
+      "start": 949.05,
+      "end": 951.52,
+      "jp": "《まれに　異民族は襲ってくるし➡",
+      "vi": "《Thỉnh thoảng vẫn có dị tộc tấn công,"
+    },
+    {
+      "start": 951.52,
+      "end": 955.05,
+      "jp": "飢きんや干ばつも\nなきにしもあらず》",
+      "vi": "nạn đói hay hạn hán cũng chẳng phải là không có》"
+    },
+    {
+      "start": 955.05,
+      "end": 959.02,
+      "jp": "《他国との和平も\nいつまで続くか分からない》",
+      "vi": "《Hòa bình với các nước khác cũng chẳng biết kéo dài bao lâu》"
+    },
+    {
+      "start": 959.02,
+      "end": 963.03,
+      "jp": "《異国の中には\n不満を持つ者もいるだろう》",
+      "vi": "《Trong số ngoại quốc chắc cũng có kẻ bất mãn》"
+    },
+    {
+      "start": 965.6,
+      "end": 970.07,
+      "jp": "《炭？　いや　焦げた芋か…\nもったいない》",
+      "vi": "《Than ư? Không, là khoai cháy à... Phí thật》"
+    },
+    {
+      "start": 971.54,
+      "end": 975.51,
+      "jp": "《ということは　ここは食料庫》",
+      "vi": "《Nghĩa là đây là kho lương thực》"
+    },
+    {
+      "start": 985.52,
+      "end": 989.05,
+      "jp": "《象牙細工？　キセルみたいだな》",
+      "vi": "《Đồ chạm khắc bằng ngà voi? Giống tẩu thuốc quá nhỉ》"
+    },
+    {
+      "start": 989.05,
+      "end": 992.09,
+      "jp": "勝手にウロウロするな。",
+      "vi": "Đừng có tự tiện đi lung tung."
+    },
+    {
+      "start": 992.09,
+      "end": 994.63,
+      "jp": "キセル…。\nん？",
+      "vi": "Tẩu thuốc...\nHử?"
+    },
+    {
+      "start": 994.63,
+      "end": 999.03,
+      "jp": "《爆発　食料庫　キセル》",
+      "vi": "《Vụ nổ... Kho lương thực... Tẩu thuốc》"
+    },
+    {
+      "start": 999.03,
+      "end": 1000.53,
+      "jp": "ハッ…。",
+      "vi": "A..."
+    },
+    {
+      "start": 1000.53,
+      "end": 1003.03,
+      "jp": "あっ…　おい！",
+      "vi": "Này...!"
+    },
+    {
+      "start": 1009.55,
+      "end": 1012.05,
+      "jp": "（走る足音）",
+      "vi": "(Tiếng chạy)"
+    },
+    {
+      "start": 1014.55,
+      "end": 1018.12,
+      "jp": "（李白）　聞いてるのか？\n聞こえてますよ。",
+      "vi": "(Lý Bạch) Có nghe ta nói không đấy?\nTôi nghe mà."
+    },
+    {
+      "start": 1018.12,
+      "end": 1020.52,
+      "jp": "《聞こうとしないだけで》",
+      "vi": "《Chẳng qua là không muốn nghe thôi》"
+    },
+    {
+      "start": 1020.52,
+      "end": 1025.02,
+      "jp": "燃えた倉庫には➡\nこちらと同じものが\n置かれていたんですか？",
+      "vi": "Trong nhà kho bị cháy kia cũng chứa những thứ giống thế này phải không ạ?"
+    },
+    {
+      "start": 1025.02,
+      "end": 1029.03,
+      "jp": "ああ　奥から古いものを\n入れているらしい。",
+      "vi": "Ừ, nghe nói họ xếp đồ cũ từ trong cùng ra."
+    },
+    {
+      "start": 1030.03,
+      "end": 1034.07,
+      "jp": "これ　もらっていいですか？\nいいんじゃないか？",
+      "vi": "Tôi lấy cái này được không?\nChắc là được?"
+    },
+    {
+      "start": 1034.07,
+      "end": 1037.57,
+      "jp": "あと　これも…　槌とノコギリ。",
+      "vi": "Với cả cái này nữa... Búa và cưa."
+    },
+    {
+      "start": 1037.57,
+      "end": 1039.6,
+      "jp": "あと釘も必要ですね。",
+      "vi": "Cần thêm đinh nữa."
+    },
+    {
+      "start": 1039.6,
+      "end": 1042.14,
+      "jp": "何する気なんだよ。",
+      "vi": "Cô định làm cái gì thế."
+    },
+    {
+      "start": 1042.14,
+      "end": 1045.04,
+      "jp": "ちょっとした実験です。",
+      "vi": "Một thí nghiệm nhỏ thôi ạ."
+    },
+    {
+      "start": 1049.05,
+      "end": 1051.05,
+      "jp": "（槌でたたく音）",
+      "vi": "(Tiếng búa đập)"
+    },
+    {
+      "start": 1051.05,
+      "end": 1053.05,
+      "jp": "これでいいか。",
+      "vi": "Thế này chắc được rồi."
+    },
+    {
+      "start": 1053.05,
+      "end": 1055.05,
+      "jp": "妙に手慣れてるなぁ。",
+      "vi": "Cô quen tay thật đấy."
+    },
+    {
+      "start": 1055.05,
+      "end": 1059.56,
+      "jp": "貧しい育ちなので\nないものを作るのは得意です。",
+      "vi": "Vì nhà nghèo nên tôi giỏi tự chế đồ lắm ạ."
+    },
+    {
+      "start": 1061.59,
+      "end": 1064.1,
+      "jp": "それ　小麦粉だよな？",
+      "vi": "Cái đó là bột mì à?"
+    },
+    {
+      "start": 1064.1,
+      "end": 1066.6,
+      "jp": "はい　倉庫にあったものです。",
+      "vi": "Vâng, lấy trong kho đấy ạ."
+    },
+    {
+      "start": 1070.03,
+      "end": 1075.54,
+      "jp": "これでいいですか？\nそれと　お願いした火種は？",
+      "vi": "Thế này được chưa ạ?\nVới lại, mồi lửa tôi nhờ đâu?"
+    },
+    {
+      "start": 1075.54,
+      "end": 1079.01,
+      "jp": "こちらに。\nありがとうございます。",
+      "vi": "Đây này.\nCảm ơn ngài."
+    },
+    {
+      "start": 1079.01,
+      "end": 1082.01,
+      "jp": "（火打ち石を使う音）\n（息を吹く音）",
+      "vi": "(Tiếng đánh lửa)\n(Tiếng thổi lửa)"
+    },
+    {
+      "start": 1082.01,
+      "end": 1085.05,
+      "jp": "（火が付く音）\n訳が分からん。",
+      "vi": "(Tiếng lửa cháy)\nChả hiểu gì cả."
+    },
+    {
+      "start": 1085.05,
+      "end": 1089.12,
+      "jp": "準備できました\n危ないので離れていてください。",
+      "vi": "Chuẩn bị xong rồi.\nNguy hiểm lắm nên ngài tránh xa ra nhé."
+    },
+    {
+      "start": 1089.12,
+      "end": 1091.59,
+      "jp": "は…　はい　では…。",
+      "vi": "À... ừ... thì..."
+    },
+    {
+      "start": 1094.03,
+      "end": 1096.03,
+      "jp": "李白さま　危ないですよ。",
+      "vi": "Lý Bạch đại nhân, nguy hiểm đấy."
+    },
+    {
+      "start": 1096.03,
+      "end": 1098.06,
+      "jp": "何が危ないんだ？",
+      "vi": "Cái gì nguy hiểm chứ?"
+    },
+    {
+      "start": 1098.06,
+      "end": 1101.53,
+      "jp": "嬢ちゃんが何しようと\n武官の俺が危ないものか。",
+      "vi": "Cô nương làm trò gì thì võ quan như ta việc gì phải sợ."
+    },
+    {
+      "start": 1101.53,
+      "end": 1103.57,
+      "jp": "ハァ～　分かりました。",
+      "vi": "Haizz... Tôi hiểu rồi."
+    },
+    {
+      "start": 1103.57,
+      "end": 1106.54,
+      "jp": "危険なので　じゅうじゅう\n気を付けてください。",
+      "vi": "Nguy hiểm thật đấy, xin hãy hết sức cẩn thận."
+    },
+    {
+      "start": 1106.54,
+      "end": 1109.57,
+      "jp": "すぐに逃げてくださいね\nシュタタタ…。",
+      "vi": "Hãy chạy ngay đi nhé.\n(Chạy biến đi)"
+    },
+    {
+      "start": 1109.57,
+      "end": 1112.14,
+      "jp": "あ？　逃げるって何がだよ。",
+      "vi": "Hả? Chạy cái gì cơ chứ."
+    },
+    {
+      "start": 1112.14,
+      "end": 1114.05,
+      "jp": "（爆発音）\n（李白）　うわぁ～！",
+      "vi": "(Tiếng nổ)\n(Lý Bạch) Oái...!"
+    },
+    {
+      "start": 1114.05,
+      "end": 1116.55,
+      "jp": "あぁ…　あぁ…！",
+      "vi": "Á... Á...!"
+    },
+    {
+      "start": 1116.55,
+      "end": 1118.05,
+      "jp": "消してくれ…！",
+      "vi": "Dập lửa đi...!"
+    },
+    {
+      "start": 1121.55,
+      "end": 1124.56,
+      "jp": "だから　言ったのに…。",
+      "vi": "Đã bảo rồi mà..."
+    },
+    {
+      "start": 1124.56,
+      "end": 1127.06,
+      "jp": "（李白のくしゃみ）",
+      "vi": "(Lý Bạch hắt hơi)"
+    },
+    {
+      "start": 1127.06,
+      "end": 1131.13,
+      "jp": "それで　何がどうなって\n爆発したって…？",
+      "vi": "Thế rốt cuộc... tại sao lại phát nổ vậy...?"
+    },
+    {
+      "start": 1131.13,
+      "end": 1135.07,
+      "jp": "原因は　これです。\n（李白）　小麦粉？",
+      "vi": "Nguyên nhân là đây ạ.\n(Lý Bạch) Bột mì?"
+    },
+    {
+      "start": 1135.07,
+      "end": 1139.04,
+      "jp": "はい　小麦粉やソバといった粉は\n燃えやすく➡",
+      "vi": "Vâng, các loại bột như bột mì hay kiều mạch rất dễ cháy,"
+    },
+    {
+      "start": 1139.04,
+      "end": 1143.54,
+      "jp": "空中に舞うと\n火が付くことがあるんです。",
+      "vi": "khi bay lơ lửng trong không khí có thể bắt lửa."
+    },
+    {
+      "start": 1143.54,
+      "end": 1146.04,
+      "jp": "火種は　これかと。",
+      "vi": "Mồi lửa chắc là cái này."
+    },
+    {
+      "start": 1146.04,
+      "end": 1148.05,
+      "jp": "（李白）　キセル？",
+      "vi": "(Lý Bạch) Tẩu thuốc?"
+    },
+    {
+      "start": 1148.05,
+      "end": 1153.12,
+      "jp": "人目を盗んで\n一服するため　中に入ると➡",
+      "vi": "Khi lén vào trong hút thuốc,"
+    },
+    {
+      "start": 1153.12,
+      "end": 1157.05,
+      "jp": "外気が流れ込んで　粉が舞います。",
+      "vi": "gió bên ngoài lùa vào làm bột bay lên."
+    },
+    {
+      "start": 1157.05,
+      "end": 1160.16,
+      "jp": "そこでキセルに火を付けると…。",
+      "vi": "Lúc đó châm lửa tẩu thuốc thì..."
+    },
+    {
+      "start": 1160.16,
+      "end": 1162.06,
+      "jp": "｟爆発音｠",
+      "vi": "｟Bùm｠"
+    },
+    {
+      "start": 1162.06,
+      "end": 1165.03,
+      "jp": "倉庫内に充満した小麦粉に\n着火して➡",
+      "vi": "Lửa bén vào bột mì đang phủ kín nhà kho,"
+    },
+    {
+      "start": 1165.03,
+      "end": 1168.03,
+      "jp": "結果　爆発が起こります。",
+      "vi": "kết quả là gây ra nổ."
+    },
+    {
+      "start": 1168.03,
+      "end": 1171.1,
+      "jp": "倉庫番の方に　倉庫でのタバコは➡",
+      "vi": "Ngài hãy nhắn với người thủ kho là,"
+    },
+    {
+      "start": 1171.1,
+      "end": 1174.14,
+      "jp": "おやめくださいと\nお伝え願えますか？",
+      "vi": "làm ơn đừng hút thuốc trong kho nhé?"
+    },
+    {
+      "start": 1174.14,
+      "end": 1176.54,
+      "jp": "んなこと　よく知ってるな。",
+      "vi": "Chuyện đó mà cô cũng biết rành nhỉ."
+    },
+    {
+      "start": 1176.54,
+      "end": 1179.04,
+      "jp": "以前　緑青館で\n間借りしていた部屋を➡",
+      "vi": "Trước kia tiểu nữ từng lỡ tay làm nổ tung,"
+    },
+    {
+      "start": 1179.04,
+      "end": 1181.05,
+      "jp": "吹っ飛ばしたことがありまして。",
+      "vi": "căn phòng thuê ở Lục Thanh Quán ạ."
+    },
+    {
+      "start": 1181.05,
+      "end": 1183.71,
+      "jp": "お前…。",
+      "vi": "Cô..."
+    },
+    {
+      "start": 1183.71,
+      "end": 1187.05,
+      "jp": "｟この　ばか娘がぁ～！｠\n｟あぁ～～！｠",
+      "vi": "｟Con ranh ngốc này...!｠\n｟Áááá...!｠"
+    },
+    {
+      "start": 1187.05,
+      "end": 1190.09,
+      "jp": "《あの時の婆は怖かった》",
+      "vi": "《Bà chủ lúc đó đáng sợ thật》"
+    },
+    {
+      "start": 1190.09,
+      "end": 1194.16,
+      "jp": "（李白）　しかし\n粉が爆発とは不思議なもんだ。",
+      "vi": "(Lý Bạch) Nhưng mà bột phát nổ thì lạ thật đấy."
+    },
+    {
+      "start": 1194.16,
+      "end": 1197.53,
+      "jp": "《世の中　不思議なことは\nほとんどない》",
+      "vi": "《Trên đời này hầu như chẳng có gì là lạ cả》"
+    },
+    {
+      "start": 1197.53,
+      "end": 1201.07,
+      "jp": "《不思議というなら\nそれは知らないだけだ》",
+      "vi": "《Nếu thấy lạ, thì chỉ là do mình chưa biết thôi》"
+    },
+    {
+      "start": 1201.07,
+      "end": 1203.03,
+      "jp": "（くしゃみ）",
+      "vi": "(Hắt hơi)"
+    },
+    {
+      "start": 1203.03,
+      "end": 1205.57,
+      "jp": "風邪をひかぬよう\n気を付けてください。",
+      "vi": "Ngài cẩn thận kẻo cảm lạnh."
+    },
+    {
+      "start": 1205.57,
+      "end": 1209.54,
+      "jp": "ひいたら　花街の羅門の薬が\nよく効きますよ。",
+      "vi": "Nếu bị cảm thì thuốc của ông La Môn ở Phố đèn đỏ hiệu nghiệm lắm đấy."
+    },
+    {
+      "start": 1209.54,
+      "end": 1211.04,
+      "jp": "おお。",
+      "vi": "Ồ."
+    },
+    {
+      "start": 1211.04,
+      "end": 1213.08,
+      "jp": "《おやじ　商売っ気がないからな》",
+      "vi": "《Ông già chẳng có khiếu kinh doanh gì cả》"
+    },
+    {
+      "start": 1213.08,
+      "end": 1216.65,
+      "jp": "《ちょっとくらい\n営業活動してあげないと》",
+      "vi": "《Mình phải tiếp thị giúp một chút mới được》"
+    },
+    {
+      "start": 1216.65,
+      "end": 1221.05,
+      "jp": "《白鈴小姐に会いに行く\nついでにでも寄ってくれ》",
+      "vi": "《Tiện đường đi gặp Bạch Linh tiểu thư thì ghé qua ủng hộ nhé》"
+    },
+    {
+      "start": 1221.05,
+      "end": 1225.06,
+      "jp": "では　仕事に戻ります。\nああ。",
+      "vi": "Vậy tôi quay lại làm việc đây.\nỪ."
+    },
+    {
+      "start": 1227.56,
+      "end": 1231.06,
+      "jp": "あっ　これ持ってきちゃったな。",
+      "vi": "A, lỡ cầm theo cái này rồi."
+    },
+    {
+      "start": 1231.06,
+      "end": 1235.57,
+      "jp": "キレイにして　新しい吸い口を\n付ければ　元に戻るか？",
+      "vi": "Làm sạch rồi thay đầu hút mới là lại dùng được nhỉ?"
+    },
+    {
+      "start": 1235.57,
+      "end": 1238.6,
+      "jp": "売れば　それなりの金に\nなりそうだ。",
+      "vi": "Đem bán chắc cũng được kha khá tiền."
+    },
+    {
+      "start": 1238.6,
+      "end": 1242.54,
+      "jp": "というか　倉庫番が持つには\n立派過ぎる。",
+      "vi": "Cơ mà, tên thủ kho sở hữu món đồ này thì xịn quá."
+    },
+    {
+      "start": 1242.54,
+      "end": 1246.08,
+      "jp": "もしかしたら大切なものかな…。",
+      "vi": "Hay là món đồ quan trọng nhỉ..."
+    },
+    {
+      "start": 1246.08,
+      "end": 1249.55,
+      "jp": "磨いて返してやるか。",
+      "vi": "Thôi đánh bóng lại rồi trả hắn vậy."
+    },
+    {
+      "start": 1249.55,
+      "end": 1251.58,
+      "jp": "（とっくりが割れた音）",
+      "vi": "(Tiếng bình rượu vỡ)"
+    },
+    {
+      "start": 1251.58,
+      "end": 1257.59,
+      "jp": "（男）　ハァ　ハァ　ハァ…　くそっ！",
+      "vi": "(Người đàn ông) Hộc... Hộc... Chết tiệt!"
+    },
+    {
+      "start": 1257.59,
+      "end": 1261.06,
+      "jp": "俺だって…　くそっ…。",
+      "vi": "Ta cũng... Khốn kiếp..."
+    },
+    {
+      "start": 1266.53,
+      "end": 1355.62,
+      "jp": "♬～",
+      "vi": "(Nhạc kết)"
+    }
+  ]

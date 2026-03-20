@@ -1,0 +1,125 @@
+
+<main class="container">
+  <section class="page-header">
+    <h1>Hành trình chinh phục Tiếng Anh</h1>
+    <p class="desc">Lộ trình tự học khoa học giúp bạn từ mất gốc đến giao tiếp trôi chảy chỉ sau 6 tháng.</p>
+
+    <div class="filter-wrapper">
+      <div class="tabs-group">
+        <button 
+          *ngFor="let lvl of levels" 
+          class="tab-link"
+          [class.active]="currentLevel === lvl.value"
+          (click)="onLevelChange(lvl.value)">
+          {{ lvl.label }}
+        </button>
+      </div>
+      <div style="font-size: 14px; color: var(--muted); font-weight: 500;">
+        Tiến độ: <strong>{{totalCompleted}}/{{this.totalLesson}} bài học</strong>
+      </div>
+    </div>
+  </section>
+
+<div class="lesson-grid" *ngIf="isLoading">
+  <div class="lesson-card skeleton" *ngFor="let i of [1,2,3,4,5,6]">
+    <div class="skeleton-img"></div>
+    <div class="lesson-body">
+      <div class="skeleton-text title"></div>
+      <div class="skeleton-text sub"></div>
+      <div class="lesson-footer">
+        <div class="skeleton-text status"></div>
+        <div class="skeleton-btn"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="lesson-grid" *ngIf="!isLoading">
+    <div class="lesson-card" *ngFor="let lesson of lessons">
+      <div class="lesson-img-wrap">
+        <img [src]="lesson.image" [alt]="lesson.title">
+        
+        <div class="badge-float" [ngClass]="{
+          'badge-a1': lesson.level === 'BEGINNER',
+          'badge-a2': lesson.level === 'INTERMEDIATE',
+          'badge-b1': lesson.level === 'ADVANCED'
+        }">
+          {{ lesson.level }}
+        </div>
+      </div>
+
+      <div class="lesson-body">
+        <div class="lesson-info">
+          <span>⏱ {{ lesson.duration }}</span>
+          <span>•</span>
+          <span>Chủ đề: {{ lesson.topic }}</span>
+        </div>
+        
+        <div class="lesson-title">{{ lesson.title }}</div>
+        <div class="lesson-sub">{{ lesson.subTitle }}</div>
+
+        <div class="lesson-tags">
+          <span class="tag" *ngFor="let section of lesson.learningSections">
+            {{ section | titlecase }}
+          </span>
+        </div>
+
+        <div class="lesson-footer">
+          <div class="progress-status" [ngClass]="{
+            'status-not': lesson.status === 'NOT_STARTED',
+            'status-doing': lesson.status === 'IN_PROGESS',
+            'status-done': lesson.status === 'COMPLETED'
+          }">
+            <ng-container [ngSwitch]="lesson.status">
+              <span *ngSwitchCase="'IN_PROGESS'">🟡 Đang học</span>
+              <span *ngSwitchCase="'COMPLETED'">✅ Hoàn thành</span>
+              <span *ngSwitchDefault>⚪ Chưa học</span>
+            </ng-container>
+          </div>
+          
+          <button class="btn-start" 
+                [routerLink]="['/lessons', lesson.id]"
+                [class.in-progress]="lesson.status === 'IN_PROGESS'"
+                [class.completed]="lesson.status === 'COMPLETED'"
+                (click)="goToLessonDetail(lesson.code)"
+                >
+          
+            <ng-container [ngSwitch]="lesson.status">
+              <span *ngSwitchCase="'IN_PROGESS'">Tiếp tục</span>
+              <span *ngSwitchCase="'COMPLETED'">Xem lại</span>
+              <span *ngSwitchDefault>Học ngay</span>
+            </ng-container>
+          
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pagination-container" *ngIf="totalPages > 1">
+    <div class="pagination-wrapper">
+      
+      <button class="nav-btn" [disabled]="currentPage === 0" (click)="changePage(currentPage - 1)">
+        <i class="prev-icon"></i>
+      </button>
+      
+      <div class="page-numbers">
+        <button 
+          *ngFor="let pageIndex of totalPagesArray" 
+          class="page-num-btn"
+          [class.active]="pageIndex === currentPage"
+          (click)="changePage(pageIndex)">
+          {{ pageIndex + 1 }}
+        </button>
+      </div>
+
+      <button class="nav-btn" [disabled]="currentPage + 1 >= totalPages" (click)="changePage(currentPage + 1)">
+        <i class="next-icon"></i>
+      </button>
+
+    </div>
+  </div>
+</main>

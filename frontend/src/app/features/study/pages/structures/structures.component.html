@@ -1,0 +1,49 @@
+<section class="page-header">
+  <div class="container">
+    <h1>Cấu trúc câu thông dụng</h1>
+    <p>Học các mẫu câu giúp bạn giao tiếp chuyên nghiệp hơn mỗi ngày.</p>
+  </div>
+</section>
+
+<main class="container">
+  
+  <div *ngIf="isLoading" class="loading-spinner">
+    Đang tải dữ liệu...
+  </div>
+
+  <div class="grid" *ngIf="!isLoading">
+    
+    <div class="card" *ngFor="let item of structures">
+      <div class="card-title" (click)="goToDetail(item.code)">{{ item.title }}</div>
+      <div class="formula">{{ item.formula }}</div>
+      <div class="example-box" *ngFor="let ex of item.examples">
+        <button class="btn-audio" (click)="speak(ex)">
+          <i class="fas fa-volume-up"></i>
+        </button>
+        <span class="example-text" >{{ ex }}</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="pagination" *ngIf="totalPages > 1 && !isLoading">
+    <div class="page-btn page-arrow" 
+         [class.disabled]="currentPage === 1"
+         (click)="changePage(currentPage - 1)">
+      <i class="fas fa-chevron-left"></i>
+    </div>
+
+    <div *ngFor="let page of pagesArray" 
+         class="page-btn" 
+         [class.active]="page === currentPage"
+         (click)="changePage(page)">
+      {{ page }}
+    </div>
+
+    <div class="page-btn page-arrow" 
+         [class.disabled]="currentPage === totalPages"
+         (click)="changePage(currentPage + 1)">
+      <i class="fas fa-chevron-right"></i>
+    </div>
+  </div>
+</main>

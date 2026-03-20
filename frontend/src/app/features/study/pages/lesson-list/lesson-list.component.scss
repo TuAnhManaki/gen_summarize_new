@@ -1,0 +1,453 @@
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+a { text-decoration: none; color: inherit; transition: 0.2s; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px;margin-bottom: 80px; }
+
+/* ===== HEADER ===== */
+header {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.menu { height: 72px; display: flex; align-items: center; justify-content: space-between; }
+.logo { font-weight: 800; color: var(--primary-dark); font-size: 22px; letter-spacing: -0.5px; }
+nav { display: flex; gap: 32px; }
+nav a { font-size: 15px; font-weight: 500; color: var(--text); }
+nav a:hover, nav a.active { color: var(--primary-dark); }
+
+.auth .btn-login { font-size: 15px; font-weight: 600; padding: 10px 20px; color: var(--text); }
+.auth .btn-primary {
+  background: var(--primary-dark);
+  color: white;
+  padding: 10px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.2);
+}
+
+/* ===== HERO SECTION ===== */
+.page-header { padding: 60px 0 40px; }
+h1 { font-size: 40px; font-weight: 800; color: var(--dark); margin: 0; letter-spacing: -1px; }
+.desc { color: var(--muted); font-size: 18px; margin-top: 12px; max-width: 600px; }
+
+/* ===== FILTER TABS ===== */
+.filter-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 16px;
+}
+.tabs { display: flex; gap: 8px; }
+.tab {
+  padding: 8px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--muted);
+  cursor: pointer;
+  transition: 0.3s;
+}
+.tab.active { background: var(--primary-light); color: var(--primary-dark); }
+.tab:hover:not(.active) { background: #f1f5f9; }
+
+/* ===== LESSON GRID ===== */
+.lesson-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.lesson-card {
+  background: var(--white);
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: fadeIn 0.4s ease-in-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.lesson-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow);
+  border-color: var(--primary);
+}
+
+.lesson-img-wrap { position: relative; height: 200px; overflow: hidden; }
+.lesson-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+.lesson-card:hover .lesson-img-wrap img { transform: scale(1.1); }
+
+.badge-float {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 800;
+  backdrop-filter: blur(8px);
+  color: white;
+}
+.badge-a1 { background: rgba(34, 197, 94, 0.9); }
+.badge-a2 { background: rgba(14, 165, 233, 0.9); }
+.badge-b1 { background: rgba(245, 158, 11, 0.9); }
+
+.lesson-body { padding: 24px; display: flex; flex-direction: column; flex-grow: 1; }
+.lesson-info { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; font-size: 13px; color: var(--muted); font-weight: 500; }
+.lesson-title { font-size: 20px; font-weight: 700; color: var(--dark); margin-bottom: 12px; line-height: 1.4; }
+
+.lesson-tags { display: flex; gap: 6px; margin-bottom: 24px; }
+.tag { font-size: 11px; padding: 4px 10px; border-radius: 6px; background: #f8fafc; color: var(--muted); border: 1px solid #e2e8f0; text-transform: uppercase; font-weight: 700; }
+
+.lesson-footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+  border-top: 1px solid #f8fafc;
+}
+/* Trạng thái văn bản */
+.progress-status {
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: -0.2px; /* Giúp chữ trông hiện đại hơn */
+}
+
+.status-not { color: var(--muted); }
+.status-doing { color: #f59e0b; } /* Màu vàng hổ phách cho đang học */
+.status-done { color: var(--primary-dark); }
+
+/* Nút bấm tổng thể */
+/* Trạng thái chữ bên cạnh nút */
+.progress-status {
+  font-size: 12px; /* Nhỏ lại một chút */
+  font-weight: 500;
+  color: var(--muted);
+}
+
+/* Nút bấm Mini Modern */
+.btn-start {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px; /* Nhỏ gọn hơn */
+  border-radius: 10px; /* Bo góc vừa phải */
+  font-size: 13px; /* Font nhỏ nhưng sắc nét */
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  background: var(--primary);
+  color: white;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(34, 197, 94, 0.15);
+}
+
+/* Hover nhẹ nhàng */
+.btn-start:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.2);
+}
+
+/* Trạng thái "Đang học" - Màu Gradient xanh êm dịu */
+.btn-start.in-progress {
+  background: linear-gradient(135deg, #22c55e, #10b981);
+}
+
+/* Trạng thái "Hoàn thành" - Kiểu tối giản nhất */
+.btn-start.completed {
+  background: #f1f5f9; /* Màu nền xám/xanh cực nhạt */
+  color: #475569; /* Chữ xám đậm */
+  border: 1px solid #e2e8f0;
+  box-shadow: none;
+}
+
+.btn-start.completed:hover {
+  background: #e2e8f0;
+  color: #1e293b;
+}
+/* Giả lập Icon nếu bạn không dùng FontAwesome */
+.icon-arrow-right::after { content: '→'; margin-left: 4px; }
+.icon-play::before { content: '▶'; font-size: 10px; }
+.icon-refresh::before { content: '↺'; font-weight: bold; }
+.lesson-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #f0fdf4; // Đường kẻ mờ màu xanh nhạt
+
+  .btn-start {
+    background-color: #22c55e; // Màu xanh Emerald chủ đạo
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.2); // Đổ bóng xanh nhẹ
+
+    &:hover {
+      background-color: #16a34a; // Đậm hơn khi hover
+      transform: translateY(-2px); // Bay nhẹ lên
+      box-shadow: 0 6px 15px rgba(34, 197, 94, 0.3);
+    }
+
+    &:active {
+      transform: translateY(0); // Nhấn xuống khi click
+    }
+
+    /* Nếu là nút "Xem lại" (Đã hoàn thành) có thể đổi style nhẹ nếu muốn */
+    &.completed {
+      background-color: #f0fdf4;
+      color: #16a34a;
+      border: 1px solid #22c55e;
+    }
+  }
+}
+
+/* Style cho text trạng thái bên cạnh nút */
+.progress-status {
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  &.status-not { color: #64748b; }   // Xám
+  &.status-doing { color: #d97706; } // Cam (Đang học)
+  &.status-done { color: #16a34a; }  // Xanh lá (Xong)
+}
+/* ===== PAGINATION ===== */
+.pagination { margin-top: 60px; display: flex; justify-content: center; gap: 10px; }
+.page-btn {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin: 50px 0;
+}
+
+.pagination-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.page-numbers {
+  display: flex;
+  gap: 8px;
+}
+
+/* Style cho từng con số trang */
+.page-num-btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  background-color: white;
+  color: #4a5568;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover:not(.active) {
+    background-color: #edf2f7;
+    border-color: #cbd5e0;
+    color: #2d3748;
+  }
+
+  /* Khi trang đang được chọn */
+  &.active {
+    background-color: #2d3748; // Màu đen hoặc màu chủ đạo của bạn
+    color: white;
+    border-color: #2d3748;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  }
+}
+
+/* Style cho nút Trước/Sau */
+.nav-btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  &:not(:disabled):hover {
+    background-color: #f7fafc;
+  }
+
+  /* Tạo mũi tên bằng CSS đơn giản nếu không dùng icon */
+  .prev-icon::before { content: '←'; }
+  .next-icon::before { content: '→'; }
+}
+.pagination-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 40px;
+}
+
+.page-num-btn, .nav-btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border: 1px solid #dcfce7;
+  background-color: white;
+  color: #166534;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover:not(.active):not(:disabled) {
+    background-color: #f0fdf4;
+    border-color: #22c55e;
+  }
+
+  &.active {
+    background-color: #22c55e;
+    color: white;
+    border-color: #22c55e;
+    box-shadow: 0 4px 10px rgba(34, 197, 94, 0.2);
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    background-color: #f9fafb;
+  }
+}
+.tabs-group {
+  display: inline-flex;
+  background-color: #f0fdf4; // Xanh lá cực nhạt (Green 50)
+  padding: 5px;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  border: 1px solid #dcfce7;
+}
+
+.tab-link {
+  border: none;
+  background: transparent;
+  padding: 8px 24px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #166534; // Chữ xanh lục đậm
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+
+  &:hover:not(.active) {
+    background-color: #bbf7d0; // Green 200
+  }
+
+  &.active {
+    background-color: #22c55e; // Xanh lá tươi (Green 500)
+    color: #ffffff; // Chữ trắng nổi bật
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.25);
+  }
+}
+.page-btn.active { background: var(--dark); color: white; border: none; }
+.page-btn:hover:not(.active) { border-color: var(--primary); color: var(--primary); }
+
+
+/* Container Skeleton */
+.lesson-card.skeleton {
+  pointer-events: none; /* Không cho click khi đang load */
+  border-color: #f1f5f9;
+}
+
+/* Hiệu ứng Shimmer (vệt sáng lướt qua) */
+.skeleton-img, .skeleton-text, .skeleton-btn {
+  background: #f1f5f9;
+  background: linear-gradient(110deg, #f1f5f9 8%, #f8fafc 18%, #f1f5f9 33%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite linear;
+  border-radius: 8px;
+}
+
+@keyframes shimmer {
+  to { background-position-x: -200%; }
+}
+
+/* Định dạng kích thước các khối Skeleton */
+.skeleton-img {
+  height: 200px;
+  border-radius: 24px 24px 0 0;
+}
+
+.skeleton-text {
+  height: 14px;
+  margin-bottom: 12px;
+}
+
+.skeleton-text.title {
+  width: 80%;
+  height: 20px;
+  margin-bottom: 16px;
+}
+
+.skeleton-text.sub {
+  width: 60%;
+}
+
+.skeleton-text.status {
+  width: 40%;
+  height: 12px;
+}
+
+.skeleton-btn {
+  width: 80px;
+  height: 36px;
+  border-radius: 10px;
+}

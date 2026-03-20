@@ -1,0 +1,12 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the footer of the site/application.
+// -----------------------------------------------------------------------------
+@media (max-width: 900px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 600px) {
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; gap: 15px; text-align: center; }
+}
+@media (max-width: 900px) { .hero-grid, .why-grid, .levels-grid, .knowledge-grid { grid-template-columns: 1fr; } }

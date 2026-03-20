@@ -1,0 +1,34 @@
+.admin-container { max-width: 1200px; margin: 0 auto; padding: 20px; font-family: 'Inter', sans-serif; }
+
+.header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.header h2 { font-size: 24px; font-weight: 700; color: #1e293b; }
+
+.form-layout { display: grid; grid-template-columns: 2.5fr 1fr; gap: 30px; }
+
+/* Form Controls */
+.form-group { margin-bottom: 20px; }
+label { display: block; font-weight: 600; margin-bottom: 8px; color: #475569; font-size: 14px; }
+input, select, textarea {
+  width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px;
+  font-size: 14px; outline: none; box-sizing: border-box;
+}
+input:focus, textarea:focus { border-color: #22c55e; box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.1); }
+.slug-input { background: #f1f5f9; color: #64748b; font-family: monospace; }
+
+/* Sidebar Panels */
+.panel { background: white; border: 1px solid #e2e8f0; padding: 20px; border-radius: 8px; margin-bottom: 20px; }
+.panel h3 { font-size: 16px; font-weight: 700; margin-bottom: 15px; border-bottom: 1px solid #f1f5f9; padding-bottom: 10px; }
+
+/* Buttons */
+.btn-save { width: 100%; background: #22c55e; color: white; padding: 12px; border: none; border-radius: 6px; font-weight: 700; cursor: pointer; transition: 0.2s; }
+.btn-save:hover { background: #16a34a; }
+.btn-save:disabled { background: #94a3b8; cursor: not-allowed; }
+
+.btn-cancel { background: transparent; color: #64748b; border: 1px solid #cbd5e1; padding: 8px 16px; border-radius: 6px; cursor: pointer; }
+
+/* Image Preview */
+.img-preview { width: 100%; height: 150px; object-fit: cover; margin-top: 10px; border-radius: 6px; border: 1px dashed #cbd5e1; }
+
+@media (max-width: 768px) {
+  .form-layout { grid-template-columns: 1fr; }
+}

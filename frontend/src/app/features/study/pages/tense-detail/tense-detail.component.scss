@@ -1,0 +1,313 @@
+/* --- 1. VARIABLES --- */
+$primary: #22c55e;
+$primary-dark: #16a34a;
+$primary-light: #f0fdf4;
+$bg-color: #f8fafc;
+$dark: #0f172a;
+$text: #334155;
+$muted: #64748b;
+$border: #e2e8f0;
+$white: #ffffff;
+$orange: #f97316;
+$font-main: 'Inter', system-ui, sans-serif;
+$font-code: 'Fira Code', monospace;
+
+/* --- 2. GLOBAL --- */
+:host {
+  display: block;
+  background: $bg-color;
+  color: $text;
+  font-family: $font-main;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* --- 4. LESSON HERO --- */
+.lesson-header {
+  background: $white;
+  padding: 60px 0;
+  border-bottom: 1px solid $border;
+
+  .badge {
+    display: inline-block;
+    background: $primary-light;
+    color: $primary-dark;
+    padding: 6px 16px;
+    border-radius: 99px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    font-size: 36px;
+    font-weight: 800;
+    color: $dark;
+    margin: 16px 0;
+    letter-spacing: -1px;
+  }
+
+  .page-desc {
+    font-size: 18px;
+    color: $muted;
+    max-width: 750px;
+  }
+}
+
+/* --- 5. MAIN LAYOUT --- */
+.lesson-content {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 40px;
+  margin-top: 40px;
+  padding-bottom: 60px;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    .sidebar { display: none; }
+  }
+}
+
+/* --- 6. COMMON COMPONENTS --- */
+section {
+  margin-bottom: 50px;
+  
+  h2 {
+    font-size: 24px;
+    font-weight: 800;
+    color: $dark;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+}
+
+.card {
+  background: $white;
+  border-radius: 24px;
+  padding: 32px;
+  border: 1px solid $border;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+}
+
+/* Usage Grid (Thay thế style inline cũ) */
+.usage-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 15px;
+
+  .usage-item {
+    padding: 15px;
+    background: $bg-color;
+    border-radius: 12px;
+    font-weight: 500;
+    color: $dark;
+  }
+}
+
+/* Structure Box */
+.structure-item {
+  margin-bottom: 20px;
+  
+  &:last-child { margin-bottom: 0; }
+
+  .structure-label {
+    font-size: 14px;
+    font-weight: 700;
+    color: $muted;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .formula {
+    background: $bg-color;
+    padding: 16px 20px;
+    border-radius: 12px;
+    font-family: $font-code;
+    font-size: 16px;
+    color: $primary-dark;
+    border: 1px solid $border;
+  }
+}
+
+/* Examples */
+.example-box {
+  padding: 16px;
+  border-radius: 16px;
+  background: #fdfdfd;
+  border: 1px solid #f1f5f9;
+  margin-bottom: 12px;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  &:hover {
+    border-color: $primary;
+    background: $white;
+  }
+
+  .play-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: $primary-light;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: $primary-dark;
+    flex-shrink: 0;
+
+    &:hover { background: darken($primary-light, 5%); }
+  }
+
+  .ex-en { font-weight: 700; color: $dark; display: block; }
+  .ex-vi { font-size: 14px; color: $muted; }
+}
+
+/* Quiz */
+.quiz-item {
+  margin-bottom: 20px;
+
+  .quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  input[type="text"] {
+    border: 2px solid $border;
+    padding: 8px 12px;
+    border-radius: 10px;
+    outline: none;
+    transition: 0.3s;
+    width: 100%;
+    max-width: 300px;
+    font-size: 16px;
+
+    &:focus { border-color: $primary; }
+  }
+
+  .option-label {
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: 0.2s;
+  }
+
+  .option-correct {
+    background-color: #f0fdf4;
+    border-color: #22c55e;
+    color: #15803d;
+  }
+
+  .option-wrong {
+    background-color: #fef2f2;
+    border-color: #ef4444;
+    color: #991b1b;
+  }
+
+  .option-true {
+    background-color: #ecfeff;
+    border-color: #06b6d4;
+    color: #0f766e;
+  }
+
+  /* INPUT FILL BLANK */
+  input[type="text"].input-correct {
+    border-color: #22c55e;
+    background-color: #f0fdf4;
+  }
+
+  input[type="text"].input-wrong {
+    border-color: #ef4444;
+    background-color: #fef2f2;
+  }
+}
+
+
+/* Sidebar */
+.sidebar {
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+
+  .side-nav {
+    background: $white;
+    padding: 24px;
+    border-radius: 20px;
+    border: 1px solid $border;
+
+    h4 { margin: 0 0 10px; color: $dark; }
+
+    a {
+      display: block;
+      padding: 10px 0;
+      font-size: 14px;
+      font-weight: 600;
+      color: $muted;
+      border-bottom: 1px solid #f8fafc;
+      text-decoration: none;
+
+      &.active, &:hover { color: $primary-dark; }
+    }
+  }
+
+  .note-box {
+    margin-top: 24px;
+    padding: 20px;
+    background: $orange;
+    color: white;
+    border-radius: 20px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}
+
+/* Buttons */
+.btn {
+  padding: 16px 32px;
+  border-radius: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: 0.3s;
+  font-family: inherit;
+
+  &-primary {
+    background: $primary-dark;
+    color: $white;
+    box-shadow: 0 10px 15px -3px rgba(34, 197, 94, 0.3);
+
+    &:hover { transform: translateY(-2px); }
+  }
+
+  &-outline {
+    background: $white;
+    border: 2px solid $border;
+    color: $text;
+    width: 100%; // Đưa vào đây thay vì inline style
+
+    &:hover { border-color: $dark; }
+  }
+}
+
+.cta-fixed {
+  margin-top: 40px;
+  display: flex;
+  gap: 16px;
+  
+  .btn { width: auto; } // Reset width cho footer button
+}
