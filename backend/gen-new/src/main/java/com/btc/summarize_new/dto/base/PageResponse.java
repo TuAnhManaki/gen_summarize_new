@@ -9,7 +9,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public class PageResponse<T> {
 
-	private List<T> items;
+	private List<T> content;
     private int page;
     private int size;
     private long totalElements;

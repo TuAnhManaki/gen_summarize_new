@@ -1,152 +1,94 @@
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { NewsService } from '../../services/News.Service';
+import { HomeOverviewResponse, PageData, Article } from '../../models/blog.model';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
-    import { Component, OnInit } from '@angular/core';
-    import { HttpClient, HttpHeaders } from '@angular/common/http';
-    import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-    import { environment } from '@env/environment';
+@Component({
+  selector: 'app-blog-list',
+    templateUrl: './blog-list.component.html',
+  styleUrls: ['./blog-list.component.scss']
+})
+export class BlogListComponent implements OnInit, OnDestroy {
+  // --- STATE ---
+  overviewData: HomeOverviewResponse | null = null;
+  feedData: PageData<Article> | null = null;
+  
+  // --- FILTER & PAGINATION ---
+  currentPage: number = 0;
+  currentSources: string[] = ['vnexpress', 'genk'];
+  availableSources: string[] = ['vnexpress', 'genk'];
+  pagesArray: number[] = [];
 
-    // Định nghĩa Interface (DTO) khớp với Backend Spring Boot
-    export interface ArticleResponse {
-      id: number;
-      slug: string;
-      title: string;
-      image: string;
-      category: string;
-      excerpt: string; // Chứa nội dung HTML do AI tóm tắt
-      date: string;
-      views: number;
-      isSummarized: boolean;
-      author: string;
-      tags: string[];
-      sourceName: string;
-    }
-    
-    // Interface hứng dữ liệu phân trang từ Spring Data JPA (Page<T>)
-    export interface PageResponse<T> {
-      content: T[];
-      totalPages: number;
-      totalElements: number;
-      number: number; // currentPage (bắt đầu từ 0)
-    }
-    
+  private destroy$ = new Subject<void>();
 
-    @Component({
-      selector: 'app-blog-list',
-      templateUrl: './blog-list.component.html',
-      styleUrls: ['./blog-list.component.scss']
-    })
-    export class BlogListComponent implements OnInit {
-      // Khởi tạo các biến để bind ra HTML
-      trendingTopics: string[] = [];
-      trendingTags: string[] = [];
-      featuredPosts: ArticleResponse[] = [];
-      recentHighlightPosts: ArticleResponse[] = []; // Tương ứng với Weekly Top
-      latestNews: ArticleResponse[] = [];
-      hotNews: ArticleResponse[] = [];
-    
-      // Biến phục vụ phân trang cho phần Latest News
-      currentPage: number = 0;
-      totalPages: number = 0;
-      pageNumbers: number[] = [];
-      isLoadingNews: boolean = false;
-    
-      // URL gốc của Backend (Trong thực tế nên đặt trong file environment.ts)
-      private apiUrl = environment.apiServeUrl + 'api/news/home';
-    
-      constructor(
-        private http: HttpClient,
-        private sanitizer: DomSanitizer
-      ) {}
-    
-      ngOnInit(): void {
-        // Gọi đồng loạt các API khi Component vừa khởi tạo
-        this.loadTrendingTags();
-        this.loadFeaturedPosts();
-        this.loadWeeklyTop();
-        this.loadHotNews();
-        this.loadLatestNews(0); // Load trang đầu tiên (page = 0)
-      }
-    
-      // --- CÁC HÀM GỌI API ---
-    
-      headersw = new HttpHeaders({
-        'X-Tunnel-Skip-Efficiency-Check': 'true' 
+  constructor(public newsService: NewsService) {}
+
+  ngOnInit(): void {
+    // Gọi API khi component khởi tạo
+    this.newsService.fetchHomeOverview();
+    this.loadFeed();
+
+    // Lắng nghe dữ liệu Overview
+    this.newsService.overview$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(data => {
+        this.overviewData = data;
       });
-      
-      loadTrendingTags(): void {
-        this.http.get<string[]>(`${this.apiUrl}/trending-tags`).subscribe({
-          next: (tags) => {
-            this.trendingTags = tags;
-            this.trendingTopics = tags; // Dùng chung mảng cho thanh chạy Marquee phía trên
-          },
-          error: (err) => console.error('Lỗi khi tải Trending Tags:', err)
-        });
-      }
-    
-      loadFeaturedPosts(): void {
-        this.http.get<ArticleResponse[]>(`${this.apiUrl}/featured`).subscribe({
-          next: (data) => this.featuredPosts = data,
-          error: (err) => console.error('Lỗi khi tải Featured Posts:', err)
-        });
-      }
-    
-      loadWeeklyTop(): void {
-        this.http.get<ArticleResponse[]>(`${this.apiUrl}/weekly-top`).subscribe({
-          next: (data) => this.recentHighlightPosts = data,
-          error: (err) => console.error('Lỗi khi tải Weekly Top:', err)
-        });
-      }
-    
-      loadHotNews(): void {
-        this.http.get<ArticleResponse[]>(`${this.apiUrl}/hot`).subscribe({
-          next: (data) => this.hotNews = data,
-          error: (err) => console.error('Lỗi khi tải Hot News:', err)
-        });
-      }
-    
-      loadLatestNews(page: number): void {
-        this.isLoadingNews = true;
-        this.http.get<PageResponse<ArticleResponse>>(`${this.apiUrl}/latest?page=${page}&size=5`)
-          .subscribe({
-            next: (response) => {
-              this.latestNews = response.content;
-              this.currentPage = response.number;
-              this.totalPages = response.totalPages;
-              
-              this.generatePageNumbers();
-              this.isLoadingNews = false;
-    
-              // Hiệu ứng UX: Cuộn mượt mà lên phần đầu của Latest News khi chuyển trang
-              if (page > 0) {
-                const anchor = document.getElementById('latest-news-anchor');
-                if (anchor) {
-                  anchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-              }
-            },
-            error: (err) => {
-              console.error('Lỗi khi tải Latest News:', err);
-              this.isLoadingNews = false;
-            }
-          });
-      }
-    
-      // --- CÁC HÀM TIỆN ÍCH (UTILITIES) ---
-    
-      // Xử lý sự kiện click nút chuyển trang
-      onPageChange(page: number): void {
-        if (page >= 0 && page < this.totalPages && page !== this.currentPage) {
-          this.loadLatestNews(page);
+
+    // Lắng nghe dữ liệu Feed và tạo mảng phân trang
+    this.newsService.feed$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(data => {
+        this.feedData = data;
+        if (data) {
+          this.calculatePages(data.totalPages, data.number);
         }
-      }
-    
-      // Tạo mảng pageNumbers để vẽ các nút bấm [1] [2] [3] ra HTML
-      private generatePageNumbers(): void {
-        this.pageNumbers = Array.from({ length: this.totalPages }, (_, i) => i);
-      }
-    
-      // Chuyển đổi chuỗi HTML của AI thành dạng an toàn để Angular render
-      getSafeHtml(html: string): SafeHtml {
-        if (!html) return '';
-        return this.sanitizer.bypassSecurityTrustHtml(html);
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
+  // --- ACTIONS ---
+
+  onPageClick(page: number): void {
+    if (this.feedData && page >= 0 && page < this.feedData.totalPages && page !== this.currentPage) {
+      this.currentPage = page;
+      this.loadFeed();
+      // Cuộn lên đầu phần Feed khi chuyển trang
+      const element = document.getElementById('news-start');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }
+  }
+
+  toggleSource(source: string): void {
+    if (this.currentSources.includes(source)) {
+      this.currentSources = this.currentSources.filter(s => s !== source);
+    } else {
+      this.currentSources.push(source);
+    }
+    this.currentPage = 0; // Reset về trang 1 khi lọc
+    this.loadFeed();
+  }
+
+  private loadFeed(): void {
+    this.newsService.fetchFeed(this.currentPage, 10, this.currentSources);
+  }
+
+  private calculatePages(totalPages: number, currentPage: number): void {
+    this.pagesArray = [];
+    if (totalPages === 0) return;
+
+    let start = Math.max(0, currentPage - 2);
+    let end = Math.min(totalPages - 1, currentPage + 2);
+
+    for (let i = start; i <= end; i++) {
+      this.pagesArray.push(i);
+    }
+  }
+}

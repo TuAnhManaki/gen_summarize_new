@@ -1,109 +1,98 @@
 
-  import { DatePipe } from '@angular/common';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { environment } from '@env/environment';
 
-export interface Article {
-  id: number;
-  title: string;
-  category: string;
-  date: string;
-  image: string;
-  excerpt?: string;
-  author?: string;
-  views?: number;
-  comments?: number;
-  isSponsored?: boolean;
-}
-@Component({
-  selector: 'app-blog-feed',
-  templateUrl: './blog-feed.component.html',
-  styleUrls: ['./blog-feed.component.scss']
-})
-export class BlogFeedComponent implements OnInit {
-
-  // Dữ liệu hiển thị
-  trendingTopics: string[] = [];
-  featuredPosts: any[] = [];
-  recentHighlightPosts: any[] = [];
-  latestNews: any[] = [];
-  hotNews: any[] = [];
-  trendingTags: string[] = [];
-
-    private baseUrl = environment.apiServeUrl;
+  import { Component, OnInit } from '@angular/core';
+  import { ActivatedRoute } from '@angular/router';
+  import { BehaviorSubject } from 'rxjs';
+  import { NewsService } from '../../services/News.Service';
   
-  // Phân trang
-  currentPage: number = 0;
-  totalPages: number = 0;
-  isLoadingNews: boolean = false;
+  @Component({
+    selector: 'app-blog-feed',
+    templateUrl: './blog-feed.component.html',
+    styleUrls: ['./blog-feed.component.scss']
+  })
+  export class BlogFeedComponent implements OnInit {
+    
+    // 1. Lấy trực tiếp luồng dữ liệu từ Service
+    overview$ = this.newsService.categoryOverview$;
+    feed$ = this.newsService.categoryFeed$;
+  
+    // 2. State quản lý query cho danh sách Feed (để tiện đổi trang, lọc nguồn)
+    private feedQuery = new BehaviorSubject<{ page: number, size: number, sources: string[] }>({
+      page: 1, 
+      size: 10, 
+      sources: [] 
+    });
+  
+    // Lưu slug hiện tại
+    currentCategorySlug: string = '';
+  
+    constructor(
+      private route: ActivatedRoute,
+      private newsService: NewsService
+    ) {}
+  
+    ngOnInit(): void {
+      // 1. Lắng nghe sự thay đổi của SLUG trên URL
+      this.route.paramMap.subscribe(params => {
+        const slug = params.get('categorySlug'); // Lấy param categorySlug từ Route
+        if (slug) {
+          this.currentCategorySlug = slug;
+          
+          // Gọi API Tổng quan (Hero, Đọc nhiều, Sidebar) - Chỉ gọi 1 LẦN khi đổi chuyên mục
+          this.newsService.fetchCategoryOverview(this.currentCategorySlug);
+          
+          // Reset query Feed về trang 1, rỗng bộ lọc mỗi khi vào chuyên mục mới
+          this.feedQuery.next({ page: 1, size: 10, sources: [] });
+          
+        }
+      });
+  
 
-  constructor(private http: HttpClient, private datePipe: DatePipe) {}
-
-   // Hàm lấy Token từ LocalStorage
-    private getHeaders(): HttpHeaders {
-      const token = localStorage.getItem('access_token'); // Lấy token đã lưu khi login
-      return new HttpHeaders({
-        'Authorization': `Bearer ${token}`,
-        'Content-Type': 'application/json'
+      // 2. Lắng nghe sự thay đổi của State phân trang/lọc để gọi API Feed
+      this.feedQuery.subscribe(query => {
+        if (this.currentCategorySlug) {
+          const arryCategorySlug = [this.currentCategorySlug];
+          // Chỉ gọi lại API danh sách bài viết
+          this.newsService.fetchCategoryFeed(
+            query.page, 
+            query.size, 
+            query.sources,
+            arryCategorySlug, 
+          );
+        }
       });
     }
-    
-    
-  ngOnInit(): void {
-    // 1. Gọi API Home Aggregated (Lấy tất cả dữ liệu lần đầu)
-    this.http.get<any>(`${this.baseUrl}/api/v1/home-post`,{ headers: this.getHeaders()}).subscribe(data => {
-      this.trendingTopics = data.trendingTopics;
-      
-      // Map dữ liệu Backend sang cấu trúc phẳng cho HTML dễ dùng
-      this.featuredPosts = data.featuredPosts.map((p: any) => this.transformPost(p));
-      this.recentHighlightPosts = data.weeklyTop.map((p: any) => this.transformPost(p));
-      this.hotNews = data.sidebar.hotNews.map((p: any) => this.transformPost(p));
-      this.trendingTags = data.sidebar.trendingTags;
-
-      // Xử lý Latest News ban đầu
-      this.handleNewsResponse(data.latestNews);
-    });
-  }
-
-  // 2. Hàm gọi khi bấm chuyển trang (Chỉ load lại Latest News)
-  onPageChange(page: number): void {
-    if (page < 0 || page >= this.totalPages) return;
-    
-    this.isLoadingNews = true;
-    this.http.get<any>(`${this.baseUrl}/api/v1/home-post?page=${page}&size=10`,{ headers: this.getHeaders()}).subscribe(res => {
-      this.handleNewsResponse(res);
-      this.isLoadingNews = false;
-      // Scroll xuống tiêu đề Latest News
-      document.getElementById('latest-news-anchor')?.scrollIntoView({ behavior: 'smooth' });
-    });
-  }
-
-  // Helper: Xử lý response phân trang
-  private handleNewsResponse(newsData: any) {
-    this.latestNews = newsData.items.map((p: any) => this.transformPost(p));
-    this.currentPage = newsData.page;
-    this.totalPages = newsData.totalPages;
-  }
-
-  // Helper: Biến đổi object Backend lồng nhau thành object phẳng cho View
-  private transformPost(post: any) {
-    return {
-      id: post.id,
-      title: post.title,
-      slug: post.slug, // Dùng để tạo link
-      category: post.categoryName || 'General',
-      // Format ngày: 2026-01-18T... -> Jan 18, 2026
-      date: this.datePipe.transform(post.createdAt, 'MMM dd, yyyy'), 
-      // Lấy ảnh từ metadata, nếu null thì dùng ảnh placeholder
-      image: post.metaData?.thumbnail || 'https://placehold.co/600x400?text=No+Image',
-      excerpt: post.metaData?.summary || '',
-      views: post.metaData?.stats?.views || 0
-    };
-  }
   
-  // Helper: Tạo mảng số trang để loop trong HTML (ví dụ: [0, 1, 2])
-  get pageNumbers(): number[] {
-    return Array(this.totalPages).fill(0).map(( i) => i);
+    // =========================================
+    // CÁC HÀM TƯƠNG TÁC TỪ GIAO DIỆN
+    // =========================================
+  
+    // Chuyển trang (Chỉ tác động đến luồng Feed)
+    changePage(newPage: number, totalPages: number): void {
+      if (newPage >= 1 && newPage <= totalPages) {
+        const currentQuery = this.feedQuery.getValue();
+        this.feedQuery.next({ ...currentQuery, page: newPage });
+        
+        // Cuộn màn hình lên vị trí bắt đầu của danh sách bài viết
+        window.scrollTo({ top: 500, behavior: 'smooth' }); 
+      }
+    }
+  
+    // Lọc nguồn (Chỉ tác động đến luồng Feed)
+    toggleSourceFilter(sourceId: string, currentFilters: any[]): void {
+      // 1. Thay đổi trạng thái checked trên giao diện
+      const filterToUpdate = currentFilters.find(f => f.id === sourceId);
+      if (filterToUpdate) {
+        filterToUpdate.checked = !filterToUpdate.checked;
+      }
+      
+      // 2. Gom các ID nguồn đang được check lại thành mảng
+      const activeSources = currentFilters
+        .filter(f => f.checked)
+        .map(f => f.id);
+  
+      // 3. Cập nhật Subject để kích hoạt gọi lại API Feed (đưa về trang 1)
+      const currentQuery = this.feedQuery.getValue();
+      this.feedQuery.next({ ...currentQuery, page: 1, sources: activeSources });
+    }
   }
-}

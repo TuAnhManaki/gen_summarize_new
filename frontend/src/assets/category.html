@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyên mục Công Nghệ - NewsCrawl</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+    <header class="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+        <div class="container mx-auto px-4 h-16 flex items-center justify-between">
+            <a href="index.html" class="text-2xl font-black tracking-tighter text-blue-700">NewsCrawl<span class="text-red-500">.</span></a>
+            <nav class="hidden md:flex space-x-8 font-semibold text-gray-600">
+                <a href="index.html" class="hover:text-blue-600 transition">Trang chủ</a>
+                <a href="#" class="hover:text-blue-600 transition">Thời sự</a>
+                <a href="#" class="hover:text-blue-600 transition">Kinh doanh</a>
+                <a href="#" class="text-blue-600 border-b-2 border-blue-600 pb-5 translate-y-[10px]">Công nghệ</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <button class="p-2 text-gray-500 hover:text-blue-600 hover:bg-gray-100 rounded-full transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-6">
+        
+        <nav class="flex text-sm text-gray-500 mb-6 font-medium">
+            <a href="index.html" class="hover:text-blue-600">Trang chủ</a>
+            <span class="mx-2">/</span>
+            <span class="text-gray-900">Công nghệ</span>
+        </nav>
+
+        <div class="mb-8 border-b-2 border-gray-200 pb-4">
+            <h1 class="text-3xl md:text-4xl font-black text-gray-900 uppercase border-l-8 border-blue-600 pl-4">Công Nghệ</h1>
+            <p class="text-gray-500 mt-2 pl-6">Cập nhật tin tức, xu hướng công nghệ, AI và thiết bị số mới nhất từ các trang báo uy tín.</p>
+        </div>
+
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            
+            <article class="lg:col-span-2 group cursor-pointer flex flex-col">
+                <div class="aspect-video w-full overflow-hidden rounded-xl bg-gray-200 mb-4">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="px-2 py-1 bg-red-600 text-white text-[10px] font-bold rounded uppercase">VnExpress</span>
+                    <span class="text-sm text-gray-500">2 giờ trước</span>
+                </div>
+                <h2 class="text-xl md:text-2xl font-bold text-gray-900 leading-tight group-hover:text-blue-600 transition line-clamp-2">
+                    Vi mạch bán dẫn: Cơ hội lớn và thách thức cho các kỹ sư Việt Nam trong thập kỷ tới
+                </h2>
+                <p class="text-gray-600 mt-2 line-clamp-2 text-sm">Với sự đầu tư mạnh mẽ từ các tập đoàn công nghệ toàn cầu, Việt Nam đang đứng trước cơ hội trở thành trung tâm thiết kế vi mạch...</p>
+            </article>
+
+            <div class="flex flex-col gap-6">
+                <article class="group cursor-pointer flex flex-col gap-2">
+                    <div class="aspect-video overflow-hidden rounded-lg bg-gray-200">
+                        <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div>
+                        <span class="text-[10px] font-bold text-green-600 uppercase">Tuổi Trẻ</span>
+                        <h3 class="text-sm font-bold text-gray-900 leading-snug group-hover:text-blue-600 transition line-clamp-2">Thị trường chứng khoán bật tăng mạnh mẽ</h3>
+                    </div>
+                </article>
+                <article class="group cursor-pointer flex gap-3">
+                    <div class="w-20 h-20 shrink-0 overflow-hidden rounded-md bg-gray-200">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <span class="text-[10px] font-bold text-blue-600 uppercase">Zing News</span>
+                        <h3 class="text-sm font-bold text-gray-900 leading-snug group-hover:text-blue-600 transition line-clamp-3">Ra mắt thế hệ laptop mới tối ưu cho Dev</h3>
+                    </div>
+                </article>
+                <article class="group cursor-pointer flex gap-3">
+                    <div class="w-20 h-20 shrink-0 overflow-hidden rounded-md bg-gray-200">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <span class="text-[10px] font-bold text-blue-600 uppercase">Zing News</span>
+                        <h3 class="text-sm font-bold text-gray-900 leading-snug group-hover:text-blue-600 transition line-clamp-3">Ra mắt thế hệ laptop mới tối ưu cho Dev</h3>
+                    </div>
+                </article>
+                <article class="group cursor-pointer flex gap-3">
+                    <div class="w-20 h-20 shrink-0 overflow-hidden rounded-md bg-gray-200">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <span class="text-[10px] font-bold text-blue-600 uppercase">Zing News</span>
+                        <h3 class="text-sm font-bold text-gray-900 leading-snug group-hover:text-blue-600 transition line-clamp-3">Ra mắt thế hệ laptop mới tối ưu cho Dev</h3>
+                    </div>
+                </article>
+            </div>
+
+            <div class="flex flex-col gap-6">
+                <article class="group cursor-pointer flex flex-col gap-2">
+                    <div class="aspect-video overflow-hidden rounded-lg bg-gray-200">
+                        <img src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div>
+                        <span class="text-[10px] font-bold text-red-600 uppercase">VnExpress</span>
+                        <h3 class="text-sm font-bold text-gray-900 leading-snug group-hover:text-blue-600 transition line-clamp-2">Xuất khẩu nông sản Việt Nam lập kỷ lục mới</h3>
+                    </div>
+                </article>
+                <article class="group cursor-pointer flex gap-3">
+                    <div class="w-20 h-20 shrink-0 overflow-hidden rounded-md bg-gray-200">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <span class="text-[10px] font-bold text-green-600 uppercase">Tuổi Trẻ</span>
+                        <h3 class="text-sm font-bold text-gray-900 leading-snug group-hover:text-blue-600 transition line-clamp-3">Phân tích chiến lược marketing năm 2024</h3>
+                    </div>
+                </article>
+                <article class="group cursor-pointer flex gap-3">
+                    <div class="w-20 h-20 shrink-0 overflow-hidden rounded-md bg-gray-200">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <span class="text-[10px] font-bold text-blue-600 uppercase">Zing News</span>
+                        <h3 class="text-sm font-bold text-gray-900 leading-snug group-hover:text-blue-600 transition line-clamp-3">Ra mắt thế hệ laptop mới tối ưu cho Dev</h3>
+                    </div>
+                </article>
+                <article class="group cursor-pointer flex gap-3">
+                    <div class="w-20 h-20 shrink-0 overflow-hidden rounded-md bg-gray-200">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <span class="text-[10px] font-bold text-blue-600 uppercase">Zing News</span>
+                        <h3 class="text-sm font-bold text-gray-900 leading-snug group-hover:text-blue-600 transition line-clamp-3">Ra mắt thế hệ laptop mới tối ưu cho Dev</h3>
+                    </div>
+                </article>
+                
+            </div>
+
+        </section>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+            
+            <section class="lg:col-span-8">
+                <h2 class="text-lg font-bold text-gray-900 uppercase border-b-2 border-gray-900 pb-2 mb-6">Mới nhất trong Công Nghệ</h2>
+                
+                <div class="flex flex-col gap-6">
+                    <article class="group flex gap-4 cursor-pointer pb-6 border-b border-gray-100">
+                        <div class="w-32 md:w-56 aspect-video rounded-lg overflow-hidden shrink-0 bg-gray-200">
+                            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=300&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                        </div>
+                        <div class="flex flex-col justify-start">
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="text-[10px] font-bold text-red-600 uppercase bg-red-50 px-2 py-0.5 rounded">VnExpress</span>
+                                <span class="text-xs text-gray-400">45 phút trước</span>
+                            </div>
+                            <h3 class="text-base md:text-xl font-bold text-gray-900 leading-snug mb-2 group-hover:text-blue-600 transition line-clamp-2">
+                                Khởi nghiệp AI tại Việt Nam: Nhiều ý tưởng hay nhưng thiếu hạ tầng máy tính mạnh
+                            </h3>
+                            <p class="text-sm text-gray-600 line-clamp-2 hidden md:block">
+                                Nhiều startup trí tuệ nhân tạo đang gặp khó khăn trong việc huấn luyện mô hình ngôn ngữ lớn do chi phí thuê GPU quá đắt đỏ...
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="group flex gap-4 cursor-pointer pb-6 border-b border-gray-100">
+                        <div class="w-32 md:w-56 aspect-video rounded-lg overflow-hidden shrink-0 bg-gray-200">
+                            <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?q=80&w=300&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                        </div>
+                        <div class="flex flex-col justify-start">
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="text-[10px] font-bold text-blue-600 uppercase bg-blue-50 px-2 py-0.5 rounded">Zing News</span>
+                                <span class="text-xs text-gray-400">2 giờ trước</span>
+                            </div>
+                            <h3 class="text-base md:text-xl font-bold text-gray-900 leading-snug mb-2 group-hover:text-blue-600 transition line-clamp-2">
+                                Review chi tiết kính thực tế ảo mới ra mắt: Trải nghiệm mượt mà nhưng giá còn cao
+                            </h3>
+                            <p class="text-sm text-gray-600 line-clamp-2 hidden md:block">
+                                Trọng lượng nhẹ, màn hình độ phân giải cao và tính năng theo dõi mắt chính xác là những điểm cộng lớn nhất của thiết bị này...
+                            </p>
+                        </div>
+                    </article>
+                    
+                    <article class="group flex gap-4 cursor-pointer pb-6 border-b border-gray-100">
+                        <div class="w-32 md:w-56 aspect-video rounded-lg overflow-hidden shrink-0 bg-gray-200">
+                            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=300&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                        </div>
+                        <div class="flex flex-col justify-start">
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="text-[10px] font-bold text-green-600 uppercase bg-green-50 px-2 py-0.5 rounded">Tuổi Trẻ</span>
+                                <span class="text-xs text-gray-400">3 giờ trước</span>
+                            </div>
+                            <h3 class="text-base md:text-xl font-bold text-gray-900 leading-snug mb-2 group-hover:text-blue-600 transition line-clamp-2">
+                                Phát hiện lỗ hổng bảo mật nghiêm trọng trong hàng triệu bộ định tuyến Wifi gia đình
+                            </h3>
+                            <p class="text-sm text-gray-600 line-clamp-2 hidden md:block">
+                                Người dùng được khuyến cáo cập nhật firmware ngay lập tức để tránh nguy cơ bị tin tặc đánh cắp thông tin cá nhân...
+                            </p>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="flex justify-center items-center space-x-2 mt-10">
+                    <button class="px-4 py-2 border border-gray-200 rounded-lg text-gray-500 hover:bg-gray-50 hover:text-blue-600 font-medium transition disabled:opacity-50">Trước</button>
+                    <button class="px-4 py-2 bg-blue-600 text-white rounded-lg font-medium shadow-sm">1</button>
+                    <button class="px-4 py-2 border border-gray-200 rounded-lg text-gray-700 hover:bg-gray-50 font-medium transition">2</button>
+                    <button class="px-4 py-2 border border-gray-200 rounded-lg text-gray-700 hover:bg-gray-50 font-medium transition">3</button>
+                    <span class="px-2 text-gray-400">...</span>
+                    <button class="px-4 py-2 border border-gray-200 rounded-lg text-gray-700 hover:bg-gray-50 font-medium transition">12</button>
+                    <button class="px-4 py-2 border border-gray-200 rounded-lg text-gray-700 hover:bg-gray-50 hover:text-blue-600 font-medium transition">Sau</button>
+                </div>
+            </section>
+
+            <aside class="lg:col-span-4">
+                <div class="sticky top-20 flex flex-col gap-8">
+                    
+                    <div class="p-5 bg-white rounded-xl border border-gray-200 shadow-sm">
+                        <h3 class="font-bold text-gray-900 mb-3 border-b pb-2">Lọc Nguồn (Công Nghệ)</h3>
+                        <div class="space-y-3">
+                            <label class="flex items-center gap-3 cursor-pointer">
+                                <input type="checkbox" checked class="rounded text-red-600 focus:ring-red-500 w-4 h-4">
+                                <span class="text-sm font-medium text-gray-700">VnExpress Số Hóa</span>
+                            </label>
+                            <label class="flex items-center gap-3 cursor-pointer">
+                                <input type="checkbox" checked class="rounded text-green-600 focus:ring-green-500 w-4 h-4">
+                                <span class="text-sm font-medium text-gray-700">Tuổi Trẻ Nhịp Sống Số</span>
+                            </label>
+                            <label class="flex items-center gap-3 cursor-pointer">
+                                <input type="checkbox" checked class="rounded text-blue-600 focus:ring-blue-500 w-4 h-4">
+                                <span class="text-sm font-medium text-gray-700">Zing News Công Nghệ</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="p-5 bg-gray-50 rounded-xl border border-gray-100">
+                        <h3 class="font-bold text-gray-900 mb-4 border-l-4 border-blue-600 pl-2">Đọc nhiều tuần này</h3>
+                        <div class="flex flex-col gap-4">
+                            <article class="group cursor-pointer">
+                                <h4 class="font-bold text-sm text-gray-800 group-hover:text-blue-600 transition leading-snug">
+                                    Đánh giá iPhone 16 Pro Max sau 1 tháng sử dụng thực tế
+                                </h4>
+                                <span class="text-[11px] text-gray-500 mt-1 block">Zing News • 5.2k lượt xem</span>
+                            </article>
+                            <hr class="border-gray-200">
+                            <article class="group cursor-pointer">
+                                <h4 class="font-bold text-sm text-gray-800 group-hover:text-blue-600 transition leading-snug">
+                                    Hướng dẫn dùng ChatGPT để tự động hóa công việc văn phòng
+                                </h4>
+                                <span class="text-[11px] text-gray-500 mt-1 block">VnExpress • 4.8k lượt xem</span>
+                            </article>
+                            <hr class="border-gray-200">
+                            <article class="group cursor-pointer">
+                                <h4 class="font-bold text-sm text-gray-800 group-hover:text-blue-600 transition leading-snug">
+                                    Cảnh báo chiêu trò lừa đảo qua mã QR code biến tướng mới
+                                </h4>
+                                <span class="text-[11px] text-gray-500 mt-1 block">Tuổi Trẻ • 3.9k lượt xem</span>
+                            </article>
+                        </div>
+                    </div>
+
+                </div>
+            </aside>
+            
+        </div>
+    </main>
+
+</body>
+</html>

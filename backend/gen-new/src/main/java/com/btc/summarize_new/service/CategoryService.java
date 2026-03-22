@@ -1,11 +1,13 @@
 package com.btc.summarize_new.service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.btc.summarize_new.dto.CategoryDTO;
+import com.btc.summarize_new.dto.blog.CategorysDto;
 import com.btc.summarize_new.model.Category;
 import com.btc.summarize_new.repository.CategoryRepository;
 import com.btc.summarize_new.utils.SlugUtils;
@@ -18,8 +20,11 @@ public class CategoryService {
 
     private final CategoryRepository categoryRepository;
 
-    public List<Category> getAllCategories() {
-        return categoryRepository.findAll();
+    public List<CategorysDto> getAllCategories() {
+        return categoryRepository.findAllByOrderByNameAsc()
+                .stream()
+                .map(c -> new CategorysDto(c.getId(), c.getName(), c.getSlug()))
+                .collect(Collectors.toList());
     }
 
     @Transactional

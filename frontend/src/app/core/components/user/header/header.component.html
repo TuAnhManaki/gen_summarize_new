@@ -1,16 +1,150 @@
-<nav class="bg-gray-900 text-white shadow-lg sticky top-0 z-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-between h-16 items-center">
-      <div class="flex-shrink-0 flex items-center gap-2">
-        <span class="text-2xl font-black tracking-tighter">VIET<span class="text-blue-500">NEWS</span></span>
-        <span class="bg-blue-600 text-xs px-2 py-0.5 rounded-full font-bold">AI Summarized</span>
-      </div>
-      <div class="hidden md:flex space-x-8 font-medium">
-        <a href="#" class="hover:text-blue-400 transition">Thời sự</a>
-        <a href="#" class="hover:text-blue-400 transition">Công nghệ</a>
-        <a href="#" class="hover:text-blue-400 transition">Kinh doanh</a>
-        <a href="#" class="hover:text-blue-400 transition">Thể thao</a>
-      </div>
+<header class="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm relative">
+    <div class="container mx-auto px-4 h-16 flex items-center justify-between">
+        
+        <div class="flex items-center gap-4">
+            <button (click)="toggleMegaMenu()" 
+                    class="p-2 text-gray-500 hover:text-blue-600 hover:bg-gray-100 rounded transition flex items-center gap-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+
+            <a [routerLink]="['/blog']" (click)="closeMegaMenu()" class="text-2xl font-black tracking-tighter text-blue-700">
+                NewsCrawl<span class="text-red-500">.</span>
+            </a>
+        </div>
+        
+        <nav class="hidden md:flex space-x-8 font-semibold text-gray-600">
+            <a [routerLink]="['/blog']" routerLinkActive="text-blue-600" [routerLinkActiveOptions]="{exact: true}" class="hover:text-blue-600 transition">Trang chủ</a>
+            <a [routerLink]="['/blog/chu-de/chuyen-oi-so']" routerLinkActive="text-blue-600" class="hover:text-blue-600 transition">Chuyển đổi số</a>
+            <a [routerLink]="['/blog/chu-de/thiet-bi']" routerLinkActive="text-blue-600" class="hover:text-blue-600 transition">Thiết bị</a>
+        </nav>
+
+        <div class="flex items-center space-x-2">
+            <button class="p-2 text-gray-500 hover:text-blue-600 hover:bg-gray-100 rounded-full transition">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            </button>
+            <button class="p-2 text-gray-500 hover:text-blue-600 hover:bg-gray-100 rounded-full transition">
+               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+            </button>
+        </div>
     </div>
-  </div>
-</nav>
+
+    <div *ngIf="isMegaMenuOpen" 
+         class="absolute top-full left-0 w-full bg-white shadow-2xl border-t border-gray-200 z-50 origin-top animate-[slideDown_0.2s_ease-out]">
+        
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between border-b border-gray-200 pb-3 mb-5">
+                <h2 class="text-xl font-bold text-gray-800">Tất cả chuyên mục</h2>
+                <button (click)="closeMegaMenu()" class="text-blue-600 hover:text-blue-800 flex items-center gap-1 font-medium transition">
+                    Đóng <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-8 pb-8">
+                
+                <div class="flex-1 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                    
+                    <div>
+                        <h3 class="text-[#9f224e] font-bold mb-3 uppercase text-sm">Thời sự</h3>
+                        <ul class="space-y-2.5">
+                            <li><a href="#" class="text-sm text-gray-800 hover:text-blue-600">Chính trị</a></li>
+                            <li><a href="#" class="text-sm text-gray-800 hover:text-blue-600">Kỷ nguyên mới</a></li>
+                            <li><a href="#" class="text-sm text-gray-800 hover:text-blue-600">Dân sinh</a></li>
+                        </ul>
+                        <div class="mt-3 border-b border-gray-100 pb-4">
+                            <a href="#" class="text-[11px] text-gray-400 hover:text-blue-600">Xem thêm</a>
+                        </div>
+
+                        <h3 class="text-[#9f224e] font-bold mb-3 mt-5 uppercase text-sm">Bất động sản</h3>
+                        <ul class="space-y-2.5">
+                            <li><a href="#" class="text-sm text-gray-800 hover:text-blue-600">Chính sách</a></li>
+                            <li><a href="#" class="text-sm text-gray-800 hover:text-blue-600">Thị trường</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-[#9f224e] font-bold mb-3 uppercase text-sm">Thế giới</h3>
+                        <ul class="space-y-2.5">
+                            <li><a href="#" class="text-sm text-gray-800 hover:text-blue-600">Phân tích</a></li>
+                            <li><a href="#" class="text-sm text-gray-800 hover:text-blue-600">Tư liệu</a></li>
+                            <li><a href="#" class="text-sm text-gray-800 hover:text-blue-600">Quân sự</a></li>
+                        </ul>
+                        <div class="mt-3 border-b border-gray-100 pb-4">
+                            <a href="#" class="text-[11px] text-gray-400 hover:text-blue-600">Xem thêm</a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-[#9f224e] font-bold mb-3 uppercase text-sm">Kinh doanh</h3>
+                        <ul class="space-y-2.5">
+                            <li><a href="#" class="text-sm text-gray-800 hover:text-blue-600">NetZero</a></li>
+                            <li><a href="#" class="text-sm text-gray-800 hover:text-blue-600">Quốc tế</a></li>
+                            <li><a href="#" class="text-sm text-gray-800 hover:text-blue-600">Chứng khoán</a></li>
+                        </ul>
+                        <div class="mt-3 border-b border-gray-100 pb-4">
+                            <a href="#" class="text-[11px] text-gray-400 hover:text-blue-600">Xem thêm</a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-[#9f224e] font-bold mb-3 uppercase text-sm">Khoa học Công nghệ</h3>
+                        <ul class="space-y-2.5">
+                            <li><a [routerLink]="['/blog/chu-de/chuyen-oi-so']" (click)="closeMegaMenu()" class="text-sm text-gray-800 hover:text-blue-600">Chuyển đổi số</a></li>
+                            <li><a [routerLink]="['/blog/chu-de/ai']" (click)="closeMegaMenu()" class="text-sm text-gray-800 hover:text-blue-600">AI</a></li>
+                            <li><a href="#" class="text-sm text-gray-800 hover:text-blue-600">Đổi mới sáng tạo</a></li>
+                        </ul>
+                        <div class="mt-3 border-b border-gray-100 pb-4">
+                            <a href="#" class="text-[11px] text-gray-400 hover:text-blue-600">Xem thêm</a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-[#9f224e] font-bold mb-3 uppercase text-sm">Thể thao</h3>
+                        <ul class="space-y-2.5">
+                            <li><a href="#" class="text-sm text-gray-800 hover:text-blue-600">Bóng đá</a></li>
+                            <li><a href="#" class="text-sm text-gray-800 hover:text-blue-600">Marathon</a></li>
+                            <li><a href="#" class="text-sm text-gray-800 hover:text-blue-600">Tennis</a></li>
+                        </ul>
+                        <div class="mt-3 border-b border-gray-100 pb-4">
+                            <a href="#" class="text-[11px] text-gray-400 hover:text-blue-600">Xem thêm</a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- <div class="lg:w-64 lg:pl-8 lg:border-l border-gray-200">
+                    
+                    <div class="space-y-3 mb-6">
+                        <a href="#" class="block font-bold text-gray-800 hover:text-blue-600">Spotlight</a>
+                        <a href="#" class="block font-bold text-gray-800 hover:text-blue-600">Ảnh</a>
+                        <a href="#" class="block font-bold text-gray-800 hover:text-blue-600">Infographics</a>
+                    </div>
+                    
+                    <hr class="border-gray-200 mb-6">
+                    
+                    <div class="space-y-3 mb-6">
+                        <a href="#" class="block font-bold text-gray-800 hover:text-blue-600">Mới nhất</a>
+                        <a href="#" class="block font-bold text-gray-800 hover:text-blue-600">Xem nhiều</a>
+                        <a href="#" class="block font-bold text-gray-800 hover:text-blue-600">Tin nóng</a>
+                        <a href="#" class="block font-bold text-gray-800 hover:text-blue-600">Lịch vạn niên</a>
+                    </div>
+
+                    <hr class="border-gray-200 mb-6">
+
+                    <div class="space-y-3">
+                        <p class="text-sm text-gray-500 mb-2">Liên hệ</p>
+                        <a href="#" class="flex items-center gap-2 text-sm text-gray-700 hover:text-blue-600">
+                            ✉️ Tòa soạn
+                        </a>
+                        <a href="#" class="flex items-center gap-2 text-sm text-gray-700 hover:text-blue-600">
+                            🎯 Quảng cáo
+                        </a>
+                    </div>
+
+                </div> -->
+
+            </div>
+        </div>
+    </div>
+</header>

@@ -41,6 +41,9 @@ dependencies {
 	
 	implementation("com.openai:openai-java:4.13.0")
 	
+	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+	
+	
 	// Phiên bản mới nhất hiện tại thường là 1.18.1
     implementation("org.jsoup:jsoup:1.18.1")
 	

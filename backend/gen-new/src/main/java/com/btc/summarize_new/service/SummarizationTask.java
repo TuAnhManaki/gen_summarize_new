@@ -58,6 +58,42 @@ public class SummarizationTask {
             return processSingleArticle(article);
         }).orElse(false);
     }
+    
+    public String manualSummarizToText(Long articleId) {
+        return articleRepository.findById(articleId).map(article -> {
+            // 1. Kiểm tra nếu đã tóm tắt rồi
+            if (Boolean.TRUE.equals(article.getIsSummarized())) {
+                log.info("Bài viết '{}' đã được tóm tắt trước đó.", article.getTitle());
+                return article.getSummaryContent(); 
+            }
+            
+            try {
+                log.info("Đang gửi bài '{}' sang gemini-2.5-flash...", article.getTitle());
+                String summary = geminiService.summarize(article.getRawContent());
+
+                if (summary != null && !summary.isBlank()) {
+                    article.setIsSummarized(true);
+                    article.setAiModelUsed("gemini-2.5-flash");
+                    // Cập nhật nội dung tóm tắt vào object article
+                    updateArticleWithAI(article, summary.trim());
+                    // Lưu vào database
+                 // 1. Làm sạch chuỗi (Đôi khi AI trả về kèm dấu ```json ... ```)
+                    String cleanJson = summary.trim().replaceAll("```json", "").replaceAll("```", "").trim();
+
+                    // 2. Parse JSON String sang Object
+                    AISummaryDTO dto = objectMapper.readValue(cleanJson, AISummaryDTO.class);
+
+                    articleRepository.save(article); 
+                    return dto.getSummary();
+                }
+            } catch (Exception e) {
+                log.error("Lỗi khi xử lý bài {}: {}", articleId, e.getMessage());
+            }
+            return null; // Trả về null nếu có lỗi hoặc tóm tắt trống
+            
+        }).orElse(null); // Trả về null nếu không tìm thấy articleId
+    }
+
 
     private boolean processSingleArticle(Article article) {
         try {

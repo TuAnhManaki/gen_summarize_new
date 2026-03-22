@@ -14,11 +14,10 @@ public class Source {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+    private String name; // "VnExpress"
+    private String slug; // "vnexpress"
     private String rssUrl;
     private String selector; // CSS Selector để lấy nội dung chính (vd: article.fck_detail)
     
-    @ManyToOne
-    @JoinColumn(name = "category_id")
-    private Category category;
+    private String colorClass; // "text-red-600"
 }

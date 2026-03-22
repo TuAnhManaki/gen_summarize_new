@@ -17,7 +17,8 @@ export const environment = {
   darkModeAsDefault: false,
   checkForUpdatesInterval: 60,
   baseUrl: 'http://localhost:4200',
-  apiServeUrl: 'https://h15mzxdf-8080.asse.devtunnels.ms/' // Giữ nguyên theo yêu cầu của bạn
+  // apiServeUrl: 'http://localhost:8080',
+  apiServeUrl: 'https://h15mzxdf-8080.asse.devtunnels.ms' // Giữ nguyên theo yêu cầu của bạn
 };
 
 /*

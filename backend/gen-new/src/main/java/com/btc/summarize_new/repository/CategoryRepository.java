@@ -16,6 +16,9 @@ public interface CategoryRepository extends JpaRepository<Category, Integer> {
     Optional<Category> findByName(String name);
     
     Optional<Category> findByNameIgnoreCase(String name);
+    
+ // Lấy tất cả và sắp xếp theo tên (hoặc bạn có thể thêm cột priority để sắp xếp)
+    List<Category> findAllByOrderByNameAsc();
 
  // Kiểm tra slug đã tồn tại chưa (khi tạo mới)
     boolean existsBySlug(String slug);

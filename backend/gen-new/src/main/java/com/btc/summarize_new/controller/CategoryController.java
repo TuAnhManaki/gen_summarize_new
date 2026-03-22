@@ -13,13 +13,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.btc.summarize_new.dto.CategoryDTO;
+import com.btc.summarize_new.dto.blog.CategorysDto;
 import com.btc.summarize_new.model.Category;
 import com.btc.summarize_new.service.CategoryService;
 
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/api/categories")
+@RequestMapping("/api/v1/categories")
 @RequiredArgsConstructor
 public class CategoryController {
     private final CategoryService categoryService;
@@ -29,9 +30,10 @@ public class CategoryController {
 
         return ResponseEntity.ok(categoryService.createCategory(category));
     }
+    
 
     @GetMapping
-    public ResponseEntity<List<Category>> getAll() {
+    public ResponseEntity<List<CategorysDto>> getAll() {
         return ResponseEntity.ok(categoryService.getAllCategories());
     }
     

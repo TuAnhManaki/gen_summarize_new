@@ -24,4 +24,8 @@ public class Category {
     @JsonProperty("slug")
     @Column(nullable = false, unique = true, length = 100)
     private String slug;
+    
+    @JsonProperty("description")
+    @Column(length = 200)
+    private String description;
 }

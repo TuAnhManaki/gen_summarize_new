@@ -1,160 +1,90 @@
 package com.btc.summarize_new.controller;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.btc.summarize_new.dto.ArticleDetailResponse;
-import com.btc.summarize_new.model.Article;
-import com.btc.summarize_new.repository.ArticleRepository;
-import com.btc.summarize_new.service.NewsCrawlerService;
-import com.btc.summarize_new.service.SummarizationTask;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.core.type.TypeReference;
+import com.btc.summarize_new.dto.blog.ArticleDTO;
+import com.btc.summarize_new.dto.blog.CategoryDto.CategoryPageResponse;
+import com.btc.summarize_new.dto.blog.HomeOverviewResponse;
+import com.btc.summarize_new.dto.blog.NewsDto.ArticleDetail;
+import com.btc.summarize_new.dto.blog.NewsDto.ArticleItem;
+import com.btc.summarize_new.dto.blog.NewsDto.SummaryResponse;
+import com.btc.summarize_new.service.NewsCategoryService;
+import com.btc.summarize_new.service.NewsDetailService;
+import com.btc.summarize_new.service.NewsDisplayService;
 
-import lombok.extern.slf4j.Slf4j;
-
+import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/api/news")
-@Slf4j
-@CrossOrigin(origins = "*")
+@RequestMapping("/api/v1/news")
+@RequiredArgsConstructor
+//@CrossOrigin(origins = "http://localhost:4200")
 public class NewsController {
 
-    @Autowired
-    private NewsCrawlerService crawlerService;
+	private final NewsDisplayService newsService;
+	private final NewsDetailService newsDService;
 
-    @Autowired
-    private SummarizationTask summarizationTask;
+	private final NewsCategoryService categoryService;
 
-    @Autowired
-    private ArticleRepository articleRepository;
+	/**
+	 * API 1: Lấy toàn bộ dữ liệu tĩnh cho phần trên của Trang chủ Trả về: Trending
+	 * Tags, Hero Section, Category Boxes
+	 */
+	@GetMapping("/home/overview")
+	public ResponseEntity<HomeOverviewResponse> getHomeOverview() {
+		HomeOverviewResponse response = newsService.getHomeOverview();
+		return ResponseEntity.ok(response);
+	}
 
-    @Autowired
-    private ObjectMapper objectMapper;
-    
-    /**
-     * Lấy chi tiết một bài báo theo ID
-     */
-    @GetMapping("/articles/{id}")
-    public ResponseEntity<ArticleDetailResponse> getArticleDetail(@PathVariable("id") Long id) {
-        Optional<Article> articleOpt = articleRepository.findById(id);
+	/**
+	 * API 2: Lấy danh sách tin Feed (Có phân trang và Filter) Ví dụ gọi:
+	 * /api/v1/news/feed?page=0&size=10&sources=VnExpress,Tuổi Trẻ
+	 */
+	@GetMapping("/feed")
+	public ResponseEntity<Page<ArticleDTO>> getNewsFeed(@RequestParam(defaultValue = "0", name = "page") int page,
+			@RequestParam(defaultValue = "10", name = "size") int size,
+			@RequestParam(value = "sources", required = false) List<String> sources,
+			@RequestParam(value = "categories", required = false) List<String> cate) {
 
-        if (articleOpt.isPresent()) {
-            Article article = articleOpt.get();
-            return ResponseEntity.ok(convertToDetailDTO(article));
-        }
-        
-        return ResponseEntity.notFound().build(); // Trả về lỗi 404 nếu ID không tồn tại
-    }
+		// Sort bài viết mới nhất lên đầu
+		PageRequest pageRequest = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "publishedAt"));
 
-    /**
-     * Hàm helper: Chuyển đổi từ Entity Article sang DTO ArticleDetailResponse
-     */
-    private ArticleDetailResponse convertToDetailDTO(Article article) {
-        ArticleDetailResponse dto = new ArticleDetailResponse();
-        
-        dto.setId(article.getId());
-        dto.setTitle(article.getTitle());
-        dto.setCategory(article.getCategory() != null ? article.getCategory().getName() : "Chưa phân loại");
-        dto.setAuthor(article.getAuthor() != null ? article.getAuthor() : "Nặc danh");
-        dto.setDate(article.getPublishedAt() != null ? article.getPublishedAt().toString() : "");
-        dto.setViews(article.getViews() != null ? article.getViews() : 0);
-        
-        // Tạm thời hardcode comment là 0, sau này có bảng Comment thì count() từ DB
-        dto.setCommentsCount(0); 
-        
-        dto.setRawContent(article.getRawContent());
-        dto.setSummaryContent(article.getSummaryContent());
-        dto.setIsSummarized(article.getIsSummarized() != null ? article.getIsSummarized() : false);
+		Page<ArticleDTO> feedPage = newsService.getNewsFeed(sources, cate, pageRequest);
+		return ResponseEntity.ok(feedPage);
+	}
 
-        // Bóc tách Dữ liệu JSONB (metadata)
-        Map<String, Object> metadata = article.getMetadata();
-        if (metadata != null) {
-            // Lấy ảnh Thumbnail
-            dto.setImage(metadata.containsKey("thumb") ? metadata.get("thumb").toString() : "https://via.placeholder.com/800x500");
-            
-            // Lấy danh sách Tags một cách an toàn
-            if (metadata.containsKey("tags")) {
-                try {
-                    // Convert Object list an toàn sang List<String>
-                    List<String> tags = objectMapper.convertValue(metadata.get("tags"), new TypeReference<List<String>>() {});
-                    dto.setTags(tags);
-                } catch (Exception e) {
-                    dto.setTags(new ArrayList<>());
-                }
-            } else {
-                dto.setTags(new ArrayList<>());
-            }
-        } else {
-            dto.setImage("https://via.placeholder.com/800x500");
-            dto.setTags(new ArrayList<>());
-        }
+//    cho new detail 
 
-        return dto;
-    }
+	// 1. API chi tiết bài viết
+	@GetMapping("/{slug}")
+	public ResponseEntity<ArticleDetail> getArticle(@PathVariable("slug") String slug) {
+		return ResponseEntity.ok(newsDService.getArticleDetail(slug));
+	}
 
-    /**
-     * Lấy danh sách tin tức (Mới nhất lên đầu)
-     */
-    @GetMapping("/articles")
-    public ResponseEntity<List<Article>> getAllArticles() {
-        return ResponseEntity.ok(articleRepository.findAll(
-                Sort.by(Sort.Direction.DESC, "createdAt")));
-    }
+	// 2. API tin liên quan
+	@GetMapping("/{slug}/related")
+	public ResponseEntity<List<ArticleItem>> getRelatedNews(@PathVariable("slug") String islugd) {
+		return ResponseEntity.ok(newsDService.getRelatedNews(islugd));
+	}
 
-    /**
-     * Kích hoạt Crawl tin tức thủ công
-     */
-    @PostMapping("/crawl")
-    public ResponseEntity<String> triggerCrawl() {
-        log.info("Yêu cầu Crawl thủ công từ API");
-        crawlerService.crawlAllSources();
-        return ResponseEntity.ok("Đã bắt đầu quét tin mới, hãy kiểm tra Log...");
-    }
+	// 3. API yêu cầu tóm tắt AI
+	@PostMapping("/{id}/summarize")
+	public ResponseEntity<SummaryResponse> summarizeArticle(@PathVariable("id") Long id) {
+		return ResponseEntity.ok(newsDService.summarizeArticle(id));
+	}
 
-    /**
-     * Tóm tắt toàn bộ các bài còn tồn đọng (Pending)
-     */
-    @PostMapping("/summarize-all")
-    public ResponseEntity<String> triggerSummarizeAll() {
-        log.info("Yêu cầu tóm tắt toàn bộ tin mới từ API");
-        summarizationTask.autoSummarizeLatestNews();
-        return ResponseEntity.ok("Đang tiến hành tóm tắt, vui lòng đợi...");
-    }
-
-    /**
-     * Tóm tắt riêng một bài báo cụ thể theo ID
-     */
-    @PostMapping("/{id}/summarize")
-    public ResponseEntity<String> summarizeOne(@PathVariable("id")  Long id) {
-        boolean success = summarizationTask.manualSummarize(id);
-        if (success) {
-            return ResponseEntity.ok("Đã tóm tắt thành công bài báo ID: " + id);
-        }
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                             .body("Tóm tắt thất bại. Kiểm tra Log để biết chi tiết.");
-    }
-    
-    @PutMapping("/{id}/view")
-    public ResponseEntity<Void> incrementView(@PathVariable("id")  Long id) {
-        articleRepository.findById(id).ifPresent(article -> {
-            article.setViews(article.getViews() + 1);
-            articleRepository.save(article);
-        });
-        return ResponseEntity.ok().build();
-    }
+	@GetMapping("/category/{slug}")
+	public ResponseEntity<CategoryPageResponse> getCategoryPage(@PathVariable("slug") String slug) {
+		return ResponseEntity.ok(categoryService.getCategoryPageData(slug));
+	}
 }

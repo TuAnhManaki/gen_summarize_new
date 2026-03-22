@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết bài viết - NewsCrawl</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        /* Tối ưu hóa vùng hiển thị nội dung bài viết cào về */
+        .article-content p { margin-bottom: 1.5rem; line-height: 1.8; color: #374151; font-size: 1.125rem; }
+        .article-content h2, .article-content h3 { font-weight: 700; color: #111827; margin-top: 2rem; margin-bottom: 1rem; line-height: 1.4; }
+        .article-content h2 { font-size: 1.5rem; }
+        .article-content img { width: 100%; border-radius: 0.5rem; margin: 2rem 0; }
+        .article-content figcaption { text-align: center; font-size: 0.875rem; color: #6b7280; margin-top: -1.5rem; margin-bottom: 2rem; }
+        
+        @media (max-width: 768px) {
+            .article-content p { font-size: 1rem; line-height: 1.6; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+    <header class="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+        <div class="container mx-auto px-4 h-16 flex items-center justify-between">
+            <a href="index.html" class="text-2xl font-black tracking-tighter text-blue-700">NewsCrawl<span class="text-red-500">.</span></a>
+            <nav class="hidden md:flex space-x-8 font-semibold text-gray-600">
+                <a href="index.html" class="hover:text-blue-600 transition">Trang chủ</a>
+                <a href="category.html" class="hover:text-blue-600 transition">Thời sự</a>
+                <a href="category.html" class="hover:text-blue-600 transition">Kinh doanh</a>
+                <a href="category.html" class="text-blue-600 border-b-2 border-blue-600 pb-5 translate-y-[10px]">Công nghệ</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <button class="p-2 text-gray-500 hover:text-blue-600 hover:bg-gray-100 rounded-full transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+            
+            <article class="lg:col-span-8 bg-white p-6 md:p-10 rounded-2xl border border-gray-200 shadow-sm">
+                
+                <nav class="flex text-sm text-gray-500 mb-6 font-medium">
+                    <a href="index.html" class="hover:text-blue-600">Trang chủ</a>
+                    <span class="mx-2">/</span>
+                    <a href="category.html" class="hover:text-blue-600">Công nghệ</a>
+                    <span class="mx-2">/</span>
+                    <span class="text-gray-400 line-clamp-1">Vi mạch bán dẫn: Cơ hội lớn...</span>
+                </nav>
+
+                <header class="mb-8">
+                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 leading-tight mb-6">
+                        Vi mạch bán dẫn: Cơ hội lớn và thách thức cho các kỹ sư Việt Nam trong thập kỷ tới
+                    </h1>
+                    
+                    <div class="flex flex-wrap items-center justify-between gap-4 border-y border-gray-100 py-4">
+                        <div class="flex items-center gap-4">
+                            <span class="px-3 py-1 bg-red-600 text-white text-xs font-bold rounded uppercase tracking-wider">VnExpress</span>
+                            
+                            <div class="flex flex-col">
+                                <span class="text-sm font-semibold text-gray-900">Theo: Nguyễn Văn A</span>
+                                <span class="text-xs text-gray-500">Thứ Sáu, 20/03/2026 - 09:30 AM</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex gap-2">
+                            
+                            <button class="p-2 bg-gray-50 text-gray-600 hover:bg-gray-200 rounded-full transition">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+                </header>
+
+                <div class="text-xl font-medium text-gray-600 leading-relaxed mb-8 bg-gray-50 p-5 rounded-xl border-l-4 border-blue-500">
+                    Với sự đầu tư mạnh mẽ từ các tập đoàn công nghệ toàn cầu, Việt Nam đang đứng trước cơ hội trở thành trung tâm thiết kế vi mạch mới của khu vực. Tuy nhiên, bài toán nhân lực chất lượng cao vẫn là rào cản lớn nhất.
+                </div>
+
+                <div class="article-content">
+                    <p>Theo báo cáo mới nhất từ Hiệp hội Công nghiệp Bán dẫn toàn cầu, nhu cầu về kỹ sư thiết kế vi mạch (IC Design) dự kiến sẽ tăng gấp đôi trong vòng 5 năm tới. Việt Nam, với lợi thế dân số trẻ và tinh thần ham học hỏi các khối ngành kỹ thuật (STEM), đang được các "ông lớn" như Intel, Samsung hay Nvidia đưa vào tầm ngắm chiến lược.</p>
+                    
+                    <h2>Làn sóng dịch chuyển đầu tư</h2>
+                    <p>Nếu như trước đây, Việt Nam chủ yếu tham gia vào công đoạn đóng gói và kiểm thử (khâu có giá trị gia tăng thấp nhất trong chuỗi cung ứng bán dẫn), thì nay, bức tranh đang dần thay đổi. Hàng loạt trung tâm R&D (Nghiên cứu & Phát triển) về thiết kế vi mạch đã được mở tại Hà Nội và TP.HCM.</p>
+                    
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop" alt="Bảng mạch điện tử">
+                    <figcaption>Các kỹ sư Việt Nam đang ngày càng tham gia sâu hơn vào khâu thiết kế lõi. Ảnh minh họa.</figcaption>
+
+                    <p>Ông Trần Văn B, Giám đốc một công ty thiết kế IC tại Khu công nghệ cao TP.HCM chia sẻ: "Chúng tôi đang nhận được rất nhiều đơn hàng thiết kế chip ứng dụng cho AI và IoT từ các khách hàng Mỹ và Nhật Bản. Trình độ của kỹ sư Việt Nam hoàn toàn có thể đáp ứng được các thiết kế ở node tiến trình 7nm, thậm chí 5nm nếu được đào tạo bài bản".</p>
+
+                    <h2>Thách thức về bài toán nhân lực</h2>
+                    <p>Cơ hội là rất lớn, nhưng thách thức cũng không hề nhỏ. Sự thiếu hụt trầm trọng các chương trình đào tạo chuyên sâu về vi mạch tại các trường đại học đang là một nút thắt. Phần lớn sinh viên tốt nghiệp ngành Điện tử - Viễn thông cần mất thêm từ 6 tháng đến 1 năm đào tạo lại tại doanh nghiệp mới có thể bắt tay vào dự án thực tế.</p>
+                    
+                    <p>Để giải quyết bài toán này, chính phủ và các tập đoàn đang bắt tay xây dựng các phòng lab tiêu chuẩn quốc tế ngay trong trường học, cung cấp phần mềm thiết kế chuyên dụng (EDA tools) vốn có giá bản quyền lên tới hàng triệu USD.</p>
+                </div>
+
+                <div class="mt-12 pt-8 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between bg-blue-50 p-6 rounded-xl">
+                    <div class="mb-4 sm:mb-0 text-center sm:text-left">
+                        <h4 class="font-bold text-gray-900">Bài viết được tổng hợp tự động</h4>
+                        <p class="text-sm text-gray-600">Click để ủng hộ tác giả và đọc bản gốc tại trang nguồn.</p>
+                    </div>
+                    <a href="#" target="_blank" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg shadow-md transition whitespace-nowrap">
+                        Đọc bài gốc trên VnExpress ↗
+                    </a>
+                </div>
+
+                <div class="mt-8 flex items-center gap-2 flex-wrap">
+                    <span class="text-sm font-bold text-gray-900 mr-2">Từ khóa:</span>
+                    <a href="#" class="px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm rounded-full transition">Vi mạch</a>
+                    <a href="#" class="px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm rounded-full transition">Bán dẫn</a>
+                    <a href="#" class="px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm rounded-full transition">Công nghệ AI</a>
+                </div>
+            </article>
+
+            <aside class="lg:col-span-4">
+                <div class="sticky top-20 flex flex-col gap-8">
+                    
+                    <div class="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm">
+                        <h3 class="font-black text-lg text-gray-900 mb-5 border-l-4 border-blue-600 pl-3 uppercase">Tin Liên Quan</h3>
+                        
+                        <div class="flex flex-col gap-5">
+                            <article class="group cursor-pointer flex gap-3">
+                                <div class="w-24 h-20 shrink-0 overflow-hidden rounded-md bg-gray-200">
+                                    <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition">
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="text-sm font-bold text-gray-800 leading-snug group-hover:text-blue-600 transition line-clamp-3">Khởi nghiệp AI tại Việt Nam: Thiếu hạ tầng máy tính mạnh</h4>
+                                </div>
+                            </article>
+                            
+                            <article class="group cursor-pointer flex gap-3">
+                                <div class="w-24 h-20 shrink-0 overflow-hidden rounded-md bg-gray-200">
+                                    <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition">
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="text-sm font-bold text-gray-800 leading-snug group-hover:text-blue-600 transition line-clamp-3">Mở mới 3 ngành đào tạo kỹ sư thiết kế chip trong năm học tới</h4>
+                                </div>
+                            </article>
+                            
+                            <article class="group cursor-pointer flex gap-3">
+                                <div class="w-24 h-20 shrink-0 overflow-hidden rounded-md bg-gray-200">
+                                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition">
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="text-sm font-bold text-gray-800 leading-snug group-hover:text-blue-600 transition line-clamp-3">Hội thảo cấp cao về chuỗi cung ứng công nghệ toàn cầu 2024</h4>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-2xl text-center text-white">
+                        <h3 class="font-bold text-xl mb-2">Bạn thích NewsCrawl?</h3>
+                        <p class="text-sm text-gray-300 mb-4">Trải nghiệm đọc báo không quảng cáo, lọc tin thông minh từ nhiều nguồn.</p>
+                        <button class="w-full py-2 bg-white text-gray-900 font-bold rounded hover:bg-gray-100 transition">
+                            Đăng ký Nhận Bản Tin
+                        </button>
+                    </div>
+
+                </div>
+            </aside>
+            
+        </div>
+    </main>
+
+</body>
+</html>

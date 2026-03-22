@@ -38,6 +38,7 @@ import { BlogFeedComponent } from './pages/blog-feed/blog-feed.component';
     DatePipe,
     DecimalPipe,
   ],
-  providers: [DatePipe]
+  providers: [DatePipe,]
 })
 export class BlogModule {}
+

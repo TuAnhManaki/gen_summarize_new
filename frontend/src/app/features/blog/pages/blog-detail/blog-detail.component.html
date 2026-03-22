@@ -1,147 +1,142 @@
-<div class="container mx-auto  px-4 py-6 font-sans text-gray-700 max-w-screen-xl">
-
-  <nav class="flex text-xs font-bold uppercase text-gray-400 mb-6 mt-6">
-    <a  [routerLink]="['/blog']"
-      class="hover:text-red-500 transition">Home</a>
-    <span class="mx-2">/</span>
-    <a href="#" class="hover:text-red-500 transition">{{ article.category }}</a>
-    <span class="mx-2">/</span>
-    <span class="text-gray-600 truncate max-w-[200px]">{{ article.title }}</span>
-  </nav>
-
-  <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-6">
-
-    <article class="lg:col-span-8">
+<main class="container mx-auto px-4 py-8" *ngIf="article$ | async as article">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
       
-      <header class="mb-6">
-        <span class="bg-red-500 text-white text-[10px] font-bold px-2 py-1 uppercase rounded-sm mb-3 inline-block">
-          {{ article.category }}
-        </span>
-        <h1 class="text-3xl md:text-4xl font-bold text-gray-800 leading-tight mb-4">
-          {{ article.title }}
-        </h1>
-        <div class="flex items-center text-xs text-gray-400 font-bold uppercase gap-4">
-          <span>By <a href="#" class="text-gray-800 hover:text-red-500">{{ article.author }}</a></span>
-          <span>{{ article.date }}</span>
-          <span>Views: {{ article.views }}</span>
-          <span>Comments: {{ article.commentsCount }}</span>
-        </div>
-      </header>
+      <article class="lg:col-span-8 bg-white p-6 md:p-10 rounded-2xl border border-gray-200 shadow-sm">
+          
+          <nav class="flex text-sm text-gray-500 mb-6 font-medium">
+              <a routerLink="/blog" class="hover:text-blue-600">Trang chủ</a>
+              <span class="mx-2">/</span>
+              <a routerLink="/category" class="hover:text-blue-600">{{ article.category }}</a>
+          </nav>
 
-      <div class="mb-8 overflow-hidden rounded-sm">
-        <img [src]="article.image" alt="Featured Image" class="w-full h-auto object-cover">
-      </div>
-
-      <div *ngIf="isSummarizingNow" class="mb-6 flex items-center p-4 text-sm text-blue-800 rounded-sm bg-blue-50 border border-blue-200">
-        <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-blue-800" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-        </svg>
-        <span class="font-bold mr-1">AI đang xử lý:</span> 
-        Hệ thống đang tiến hành tóm tắt nội dung này. Bạn đang xem bản gốc...
-      </div>
-      
-      <div class="article-content text-base leading-relaxed text-gray-600 mb-8" 
-           [innerHTML]="safeContent">
-      </div>
-      
-      <div class="flex items-center gap-2 mb-8 border-t border-gray-100 pt-6">
-        <span class="text-sm font-bold uppercase text-gray-800">Tags:</span>
-        <div class="flex flex-wrap gap-1">
-          <a href="#" *ngFor="let tag of article.tags" class="px-2 py-1 bg-gray-100 text-[10px] font-bold uppercase text-gray-500 hover:bg-red-500 hover:text-white transition rounded-sm">
-            {{ tag }}
-          </a>
-        </div>
-      </div>
-
-      <section class="mb-10">
-        <div class="flex items-center justify-between border-b-2 border-gray-100 mb-8 pb-2 relative">
-          <h3 class="text-lg font-black uppercase text-gray-800">
-            Comments ({{ article.commentsCount }})
-            <span class="absolute bottom-[-2px] left-0 w-20 h-[2px] bg-red-500"></span>
-          </h3>
-        </div>
-
-        <div class="space-y-6">
-          <div *ngFor="let comment of comments" class="flex gap-4" [class.ml-12]="comment.isReply">
-            <div class="shrink-0">
-              <img [src]="comment.avatar" class="w-12 h-12 rounded-full border border-gray-200">
-            </div>
-            <div class="flex-1">
-              <div class="flex items-center justify-between mb-1">
-                <h5 class="text-sm font-bold text-gray-800">{{ comment.user }}</h5>
-                <span class="text-[10px] text-gray-400 uppercase font-bold">{{ comment.date }}</span>
+          <header class="mb-8">
+              <h1 class="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 leading-tight mb-6">
+                  {{ article.title }}
+              </h1>
+              
+              <div class="flex flex-wrap items-center justify-between gap-4 border-y border-gray-100 py-4">
+                  <div class="flex items-center gap-4">
+                      <span class="px-3 py-1 bg-red-600 text-white text-xs font-bold rounded uppercase tracking-wider">
+                          {{ article.source }}
+                      </span>
+                      
+                      <div class="flex flex-col">
+                          <span class="text-sm font-semibold text-gray-900">Theo: {{ article.author }}</span>
+                          <span class="text-xs text-gray-500">{{ article.publishedAt | date:'dd/MM/yyyy - hh:mm a' }}</span>
+                      </div>
+                  </div>
+                  
+                  <div class="flex gap-2">
+                      <a [href]="article.originUrl" class="p-2 bg-gray-50 text-gray-600 hover:bg-gray-200 rounded-full transition">
+                          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
+                          </svg>
+                        </a>
+                  </div>
               </div>
-              <p class="text-sm text-gray-600 mb-2">{{ comment.content }}</p>
-              <button class="text-[10px] font-bold uppercase text-gray-400 hover:text-red-500 transition border border-gray-200 px-2 py-0.5 rounded-sm">Reply</button>
-            </div>
+          </header>
+
+          <div class="mb-8 bg-blue-50/50 p-5 rounded-xl border-l-4 border-blue-500 transition-all">
+              
+              <div *ngIf="!article.summaryContent && (aiSummary$ | async) === null && !(isSummaryLoading$ | async)" 
+                   class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                  <div>
+                      <h4 class="font-bold text-gray-900 flex items-center gap-2">
+                          ✨ Khám phá nhanh
+                      </h4>
+                      <p class="text-sm text-gray-600">Bài viết quá dài? Hãy để AI đọc giúp bạn.</p>
+                  </div>
+                  <button (click)="generateAiSummary(article.id)" 
+                          class="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold rounded-lg shadow transition flex items-center gap-2 whitespace-nowrap">
+                      Tóm tắt bài viết
+                  </button>
+              </div>
+
+              <div *ngIf="isSummaryLoading$ | async" class="flex items-center gap-3 text-blue-600 font-medium animate-pulse">
+                  <svg class="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24">
+                      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  AI đang phân tích và tổng hợp nội dung...
+              </div>
+
+              <div *ngIf="article.summaryContent || (aiSummary$ | async) as summary">
+                  <div class="flex items-center gap-2 mb-3 text-blue-600 text-sm font-bold uppercase tracking-wider">
+                      ✨ AI Tóm tắt
+                  </div>
+                  <div class="text-lg md:text-xl font-medium text-gray-700 leading-relaxed"
+                  [innerHTML]="article.summaryContent ? article.summaryContent : summary">
+                  </div>
+              </div>
           </div>
-        </div>
-      </section>
 
-      <section>
-        <div class="flex items-center justify-between border-b-2 border-gray-100 mb-6 pb-2 relative">
-          <h3 class="text-lg font-black uppercase text-gray-800">
-            Leave a Reply
-            <span class="absolute bottom-[-2px] left-0 w-20 h-[2px] bg-red-500"></span>
-          </h3>
-        </div>
-        <form class="space-y-4">
-          <div class="flex flex-col">
-            <label class="text-xs font-bold text-gray-500 uppercase mb-1">Message</label>
-            <textarea rows="5" class="border border-gray-200 p-2 rounded-sm text-sm focus:outline-none focus:border-red-500 transition"></textarea>
+          <img [src]="article.metadata.thumb" [alt]="article.title" class="object-cover group-hover:scale-105 transition duration-300">
+
+          <div class="article-content" [innerHTML]="article.rawContent"></div>
+
+          <div class="mt-12 pt-8 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between bg-gray-50 p-6 rounded-xl">
+              <div class="mb-4 sm:mb-0 text-center sm:text-left">
+                  <h4 class="font-bold text-gray-900">Bài viết được tổng hợp tự động</h4>
+                  <p class="text-sm text-gray-600">Click để ủng hộ tác giả và đọc bản gốc tại trang nguồn.</p>
+              </div>
+              <a [href]="article.originUrl" target="_blank" rel="noopener noreferrer" 
+                 class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg shadow-md transition whitespace-nowrap">
+                  Đọc bài gốc trên {{ article.source }} ↗
+              </a>
           </div>
-          <button type="button" class="bg-red-500 text-white text-xs font-bold uppercase px-6 py-3 rounded-sm hover:bg-gray-800 transition">
-            Send Comment
-          </button>
-        </form>
-      </section>
 
-    </article>
+          <div class="mt-8 flex items-center gap-2 flex-wrap" *ngIf="article.metadata.tags.length > 0">
+              <span class="text-sm font-bold text-gray-900 mr-2">Từ khóa:</span>
+              <a *ngFor="let tag of article.metadata.tags" [routerLink]="['/search']" [queryParams]="{q: tag}" 
+                 class="px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm rounded-full transition">
+                  {{ tag }}
+              </a>
+          </div>
+      </article>
 
-    <aside class="lg:col-span-4 space-y-10">
+      <aside class="lg:col-span-4">
+          <div class="sticky top-20 flex flex-col gap-8">
+              
+              <div class="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm">
+                  <h3 class="font-black text-lg text-gray-900 mb-5 border-l-4 border-blue-600 pl-3 uppercase">Tin Liên Quan</h3>
+                  
+                  <div class="flex flex-col gap-5">
+                      
+                      <article *ngFor="let news of relatedNews$ | async" class="group cursor-pointer flex gap-3">
+                          <a [routerLink]="['/blog', news.nameSlug]" class="w-24 h-20 shrink-0 overflow-hidden rounded-md bg-gray-200 block">
+                              <img [src]="news.thumbnailUrl" [alt]="news.title" 
+                                   class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                          </a>
+                          <div class="flex-1">
+                              <a [routerLink]="['/blog', news.nameSlug]">
+                                  <h4 class="text-sm font-bold text-gray-800 leading-snug group-hover:text-blue-600 transition line-clamp-3">
+                                      {{ news.title }}
+                                  </h4>
+                              </a>
+                              <div class="mt-1 flex items-center justify-between text-[10px] text-gray-500 font-medium uppercase tracking-wide">
+                                  <span>{{ news.source }}</span>
+                                  <span>{{ news.publishedAt | date:'dd/MM' }}</span>
+                              </div>
+                          </div>
+                      </article>
+
+                      <div *ngIf="(relatedNews$ | async)?.length === 0" class="text-sm text-gray-500 italic py-2">
+                          Đang cập nhật tin tức liên quan...
+                      </div>
+
+                  </div>
+              </div>
+
+              <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-2xl text-center text-white">
+                  <h3 class="font-bold text-xl mb-2">Bạn thích NewsCrawl?</h3>
+                  <p class="text-sm text-gray-300 mb-4">Trải nghiệm đọc báo không quảng cáo, lọc tin thông minh từ nhiều nguồn.</p>
+                  <button class="w-full py-2 bg-white text-gray-900 font-bold rounded hover:bg-gray-100 transition">
+                      Đăng ký Nhận Bản Tin
+                  </button>
+              </div>
+
+          </div>
+      </aside>
       
-      <div class="flex justify-center">
-        <div class="w-[300px] h-[250px] bg-gray-200 flex items-center justify-center text-gray-400 border border-dashed border-gray-300">
-           <span class="text-xs font-bold uppercase tracking-widest">Ad 300x250</span>
-        </div>
-      </div>
-
-      <div>
-        <div class="flex items-center justify-between border-b-2 border-gray-100 mb-6 pb-2 relative">
-            <h4 class="text-sm font-black uppercase text-gray-800">Latest News</h4>
-            <span class="absolute bottom-[-2px] left-0 w-10 h-[2px] bg-red-500"></span>
-        </div>
-        <div class="flex flex-col gap-4">
-          <div *ngFor="let news of latestNews" class="flex gap-3 group">
-            <div class="w-20 h-16 shrink-0 overflow-hidden rounded-sm">
-               <img [src]="news.image" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-            </div>
-            <div>
-              <h5 class="text-sm font-bold leading-snug mb-1">
-                <a href="#" class="text-gray-800 group-hover:text-red-500 transition-colors">{{ news.title }}</a>
-              </h5>
-              <span class="text-[10px] text-gray-400 uppercase font-bold">{{ news.date }}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <div class="flex items-center justify-between border-b-2 border-gray-100 mb-4 pb-2 relative">
-            <h4 class="text-sm font-black uppercase text-gray-800">Tags</h4>
-            <span class="absolute bottom-[-2px] left-0 w-10 h-[2px] bg-red-500"></span>
-        </div>
-        <div class="flex flex-wrap gap-1">
-          <a href="#" *ngFor="let tag of article.tags" class="px-3 py-1.5 border border-gray-200 text-xs font-bold text-gray-600 uppercase hover:bg-red-500 hover:text-white hover:border-red-500 transition-all rounded-sm">
-            {{ tag }}
-          </a>
-          <span class="px-3 py-1.5 border border-gray-200 text-xs font-bold text-gray-600 uppercase">Startups</span>
-          <span class="px-3 py-1.5 border border-gray-200 text-xs font-bold text-gray-600 uppercase">Tech</span>
-        </div>
-      </div>
-
-    </aside>
-
   </div>
-</div>
+</main>

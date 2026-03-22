@@ -11,7 +11,7 @@ import { BlogListComponent } from "./pages/blog-list/blog-list.component";
 
 const routes: Routes = [
   {
-    path: "bmn/www",
+    path: "chu-de/:categorySlug",
     component: BlogFeedComponent,
     title: "Danh sách bài viết",
   },

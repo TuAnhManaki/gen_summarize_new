@@ -1,222 +1,213 @@
-<div class="container mx-auto px-4 py-6 font-sans text-gray-700 max-w-screen-xl">
 
-  <div class="mb-6 border border-gray-200 rounded-sm bg-white overflow-hidden shadow-sm">
-    <div class="flex items-center">
-      <div class="bg-red-500 text-white text-xs font-bold px-4 py-3 uppercase tracking-wider shrink-0">
-        Trending
-      </div>
-      <div class="flex-1 px-4 py-2 overflow-hidden bg-gray-50">
-        <div class="whitespace-nowrap animate-marquee text-sm text-gray-600">
-          <ng-container *ngFor="let topic of trendingTopics; let last = last">
-            <a [routerLink]="['/search']" [queryParams]="{q: topic}" class="hover:text-red-500 transition-colors font-medium">{{ topic }}</a>
-            <span *ngIf="!last" class="mx-3 text-gray-300">|</span>
-          </ng-container>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <section class="mb-12" *ngIf="featuredPosts.length > 0">
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-1 h-[500px]">
+<main class="container mx-auto px-4 py-8">
+  
+  <ng-container *ngIf="overviewData">
       
-      <div class="lg:col-span-2 group relative h-full overflow-hidden bg-gray-900 cursor-pointer"
-           [routerLink]="['/blog', featuredPosts[0].slug]">
-        <img [src]="featuredPosts[0].image" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out" [alt]="featuredPosts[0].title">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
-        
-        <div class="absolute top-4 left-4 flex gap-2">
-           <span class="bg-blue-600/90 backdrop-blur text-white text-[10px] font-bold px-2 py-1 uppercase shadow">✨ AI Summary</span>
-           <span class="bg-gray-800/80 backdrop-blur text-white text-[10px] font-bold px-2 py-1 uppercase">{{ featuredPosts[0].sourceName || 'Tin tức' }}</span>
-        </div>
-
-        <div class="absolute bottom-0 left-0 w-full p-8">
-          <span class="bg-red-500 text-white text-[10px] font-bold px-2 py-1 mb-3 inline-block uppercase tracking-wide">
-            {{ featuredPosts[0].category }}
-          </span>
-          <h2 class="text-3xl lg:text-4xl font-bold text-white mb-3 leading-tight group-hover:text-red-500 transition-colors">
-            {{ featuredPosts[0].title }}
-          </h2>
-          <div class="flex items-center gap-4 text-gray-300 text-xs font-medium uppercase mt-2">
-            <span>By <strong class="text-white">{{ featuredPosts[0].author }}</strong></span>
-            <span>{{ featuredPosts[0].date }}</span>
-            <span class="flex items-center gap-1"><i class="text-gray-400">👁</i> {{ featuredPosts[0].views }}</span>
-          </div>
-        </div>
+      <div class="flex items-center gap-3 overflow-x-auto hide-scroll-bar mb-6 pb-2" *ngIf="overviewData.trendingTags?.length">
+          <span class="text-sm font-bold text-gray-500 uppercase whitespace-nowrap">Xu hướng:</span>
+          <a *ngFor="let tag of overviewData.trendingTags" href="#" class="px-3 py-1 bg-gray-200 text-sm font-medium rounded-full hover:bg-gray-300 transition whitespace-nowrap">
+              {{ tag }}
+          </a>
       </div>
 
-      <div class="flex flex-col gap-1 h-full">
-        <ng-container *ngFor="let post of featuredPosts | slice:1:3">
-          <div class="relative h-1/2 overflow-hidden bg-gray-900 group cursor-pointer"
-               [routerLink]="['/blog', post.slug]">
-            <img [src]="post.image" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 ease-out" [alt]="post.title">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
-            <div class="absolute bottom-0 left-0 w-full p-6">
-              <div class="flex gap-2 mb-2">
-                <span class="bg-yellow-500 text-white text-[10px] font-bold px-2 py-1 inline-block uppercase">
-                  {{ post.category }}
-                </span>
-                <span class="bg-blue-600/90 text-white text-[9px] font-bold px-1.5 py-1 inline-block uppercase rounded-sm">✨ AI</span>
-              </div>
-              <h3 class="text-lg font-bold text-white leading-snug group-hover:text-yellow-400 transition-colors mb-2">
-                {{ post.title }}
-              </h3>
-              <div class="flex items-center justify-between text-gray-400 text-[10px] font-medium uppercase">
-                <span>{{ post.author }} • {{ post.date }}</span>
-                <span>👁 {{ post.views }}</span>
-              </div>
-            </div>
-          </div>
-        </ng-container>
-      </div>
-    </div>
-  </section>
-
-  <section class="grid grid-cols-1 lg:grid-cols-12 gap-10">
-
-    <div class="lg:col-span-8">
-      
-      <div class="mb-10">
-        <div class="flex items-center justify-between border-b-2 border-gray-100 mb-6 pb-2 relative">
-           <h3 class="text-lg font-black uppercase text-gray-800">
-             Weekly Top
-             <span class="absolute bottom-[-2px] left-0 w-20 h-[2px] bg-red-500"></span>
-           </h3>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div *ngFor="let post of recentHighlightPosts" class="group cursor-pointer">
-            <div class="overflow-hidden rounded-sm mb-3 relative h-40" [routerLink]="['/blog', post.slug]">
-              <img [src]="post.image" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" [alt]="post.title">
-              <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black/60 to-transparent"></div>
-              <span class="absolute top-2 right-2 bg-blue-600/90 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-sm">AI</span>
-            </div>
-            <div class="flex items-center justify-between mb-1">
-              <a [routerLink]="['/category', post.category]" class="text-red-500 text-[11px] font-bold uppercase hover:underline tracking-wide">{{ post.category }}</a>
-              <span class="text-[10px] text-gray-400 font-semibold">{{ post.sourceName || 'Nguồn gốc' }}</span>
-            </div>
-            <h4 class="font-bold text-gray-800 leading-snug mb-2 group-hover:text-red-500 transition-colors text-sm">
-              <a [routerLink]="['/blog', post.slug]">{{ post.title }}</a>
-            </h4>
-            <div class="flex items-center justify-between text-[10px] text-gray-400 font-semibold uppercase">
-              <span>{{ post.date }}</span>
-              <span>👁 {{ post.views }}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div id="latest-news-anchor" class="relative mb-6">
-        <div *ngIf="isLoadingNews" class="absolute inset-0 bg-white/80 z-10 flex items-center justify-center h-full">
-           <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-red-500"></div>
-        </div>
-
-        <div class="flex items-center justify-between border-b-2 border-gray-100 mb-8 pb-2 relative">
-          <h3 class="text-lg font-black uppercase text-gray-800">
-            Latest News
-            <span class="absolute bottom-[-2px] left-0 w-20 h-[2px] bg-red-500"></span>
-          </h3>
-        </div>
-
-        <div class="flex flex-col gap-8">
-          <article *ngFor="let news of latestNews" class="flex flex-col md:flex-row gap-6 group">
-            
-            <div class="w-full md:w-[260px] h-[180px] shrink-0 overflow-hidden rounded-sm relative cursor-pointer" [routerLink]="['/blog', news.slug]">
-              <img [src]="news.image" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" [alt]="news.title">
-              <span class="absolute bottom-2 left-2 bg-red-500 text-white text-[10px] font-bold px-2 py-1 uppercase">{{ news.category }}</span>
-              <span *ngIf="news.isSummarized" class="absolute top-2 right-2 bg-blue-600/90 backdrop-blur text-white text-[9px] font-bold px-2 py-1 rounded-sm uppercase shadow">
-                ✨ AI Summary
-              </span>
-            </div>
-            
-            <div class="flex-1 flex flex-col">
-              <div class="flex gap-2 items-center text-[10px] font-bold uppercase text-gray-400 mb-2">
-                <span class="text-gray-600 border border-gray-200 px-1 py-0.5">{{ news.sourceName || 'Báo Mới' }}</span>
-                <span>By {{ news.author }}</span>
-              </div>
-              <h3 class="text-xl font-bold mb-3 leading-snug">
-                <a [routerLink]="['/blog', news.slug]" class="text-gray-800 group-hover:text-red-500 transition-colors">{{ news.title }}</a>
-              </h3>
-              
-              <div class="text-gray-600 text-sm mb-4 line-clamp-3 leading-relaxed ai-summary-container" [innerHTML]="getSafeHtml(news.excerpt)"></div>
-              
-              <div class="mt-auto flex items-center justify-between border-t border-gray-100 pt-3">
-                <div class="flex items-center gap-4 text-xs text-gray-400 font-medium uppercase">
-                  <span>{{ news.date }}</span>
-                  <span class="flex items-center gap-1"><i class="text-gray-300">👁</i> {{ news.views }}</span>
+      <section *ngIf="overviewData.heroSection" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+    
+        <article class="lg:col-span-2 group cursor-pointer relative overflow-hidden rounded-xl shadow-sm hover:shadow-md transition">
+            <a [routerLink]="['/blog', overviewData.heroSection.mainArticle.nameSlug]" class="block w-full h-full">
+                <div class="aspect-video w-full overflow-hidden bg-gray-200">
+                    <img [src]="overviewData.heroSection.mainArticle.thumbnailUrl" [alt]="overviewData.heroSection.mainArticle.title" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                 </div>
-                <div class="flex items-center gap-2">
-                  <div class="hidden md:flex gap-1" *ngIf="news.tags && news.tags.length > 0">
-                    <span *ngFor="let tag of news.tags | slice:0:2" class="text-[9px] bg-gray-100 text-gray-500 px-1.5 py-0.5 uppercase font-bold">{{ tag }}</span>
+                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 via-black/50 to-transparent p-5 pt-16">
+                    <span class="inline-block px-2 py-1 text-white text-[10px] font-bold rounded mb-2"
+                          [ngClass]="'bg-' + overviewData.heroSection.mainArticle.source.colorClass.split('-')[1] + '-600'">
+                        {{ overviewData.heroSection.mainArticle.source.name }}
+                    </span>
+                    <h2 class="text-xl md:text-2xl font-bold text-white leading-tight group-hover:text-blue-300 transition line-clamp-2">
+                        {{ overviewData.heroSection.mainArticle.title }}
+                    </h2>
+                </div>
+            </a>
+        </article>
+    
+        <div class="flex flex-col gap-6" *ngIf="overviewData.heroSection.subArticles.length >= 2">
+            <article class="group cursor-pointer flex flex-col gap-2">
+                <a [routerLink]="['/blog', overviewData.heroSection.subArticles[0].url]" class="block aspect-video overflow-hidden rounded-lg bg-gray-200">
+                    <img [src]="overviewData.heroSection.subArticles[0].thumbnailUrl" [alt]="overviewData.heroSection.subArticles[0].title" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </a>
+                <div>
+                    <span class="text-[10px] font-bold uppercase" [ngClass]="overviewData.heroSection.subArticles[0].source.colorClass">
+                        {{ overviewData.heroSection.subArticles[0].source.name }}
+                    </span>
+                    <a [routerLink]="['/blog', overviewData.heroSection.subArticles[0].url]">
+                        <h3 class="text-sm font-bold text-gray-900 leading-snug group-hover:text-blue-600 transition line-clamp-2">
+                            {{ overviewData.heroSection.subArticles[0].title }}
+                        </h3>
+                    </a>
+                </div>
+            </article>
+            
+            <article class="group cursor-pointer flex gap-3">
+                <a [routerLink]="['/blog', overviewData.heroSection.subArticles[1].url]" class="block w-20 h-20 shrink-0 overflow-hidden rounded-md bg-gray-200">
+                    <img [src]="overviewData.heroSection.subArticles[1].thumbnailUrl" [alt]="overviewData.heroSection.subArticles[1].title" class="w-full h-full object-cover">
+                </a>
+                <div>
+                    <span class="text-[10px] font-bold uppercase" [ngClass]="overviewData.heroSection.subArticles[1].source.colorClass">
+                        {{ overviewData.heroSection.subArticles[1].source.name }}
+                    </span>
+                    <a [routerLink]="['/blog', overviewData.heroSection.subArticles[1].nameSlug]">
+                        <h3 class="text-sm font-bold text-gray-900 leading-snug group-hover:text-blue-600 transition line-clamp-3">
+                            {{ overviewData.heroSection.subArticles[1].title }}
+                        </h3>
+                    </a>
+                </div>
+            </article>
+        </div>
+    
+        <div class="flex flex-col gap-6" *ngIf="overviewData.heroSection.subArticles.length >= 4">
+            <article class="group cursor-pointer flex flex-col gap-2">
+                <a [routerLink]="['/blog', overviewData.heroSection.subArticles[2].nameSlug]" class="block aspect-video overflow-hidden rounded-lg bg-gray-200">
+                    <img [src]="overviewData.heroSection.subArticles[2].thumbnailUrl" [alt]="overviewData.heroSection.subArticles[2].title" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </a>
+                <div>
+                    <span class="text-[10px] font-bold uppercase" [ngClass]="overviewData.heroSection.subArticles[2].source.colorClass">
+                        {{ overviewData.heroSection.subArticles[2].source.name }}
+                    </span>
+                    <a [routerLink]="['/blog', overviewData.heroSection.subArticles[2].nameSlug]">
+                        <h3 class="text-sm font-bold text-gray-900 leading-snug group-hover:text-blue-600 transition line-clamp-2">
+                            {{ overviewData.heroSection.subArticles[2].title }}
+                        </h3>
+                    </a>
+                </div>
+            </article>
+            
+            <article class="group cursor-pointer flex gap-3">
+                <a [routerLink]="['/blog', overviewData.heroSection.subArticles[3].nameSlug]" class="block w-20 h-20 shrink-0 overflow-hidden rounded-md bg-gray-200">
+                    <img [src]="overviewData.heroSection.subArticles[3].thumbnailUrl" [alt]="overviewData.heroSection.subArticles[3].title" class="w-full h-full object-cover">
+                </a>
+                <div>
+                    <span class="text-[10px] font-bold uppercase" [ngClass]="overviewData.heroSection.subArticles[3].source.colorClass">
+                        {{ overviewData.heroSection.subArticles[3].source.name }}
+                    </span>
+                    <a [routerLink]="['/blog', overviewData.heroSection.subArticles[3].nameSlug]">
+                        <h3 class="text-sm font-bold text-gray-900 leading-snug group-hover:text-blue-600 transition line-clamp-3">
+                            {{ overviewData.heroSection.subArticles[3].title }}
+                        </h3>
+                    </a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+      <section class="mb-12 bg-white p-6 rounded-xl border border-gray-200 shadow-sm" *ngIf="overviewData.categoryBoxes?.length">
+          <div class="flex justify-between items-center mb-6">
+              <h2 class="text-xl font-black text-gray-900 uppercase border-l-4 border-blue-600 pl-3">Tin Theo Chuyên Mục</h2>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div *ngFor="let cat of overviewData.categoryBoxes">
+                  <div class="flex items-center justify-between border-b-2 border-gray-100 pb-2 mb-4">
+                      <h3 class="font-bold text-lg" [ngClass]="cat.colorClass">{{ cat.categoryName }}</h3>
+                      <a [routerLink]="['/blog/chu-de', cat.Slug]" class="text-xs text-gray-500 hover:text-blue-600">Xem tất cả ></a>
                   </div>
-                  <a [routerLink]="['/blog', news.slug]" class="text-xs font-bold text-gray-800 uppercase border-b-2 border-transparent hover:border-red-500 hover:text-red-500 transition-all pb-0.5 ml-2">
-                    Read More
-                  </a>
-                </div>
+                  <article *ngIf="cat.featuredArticle" class="group cursor-pointer mb-4"
+                           [routerLink]="['/blog', cat.featuredArticle.nameSlug]">
+                      <img [src]="cat.featuredArticle.thumbnailUrl" class="w-full h-40 object-cover rounded-lg mb-2">
+                      <h4 class="font-bold text-gray-900 group-hover:text-blue-600 transition leading-snug">{{ cat.featuredArticle.title }}</h4>
+                  </article>
+                  <ul class="space-y-3">
+                      <li *ngFor="let item of cat.listArticles" class="group cursor-pointer flex gap-2"
+                          [routerLink]="['/blog', item.nameSlug]">
+                          <span class="mt-1" [ngClass]="cat.colorClass">▸</span>
+                          <p class="text-sm text-gray-700 group-hover:text-blue-600 font-medium">{{ item.title }}</p>
+                      </li>
+                  </ul>
               </div>
-              
-            </div>
-            
-          </article>
-          <div class="mt-10 flex justify-center gap-2" *ngIf="totalPages > 1">
-            <button (click)="onPageChange(currentPage - 1)" 
-                    [disabled]="currentPage === 0"
-                    class="px-4 py-2 border text-sm font-bold text-gray-500 hover:bg-red-500 hover:text-white hover:border-red-500 transition disabled:opacity-50 disabled:hover:bg-transparent disabled:hover:text-gray-500 disabled:cursor-not-allowed">
-              Prev
-            </button>
- 
-            <ng-container *ngFor="let p of pageNumbers">
-               <button *ngIf="p >= currentPage - 2 && p <= currentPage + 2"
-                       (click)="onPageChange(p)"
-                       class="px-4 py-2 border text-sm font-bold transition"
-                       [ngClass]="p === currentPage ? 'text-white bg-red-500 border-red-500' : 'text-gray-500 hover:bg-red-500 hover:text-white hover:border-red-500'">
-                 {{ p + 1 }}
-               </button>
-            </ng-container>
- 
-            <button (click)="onPageChange(currentPage + 1)" 
-                    [disabled]="currentPage === totalPages - 1"
-                    class="px-4 py-2 border text-sm font-bold text-gray-500 hover:bg-red-500 hover:text-white hover:border-red-500 transition disabled:opacity-50 disabled:hover:bg-transparent disabled:hover:text-gray-500 disabled:cursor-not-allowed">
-              Next
-            </button>
-         </div>
-        </div>
-
-        </div>
-    </div>
-
-    <aside class="mb-5 lg:col-span-4 space-y-10">
-      <div>
-        <div class="flex items-center justify-between border-b-2 border-gray-100 mb-6 pb-2 relative">
-            <h4 class="text-sm font-black uppercase text-gray-800">Hot News</h4>
-            <span class="absolute bottom-[-2px] left-0 w-10 h-[2px] bg-red-500"></span>
-        </div>
-        <div class="flex flex-col gap-6">
-          <div *ngFor="let hot of hotNews; let i = index" class="flex gap-4 group cursor-pointer relative" [routerLink]="['/blog', hot.slug]">
-            <div class="w-24 h-20 shrink-0 overflow-hidden rounded-sm relative">
-               <div class="absolute top-0 left-0 bg-red-500 w-6 h-6 flex items-center justify-center text-white text-[10px] font-bold z-10">
-                   {{ i + 1 }}
-               </div>
-               <img [src]="hot.image" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" [alt]="hot.title">
-            </div>
-            <div class="flex-1">
-              <h5 class="text-sm font-bold leading-snug mb-1">
-                <a [routerLink]="['/blog', hot.slug]" class="text-gray-800 group-hover:text-red-500 transition-colors">{{ hot.title }}</a>
-              </h5>
-              <div class="flex items-center justify-between text-[10px] text-gray-400 font-semibold uppercase mt-2">
-                 <span>{{ hot.date }}</span>
-                 <span class="text-red-500">👁 {{ hot.views }}</span>
-              </div>
-            </div>
           </div>
-        </div>
-      </div>
-      <div class="flex justify-center">
-        <div class="w-[300px] h-[250px] bg-gray-200 flex items-center justify-center text-gray-400 border border-dashed border-gray-300">
-           <span class="text-xs font-bold uppercase tracking-widest">Ad 300x250</span>
-        </div>
-      </div>
+          <div id="news-start"></div> 
+
+      </section>
+  </ng-container>
+
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+      <section class="lg:col-span-8">
+          <h2 class="text-xl font-black text-gray-900 uppercase border-l-4 border-gray-800 pl-3 mb-6">Tin Mới Cập Nhật (Feed)</h2>
+          
+          <div class="flex flex-col gap-6" *ngIf="feedData?.content?.length; else emptyFeed">
+              <article *ngFor="let article of feedData!.content"  class="group flex gap-4 cursor-pointer pb-6 border-b border-gray-200"
+                       [routerLink]="['/blog', article.nameSlug]">  
+                  <div class="w-32 md:w-48 aspect-video rounded-lg overflow-hidden shrink-0 bg-gray-200">
+                      <img [src]="article.thumbnailUrl" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                  </div>
+                  <div class="flex flex-col justify-start">
+                      <div class="flex items-center gap-2 mb-1">
+                          <span class="text-[10px] font-bold uppercase" [ngClass]="article.source.colorClass">{{ article.source.name }}</span>
+                          <span class="text-xs text-gray-400">• {{ article.publishedAt | date:'short' }}</span>
+                      </div>
+                      <h3 class="text-base md:text-lg font-bold text-gray-900 leading-snug mb-2 group-hover:text-blue-600 transition line-clamp-2">
+                          {{ article.title }}
+                      </h3>
+                      <p class="text-sm text-gray-600 line-clamp-2 hidden md:block">
+                          {{ article.excerpt }}
+                      </p>
+                  </div>
+              </article>
+          </div>
+
+          <ng-template #emptyFeed>
+              <div class="text-center py-10 bg-gray-50 rounded-xl border border-dashed border-gray-300">
+                  <p class="text-gray-500 font-medium">Không có dữ liệu hoặc đang tải...</p>
+              </div>
+          </ng-template>
+
+          <div class="flex justify-center items-center space-x-2 mt-10" *ngIf="feedData && feedData.totalPages > 1">
+              <button 
+                  [disabled]="feedData.first"
+                  (click)="onPageClick(feedData.number - 1)"
+                  class="px-4 py-2 border border-gray-200 rounded-lg text-gray-500 hover:bg-gray-50 hover:text-blue-600 font-medium transition disabled:opacity-50 disabled:cursor-not-allowed">
+                  Trước
+              </button>
+
+              <ng-container *ngFor="let page of pagesArray">
+                  <button 
+                      (click)="onPageClick(page)"
+                      [class.bg-blue-600]="page === feedData.number"
+                      [class.text-white]="page === feedData.number"
+                      [class.shadow-sm]="page === feedData.number"
+                      [class.text-gray-700]="page !== feedData.number"
+                      [class.hover:bg-gray-50]="page !== feedData.number"
+                      class="px-4 py-2 border border-gray-200 rounded-lg font-medium transition">
+                      {{ page + 1 }}
+                  </button>
+              </ng-container>
+
+              <span *ngIf="feedData.number < feedData.totalPages - 3" class="px-2 text-gray-400">...</span>
+
+              <button 
+                  [disabled]="feedData.last"
+                  (click)="onPageClick(feedData.number + 1)"
+                  class="px-4 py-2 border border-gray-200 rounded-lg text-gray-700 hover:bg-gray-50 hover:text-blue-600 font-medium transition disabled:opacity-50 disabled:cursor-not-allowed">
+                  Sau
+              </button>
+          </div>
+      </section>
+
+      <aside class="lg:col-span-4">
+          <div class="sticky top-20">
+              <div class="p-5 bg-white rounded-xl border border-gray-200 shadow-sm mb-6">
+                  <h3 class="font-bold text-gray-900 mb-3 border-b pb-2">Lọc Nguồn Tin</h3>
+                  <div class="space-y-3">
+                      <label *ngFor="let source of availableSources" class="flex items-center gap-3 cursor-pointer">
+                          <input type="checkbox" 
+                                 [checked]="currentSources.includes(source)"
+                                 (change)="toggleSource(source)"
+                                 class="rounded text-blue-600 focus:ring-blue-500 w-4 h-4 cursor-pointer">
+                          <span class="text-sm font-medium text-gray-700">{{ source }}</span>
+                      </label>
+                  </div>
+              </div>
+          </div>
       </aside>
-
-  </section>
-
-</div>
+  </div>
+</main>
